@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HearthStoneFake", "HearthStoneFake\HearthStoneFake.vcxproj", "{B0F9207D-11ED-4CAF-AA45-0A7989F97DB0}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestProject", "TestProject\TestProject.vcxproj", "{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{B0F9207D-11ED-4CAF-AA45-0A7989F97DB0}.Release|x64.Build.0 = Release|x64
 		{B0F9207D-11ED-4CAF-AA45-0A7989F97DB0}.Release|x86.ActiveCfg = Release|Win32
 		{B0F9207D-11ED-4CAF-AA45-0A7989F97DB0}.Release|x86.Build.0 = Release|Win32
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Debug|x64.ActiveCfg = Debug|x64
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Debug|x64.Build.0 = Debug|x64
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Debug|x86.ActiveCfg = Debug|Win32
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Debug|x86.Build.0 = Debug|Win32
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Release|x64.ActiveCfg = Release|x64
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Release|x64.Build.0 = Release|x64
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Release|x86.ActiveCfg = Release|Win32
+		{4FADF914-98F0-47D1-81C2-6D9BB202CF2D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
