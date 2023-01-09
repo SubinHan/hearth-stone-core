@@ -24,7 +24,6 @@ int main()
 		auto const results = resolver.resolve(host, port);
 		stream.connect(results);
 
-
 		string urlHost = host;
 		urlHost += ":";
 		urlHost += port;

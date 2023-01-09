@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ApiConnection.cpp" />
     <ClCompile Include="HearthstoneApi.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>

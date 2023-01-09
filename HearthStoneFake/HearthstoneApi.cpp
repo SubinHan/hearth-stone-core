@@ -80,7 +80,8 @@ const vector<string> HearthstoneApi::GetAllCardList()
 const std::string HearthstoneApi::GetEnv(std::string Key)
 {
 	char* env = nullptr;
-	_dupenv_s(&env, nullptr, Key.c_str());
+	SIZE_T len{};
+	_dupenv_s(&env, &len, Key.c_str());
 
-	return string(env);
+	return string(env, len);
 }
