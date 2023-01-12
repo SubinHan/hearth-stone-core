@@ -8,6 +8,9 @@
 #include <boost/asio/ip/tcp.hpp>
 #include <cstdlib>
 
+#include <nyvux/utils/EnvironmentVariableReader.h>
+#include <expat.h>
+
 using namespace std;
 using namespace nyvux;
 
@@ -28,7 +31,6 @@ const vector<string> HearthstoneApi::GetAllCardList()
 
 		bool bIsVer10 = false;
 		int Version = bIsVer10 ? 10 : 11;
-
 		auto const Results = Resolver.resolve(Host, Port);
 		Stream.connect(Results);
 
@@ -40,8 +42,8 @@ const vector<string> HearthstoneApi::GetAllCardList()
 		Req.set(boost::beast::http::field::host, UrlHost);
 		Req.set(boost::beast::http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
-		const string Id = GetEnv(string{ HearthstoneApi::ENV_ID });
-		const string Secret = GetEnv(string{ HearthstoneApi::ENV_SECRET });
+		const string Id = EnvironmentVariableReader::GetEnv(string{ HearthstoneApi::ENV_ID });
+		const string Secret = EnvironmentVariableReader::GetEnv(string{ HearthstoneApi::ENV_SECRET });
 		const string AuthContent = Id + ":" + Secret;
 		Req.set(boost::beast::http::field::authorization, AuthContent);
 
@@ -77,11 +79,14 @@ const vector<string> HearthstoneApi::GetAllCardList()
 	return vector<string>();
 }
 
-const std::string HearthstoneApi::GetEnv(std::string Key)
+const Card HearthstoneApi::GetCardById(const int id)
 {
-	char* env = nullptr;
-	SIZE_T len{};
-	_dupenv_s(&env, &len, Key.c_str());
+	ApiConnection Connection{ std::string(URL_HOST) };
 
-	return string(env, len);
+	const string Id = EnvironmentVariableReader::GetEnv(std::string(HearthstoneApi::ENV_ID));
+	const string Secret = EnvironmentVariableReader::GetEnv(std::string(HearthstoneApi::ENV_ID));
+	const string AuthContent = Id + ":" + Secret;
+	auto const Data = "grant_type=client_credentials";
+
+	return Card();
 }

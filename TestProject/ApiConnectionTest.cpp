@@ -21,10 +21,6 @@ namespace nyvux
 			auto const Host = "jsonplaceholder.typicode.com";
 			auto const Target = "/posts/1";
 
-			const string Id = HearthstoneApi::GetEnv(std::string(HearthstoneApi::ENV_ID));
-			const string Secret = HearthstoneApi::GetEnv(std::string(HearthstoneApi::ENV_ID));
-			const string AuthContent = Id + ":" + Secret;
-			auto const Data = "grant_type=client_credentials";
 
 			string const Expected = "{\n"
 				"  \"userId\": 1,\n"

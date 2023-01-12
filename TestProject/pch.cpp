@@ -1,8 +1,9 @@
 ﻿// pch.cpp: 미리 컴파일된 헤더에 해당하는 소스 파일
 
 #include "pch.h"
-#include <string>
 #include <iostream>
+#include <vector>
+#include <string>
 #include <cstdlib>
 
 #include <boost/beast/core.hpp>

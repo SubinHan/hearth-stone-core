@@ -3,13 +3,17 @@
 #include <vector>
 #include <string>
 
+#include "Card.h"
+#include "ApiConnection.h"
+
 namespace nyvux
 {
 	class HearthstoneApi
 	{
 	public:
 		static const std::vector<std::string> GetAllCardList();
-		static const std::string GetEnv(std::string Key);
+		//static const std::string GetEnv(std::string Key);
+		static const Card GetCardById(const int id);
 
 	public:
 		static constexpr std::string_view URL_HOST{ "oauth.battle.net" };
