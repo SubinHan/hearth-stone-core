@@ -21,7 +21,7 @@ namespace nyvux
 
 			Card Expected = {};
 			Expected.CardId = CARD_ID;
-			Expected.Collectible = 1;
+			Expected.Collectible = true;
 			Expected.Slug = "79593-all-fel-breaks-loose";
 			Expected.ClassId = 14;
 			Expected.MultiClassIds = vector<int>{};
@@ -42,7 +42,7 @@ namespace nyvux
 
 			Card Actual = HearthstoneApi::GetCardById(CARD_ID);
 
-			Assert::AreEqual(Expected, Actual);
+			Assert::IsTrue(Expected == Actual);
 		}
 	};
 }

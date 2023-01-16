@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Luna.Nyvux.1.0.2\build\Luna.Nyvux.props" Condition="Exists('..\packages\Luna.Nyvux.1.0.2\build\Luna.Nyvux.props')" />
+  <Import Project="..\packages\Luna.Nyvux.1.0.5\build\Luna.Nyvux.props" Condition="Exists('..\packages\Luna.Nyvux.1.0.5\build\Luna.Nyvux.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -73,17 +73,51 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <Linkage-curl>
+    </Linkage-curl>
+    <Linkage-libssh2>
+    </Linkage-libssh2>
+    <Linkage-openssl>
+    </Linkage-openssl>
+    <Linkage-zlib>
+    </Linkage-zlib>
+    <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <Linkage-curl>
+    </Linkage-curl>
+    <Linkage-libssh2>
+    </Linkage-libssh2>
+    <Linkage-openssl>
+    </Linkage-openssl>
+    <Linkage-zlib>
+    </Linkage-zlib>
+    <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <ExternalIncludePath>D:\c++\Nyvux\Nyvux\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;D:\c++\Nyvux\Nyvux\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <Linkage-curl>
+    </Linkage-curl>
+    <Linkage-libssh2>
+    </Linkage-libssh2>
+    <Linkage-openssl>
+    </Linkage-openssl>
+    <Linkage-zlib>
+    </Linkage-zlib>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <ExternalIncludePath>D:\c++\Nyvux\Nyvux\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;D:\c++\Nyvux\Nyvux\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <Linkage-curl>
+    </Linkage-curl>
+    <Linkage-libssh2>
+    </Linkage-libssh2>
+    <Linkage-openssl>
+    </Linkage-openssl>
+    <Linkage-zlib>
+    </Linkage-zlib>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -95,6 +129,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\OpenSSL-Win64\lib;$(MSBuildThisFileDirectory)..\bin\$(Platform)\$(Configuration)\native;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libssl.lib;libcrypto.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -111,6 +147,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files\OpenSSL-Win64\lib;$(MSBuildThisFileDirectory)..\bin\$(Platform)\$(Configuration)\native;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libssl.lib;libcrypto.lib;$(CoreLibraryDependencies);%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,8 +163,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libssl.lib;libcrypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\OpenSSL-Win64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -145,18 +183,23 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libssl.lib;libcrypto.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Program Files\OpenSSL-Win64\lib;$(MSBuildThisFileDirectory)..\bin\$(Platform)\$(Configuration)\native;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ApiConnection.cpp" />
     <ClCompile Include="HearthstoneApi.cpp" />
+    <ClCompile Include="HearthstoneApiAuth.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RequestBuilder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApiConnection.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="HearthstoneApi.h" />
+    <ClInclude Include="HearthstoneApiAuth.h" />
+    <ClInclude Include="RequestBuilder.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -164,18 +207,16 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\boost.1.81.0\build\boost.targets" Condition="Exists('..\packages\boost.1.81.0\build\boost.targets')" />
-    <Import Project="..\packages\opencv.win.native.redist.310.3.0\build\native\opencv.win.native.redist.targets" Condition="Exists('..\packages\opencv.win.native.redist.310.3.0\build\native\opencv.win.native.redist.targets')" />
-    <Import Project="..\packages\opencv.win.native.310.3.0\build\native\opencv.win.native.targets" Condition="Exists('..\packages\opencv.win.native.310.3.0\build\native\opencv.win.native.targets')" />
-    <Import Project="..\packages\expat.v143.2.4.1.1\build\native\expat.v143.targets" Condition="Exists('..\packages\expat.v143.2.4.1.1\build\native\expat.v143.targets')" />
+    <Import Project="..\packages\boost_json-vc143.1.81.0\build\boost_json-vc143.targets" Condition="Exists('..\packages\boost_json-vc143.1.81.0\build\boost_json-vc143.targets')" />
+    <Import Project="..\packages\boost_container-vc143.1.81.0\build\boost_container-vc143.targets" Condition="Exists('..\packages\boost_container-vc143.1.81.0\build\boost_container-vc143.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
     </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Luna.Nyvux.1.0.5\build\Luna.Nyvux.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Luna.Nyvux.1.0.5\build\Luna.Nyvux.props'))" />
     <Error Condition="!Exists('..\packages\boost.1.81.0\build\boost.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost.1.81.0\build\boost.targets'))" />
-    <Error Condition="!Exists('..\packages\opencv.win.native.redist.310.3.0\build\native\opencv.win.native.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\opencv.win.native.redist.310.3.0\build\native\opencv.win.native.redist.targets'))" />
-    <Error Condition="!Exists('..\packages\opencv.win.native.310.3.0\build\native\opencv.win.native.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\opencv.win.native.310.3.0\build\native\opencv.win.native.targets'))" />
-    <Error Condition="!Exists('..\packages\expat.v143.2.4.1.1\build\native\expat.v143.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\expat.v143.2.4.1.1\build\native\expat.v143.targets'))" />
-    <Error Condition="!Exists('..\packages\Luna.Nyvux.1.0.2\build\Luna.Nyvux.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Luna.Nyvux.1.0.2\build\Luna.Nyvux.props'))" />
+    <Error Condition="!Exists('..\packages\boost_json-vc143.1.81.0\build\boost_json-vc143.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost_json-vc143.1.81.0\build\boost_json-vc143.targets'))" />
+    <Error Condition="!Exists('..\packages\boost_container-vc143.1.81.0\build\boost_container-vc143.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\boost_container-vc143.1.81.0\build\boost_container-vc143.targets'))" />
   </Target>
 </Project>

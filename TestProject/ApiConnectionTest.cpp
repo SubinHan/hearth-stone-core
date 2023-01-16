@@ -18,9 +18,8 @@ namespace nyvux
 			using namespace std;
 			using namespace nyvux;
 
-			auto const Host = "jsonplaceholder.typicode.com";
-			auto const Target = "/posts/1";
-
+			const string Host = "jsonplaceholder.typicode.com";
+			const string Target = "/posts/1";
 
 			string const Expected = "{\n"
 				"  \"userId\": 1,\n"
@@ -30,12 +29,13 @@ namespace nyvux
 				"}";
 			try
 			{
-				ApiConnection Connection(Host);
-				RequestBuilder Request =
-					Connection.CreateRequestBuilder()
-					.Target(Target);
+				
+				auto Request = ApiConnection::CreateRequestBuilder()
+					.Url(Host + Target)
+					.Port(80);
 
-				string Response = Connection.SendRequest(Request);
+				string Response = ApiConnection::SendRequest(Request);
+
 				Assert::AreEqual(Expected, Response);
 				Logger::WriteMessage(Response.c_str());
 			}

@@ -1,92 +1,92 @@
 #include "HearthstoneApi.h"
-
-#include <iostream>
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
-#include <boost/asio/connect.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include <cstdlib>
+#include "HearthstoneApiAuth.h"
 
 #include <nyvux/utils/EnvironmentVariableReader.h>
-#include <expat.h>
+
+#include <boost/beast/core/detail/base64.hpp>
+#include <boost/json.hpp>
 
 using namespace std;
 using namespace nyvux;
+using namespace boost;
+
+namespace nyvux
+{
+	vector<int> JsonArrayToVector(json::array& JsonArray)
+	{
+		vector<int> Result;
+		for (auto iter = JsonArray.begin(); iter != JsonArray.end(); iter++)
+		{
+			if (auto Value = iter->if_int64())
+				Result.push_back(*Value);
+		}
+		return Result;
+	}
+}
 
 const vector<string> HearthstoneApi::GetAllCardList()
 {
-	boost::asio::io_context Context;
-	boost::asio::ip::tcp::resolver Resolver(Context);
-	boost::beast::tcp_stream Stream(Context);
-
-	try
-	{
-		//auto const Host = "us.api.blizzard.com";
-		auto const Port = "80";
-		//auto const Target = "/hearthstone/cards";
-
-		auto const Host = "oauth.battle.net";
-		auto const Target = "/token";
-
-		bool bIsVer10 = false;
-		int Version = bIsVer10 ? 10 : 11;
-		auto const Results = Resolver.resolve(Host, Port);
-		Stream.connect(Results);
-
-		string UrlHost = Host;
-		UrlHost += ":";
-		UrlHost += Port;
-
-		boost::beast::http::request<boost::beast::http::string_body> Req{ boost::beast::http::verb::get, Target, Version };
-		Req.set(boost::beast::http::field::host, UrlHost);
-		Req.set(boost::beast::http::field::user_agent, BOOST_BEAST_VERSION_STRING);
-
-		const string Id = EnvironmentVariableReader::GetEnv(string{ HearthstoneApi::ENV_ID });
-		const string Secret = EnvironmentVariableReader::GetEnv(string{ HearthstoneApi::ENV_SECRET });
-		const string AuthContent = Id + ":" + Secret;
-		Req.set(boost::beast::http::field::authorization, AuthContent);
-
-		auto Body = Req.body();
-		Body.append("grant_type=client_credentials");
-
-		boost::beast::http::write(Stream, Req);
-
-		boost::beast::flat_buffer Buffer;
-
-		boost::beast::http::response<boost::beast::http::dynamic_body> Res;
-
-		boost::beast::http::read(Stream, Buffer, Res);
-
-		string Json = boost::beast::buffers_to_string(Res.body().data());
-		cout << Json << endl;
-
-		boost::beast::error_code ErrorCode;
-		Stream.socket().shutdown(boost::asio::ip::tcp::socket::shutdown_both, ErrorCode);
-
-		if (ErrorCode && ErrorCode != boost::beast::errc::not_connected)
-		{
-			clog << "error: " << ErrorCode.message() << endl;
-			return vector<string>();
-		}
-	}
-	catch (std::exception const& ex) {
-		clog << "exception: " << ex.what() << endl;
-
-		return vector<string>();
-	}
-
-	return vector<string>();
+	return vector<string>{};
 }
 
 const Card HearthstoneApi::GetCardById(const int id)
 {
-	ApiConnection Connection{ std::string(URL_HOST) };
 
-	const string Id = EnvironmentVariableReader::GetEnv(std::string(HearthstoneApi::ENV_ID));
-	const string Secret = EnvironmentVariableReader::GetEnv(std::string(HearthstoneApi::ENV_ID));
-	const string AuthContent = Id + ":" + Secret;
-	auto const Data = "grant_type=client_credentials";
+	auto& Auth = HearthstoneApiAuth::GetInstance();
+	AccessToken Token = Auth.GetAccessToken();
 
-	return Card();
+	auto Request = ApiConnection::CreateRequestBuilder()
+		.Url(string(API_URL_HOST) + string(API_TARGET_CARD_SEARCH) + "/" + to_string(id) + "?locale=en_US")
+		.Header("Authorization", "Bearer " + Token.Token)
+		.Method(RequestBuilder::EMethod::GET);
+
+	string Response = ApiConnection::SendRequest(Request);
+
+	return ParseToCard(Response);
+}
+
+Card HearthstoneApi::ParseToCard(std::string_view JsonContent)
+{
+	auto Converted = json::parse(JsonContent).as_object();
+
+	Card Result{};
+
+	if (auto Value = Converted[Card::KEY_CARD_ID].if_int64())
+		Result.CardId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_COLLECTIBLE].if_int64())
+		Result.Collectible = static_cast<bool>(*Value);
+	if (auto Value = Converted[Card::KEY_SLUG].if_string())
+		Result.Slug = *Value;
+	if (auto Value = Converted[Card::KEY_CLASS_ID].if_int64())
+		Result.ClassId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_MULTI_CLASS_IDS].if_array())
+	{
+		Result.MultiClassIds = JsonArrayToVector(*Value);
+	}
+	if (auto Value = Converted[Card::KEY_SPELL_SCHOOL_ID].if_int64())
+		Result.SpellSchoolId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_CARD_TYPE_ID].if_int64())
+		Result.CardTypeId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_CARD_SET_ID].if_int64())
+		Result.CardSetId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_RARITY_ID].if_int64())
+		Result.RarityId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_MANA_COST].if_int64())
+		Result.ManaCost = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_NAME].if_string())
+		Result.Name = *Value;
+	if (auto Value = Converted[Card::KEY_TEXT].if_string())
+		Result.Text = *Value;
+	if (auto Value = Converted[Card::KEY_PARENT_ID].if_int64())
+		Result.ParentId = static_cast<int>(*Value);
+	if (auto Value = Converted[Card::KEY_CHILD_IDS].if_array())
+	{
+		Result.ChildIds = JsonArrayToVector(*Value);
+	}
+	if (auto Value = Converted[Card::KEY_KEYWORD_IDS].if_array())
+	{
+		Result.KeywordIds = JsonArrayToVector(*Value);
+	}
+
+	return Result;
 }

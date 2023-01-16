@@ -3,53 +3,31 @@
 #include <string>
 #include <memory>
 
+#include <boost/beast/core.hpp>
+#include <boost/beast/http.hpp>
+#include <boost/beast/version.hpp>
+
+#include "RequestBuilder.h"
+
 namespace nyvux
 {
-	class RequestBuilder;
-
 	class ApiConnection
 	{
 	public:
-		ApiConnection(const std::string Host, const std::string Port = "80");
 		ApiConnection(const ApiConnection& Copy) = delete;
 		ApiConnection& operator=(const ApiConnection& Rhs) = delete;
-		virtual ~ApiConnection();
 
-		RequestBuilder CreateRequestBuilder();
-		std::string SendRequest(RequestBuilder Request);
-
-	private:
+		static RequestBuilder CreateRequestBuilder();
+		static std::string SendRequest(RequestBuilder Request);
 
 	private:
-		const std::string Host;
-		const std::string Port;
+		static std::string SendHttpsRequest(RequestBuilder Request);
+		static std::string SendHttpRequest(RequestBuilder Request);
+		static boost::beast::http::request<boost::beast::http::string_body> 
+			MakeRequest(RequestBuilder Request);
 	};
 
-	class RequestBuilder
-	{
-	public:
-		enum class EMethod;
-		friend class ApiConnection;
+	
 
-		RequestBuilder();
-		RequestBuilder& operator=(const RequestBuilder& Rhs) = delete;
-
-		RequestBuilder& Method(EMethod Method);
-		RequestBuilder& Target(std::string Target);
-		RequestBuilder& Authentification(std::string Auth);
-		RequestBuilder& Data(std::string Data);
-
-		enum class EMethod
-		{
-			GET,
-			POST
-		};
-
-	private:
-		EMethod RequestMethod;
-		std::string RequestTarget;
-		std::string RequestAuthentification;
-		std::string RequestData;
-	};
 }
 

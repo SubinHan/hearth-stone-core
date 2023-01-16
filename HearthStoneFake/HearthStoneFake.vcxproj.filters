@@ -24,6 +24,12 @@
     <ClCompile Include="ApiConnection.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="HearthstoneApiAuth.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="RequestBuilder.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HearthstoneApi.h">
@@ -33,6 +39,12 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Card.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="HearthstoneApiAuth.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="RequestBuilder.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
