@@ -271,7 +271,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApiConnection.h" />
-    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardSpec.h" />
     <ClInclude Include="HearthstoneApi.h" />
     <ClInclude Include="HearthstoneApiAuth.h" />
     <ClInclude Include="RequestBuilder.h" />

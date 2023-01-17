@@ -1,7 +1,7 @@
 #include "pch.h"
 
 #include "../HearthStoneFake/HearthstoneApi.h"
-#include "../HearthStoneFake/Card.h"
+#include "../HearthStoneFake/CardSpec.h"
 
 namespace nyvux
 {
@@ -11,7 +11,7 @@ namespace nyvux
 
 		constexpr int CARD_ID = 79593;
 
-		Card Expected = {};
+		CardSpec Expected = {};
 		Expected.CardId = CARD_ID;
 		Expected.Collectible = true;
 		Expected.Slug = "79593-all-fel-breaks-loose";
@@ -32,7 +32,7 @@ namespace nyvux
 		ExpectedKeywordIds.push_back(238);
 		Expected.KeywordIds = ExpectedKeywordIds;
 
-		Card Actual = HearthstoneApi::GetCardById(CARD_ID);
+		CardSpec Actual = HearthstoneApi::GetCardSpecById(CARD_ID);
 
 		EXPECT_TRUE(Expected == Actual);
 	}

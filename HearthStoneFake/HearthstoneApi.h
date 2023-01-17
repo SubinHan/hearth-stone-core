@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "Card.h"
+#include "CardSpec.h"
 #include "ApiConnection.h"
 
 namespace nyvux
@@ -13,7 +13,7 @@ namespace nyvux
 	public:
 		static const std::vector<std::string> GetAllCardList();
 		//static const std::string GetEnv(std::string Key);
-		static const Card GetCardById(const int id);
+		static const CardSpec GetCardSpecById(const int id);
 
 	public:
 		static constexpr std::string_view OAUTH_URL_HOST{ "oauth.battle.net" };
@@ -24,6 +24,6 @@ namespace nyvux
 		static constexpr std::string_view ENV_SECRET{ "BLIZZARD_API_CLIENT_SECRET" };
 		
 	private:
-		static Card ParseToCard(std::string_view JsonContent);
+		static CardSpec ParseToCard(std::string_view JsonContent);
 	};
 }
