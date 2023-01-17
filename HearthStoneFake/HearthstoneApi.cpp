@@ -60,9 +60,7 @@ Card HearthstoneApi::ParseToCard(std::string_view JsonContent)
 	if (auto Value = Converted[Card::KEY_CLASS_ID].if_int64())
 		Result.ClassId = static_cast<int>(*Value);
 	if (auto Value = Converted[Card::KEY_MULTI_CLASS_IDS].if_array())
-	{
 		Result.MultiClassIds = JsonArrayToVector(*Value);
-	}
 	if (auto Value = Converted[Card::KEY_SPELL_SCHOOL_ID].if_int64())
 		Result.SpellSchoolId = static_cast<int>(*Value);
 	if (auto Value = Converted[Card::KEY_CARD_TYPE_ID].if_int64())
@@ -80,13 +78,9 @@ Card HearthstoneApi::ParseToCard(std::string_view JsonContent)
 	if (auto Value = Converted[Card::KEY_PARENT_ID].if_int64())
 		Result.ParentId = static_cast<int>(*Value);
 	if (auto Value = Converted[Card::KEY_CHILD_IDS].if_array())
-	{
 		Result.ChildIds = JsonArrayToVector(*Value);
-	}
 	if (auto Value = Converted[Card::KEY_KEYWORD_IDS].if_array())
-	{
 		Result.KeywordIds = JsonArrayToVector(*Value);
-	}
 
 	return Result;
 }
