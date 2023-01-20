@@ -19,8 +19,8 @@ namespace nyvux
 	class HearthstoneApiAuth
 	{
 	public:
-		HearthstoneApiAuth(const HearthstoneApiAuth& ref) = delete;
-		HearthstoneApiAuth& operator=(const HearthstoneApiAuth& ref) = delete;
+		HearthstoneApiAuth(const HearthstoneApiAuth& Ref) = delete;
+		HearthstoneApiAuth& operator=(const HearthstoneApiAuth& Ref) = delete;
 
 		static HearthstoneApiAuth& GetInstance();
 		const AccessToken GetAccessToken();

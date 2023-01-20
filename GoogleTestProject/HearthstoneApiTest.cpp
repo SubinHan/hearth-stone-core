@@ -2,10 +2,14 @@
 
 #include "../HearthStoneFake/HearthstoneApi.h"
 #include "../HearthStoneFake/CardSpec.h"
+#include "../HearthStoneFake/CardSpecRepository.h"
+#include <vector>
+
+using namespace std;
 
 namespace nyvux
 {
-	TEST(HearthstoneApiTest, TestBasicRequest)
+	TEST(HearthstoneApiTest, TestGetCardById)
 	{
 		using namespace std;
 
@@ -36,4 +40,33 @@ namespace nyvux
 
 		EXPECT_TRUE(Expected == Actual);
 	}
+
+	TEST(HearthstoneApiTest, TestGetCardByIdInvalid)
+	{
+		using namespace std;
+
+		constexpr int CARD_ID = 1;
+		
+		CardSpec Expected = CardSpecRepository::INVALID_CARDSPEC;
+		CardSpec Actual = HearthstoneApi::GetCardSpecById(CARD_ID);
+
+		EXPECT_TRUE(Expected == Actual);
+	}
+
+	TEST(HearthstoneApiTest, TestGetCards)
+	{
+		int TotalNumCards{ 0 };
+
+		for (int i = 1;; i++)
+		{
+			vector<CardSpec> CardSpecs = HearthstoneApi::GetCardSpecsByPage(i);
+			TotalNumCards += CardSpecs.size();
+
+			if (CardSpecs.empty())
+				break;
+		}
+
+		EXPECT_TRUE(TotalNumCards >= 4500);
+	}
+
 }

@@ -110,10 +110,26 @@ http::request<http::string_body> ApiConnection::MakeRequest(RequestBuilder Reque
 
 	int Version = 11;
 
+	std::stringstream Target;
+
+	Target << Request.RequestPath;
+	if (!Request.RequestQueryStrings.empty())
+	{
+		Target << "?";
+		auto Iter = Request.RequestQueryStrings.begin();
+		Target << Iter->first << "=" << Iter->second;
+		Iter++;
+		for (; Iter != Request.RequestQueryStrings.end(); Iter++)
+		{
+			Target << "&";
+			Target << Iter->first << "=" << Iter->second;
+		}
+	}
+
 	http::request<http::string_body> Req
 	{
 	Request.RequestMethod == RequestBuilder::EMethod::GET ? http::verb::get : http::verb::post,
-	std::string(Request.RequestPath) + std::string(Request.RequestQueryString),
+	Target.view(),
 	Version
 	};
 	Req.set(http::field::host, UrlHost);

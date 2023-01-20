@@ -5,6 +5,14 @@
 
 namespace nyvux
 {
+	struct Uri
+	{
+	public:
+		std::string QueryString, Path, Protocol, Host, Port;
+
+		static Uri Parse(const std::string& uri);
+	};
+
 	class RequestBuilder
 	{
 	public:
@@ -20,14 +28,20 @@ namespace nyvux
 		RequestBuilder& Data(std::string Data);
 		RequestBuilder& Port(const unsigned int Port);
 		RequestBuilder& Header(std::string Key, std::string Value);
+		RequestBuilder& QueryString(std::string Key, std::string Value);
 
 		bool IsHttpsRequest();
 
+	private:
+		void ParseIfUriContainsQueryStrings(Uri Uri);
+
+	public:
 		enum class EMethod
 		{
 			GET,
 			POST
 		};
+
 
 	private:
 		static constexpr std::string_view PORT_HTTPS = "443";
@@ -38,18 +52,11 @@ namespace nyvux
 		std::string RequestAuthentification;
 		std::string RequestData;
 		std::string RequestPort;
-		std::string RequestQueryString;
 		std::string RequestPath;
 		std::string RequestProtocol;
 		std::string RequestHost;
 		std::map<std::string, std::string> RequestHeaders;
+		std::map<std::string, std::string> RequestQueryStrings;
 	};
 
-	struct Uri
-	{
-	public:
-		std::string QueryString, Path, Protocol, Host, Port;
-
-		static Uri Parse(const std::string& uri);
-	};
 }

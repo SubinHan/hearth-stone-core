@@ -28,7 +28,8 @@ RequestBuilder& RequestBuilder::Url(std::string Url)
 
 	Uri Uri = Uri::Parse(RequestUrl);
 
-	RequestQueryString = Uri.QueryString;
+	ParseIfUriContainsQueryStrings(Uri);
+
 	RequestPath = Uri.Path;
 	RequestProtocol = Uri.Protocol;
 	RequestHost = Uri.Host;
@@ -75,9 +76,34 @@ RequestBuilder& nyvux::RequestBuilder::Header(std::string Key, std::string Value
 	return *this;
 }
 
+RequestBuilder& nyvux::RequestBuilder::QueryString(std::string Key, std::string Value)
+{
+	RequestQueryStrings.insert({ Key, Value });
+
+	return *this;
+}
+
 bool nyvux::RequestBuilder::IsHttpsRequest()
 {
 	return RequestPort == PORT_HTTPS;
+}
+
+void RequestBuilder::ParseIfUriContainsQueryStrings(Uri Uri)
+{
+	auto RequestQueryString = Uri.QueryString;
+	auto QueryPairStart = RequestQueryString.begin();
+	while (QueryPairStart != RequestQueryString.end())
+	{
+		QueryPairStart++;
+		auto QueryPairMiddle = std::find(QueryPairStart, RequestQueryString.end(), '=');
+
+		auto Key = std::string(QueryPairStart, QueryPairMiddle);
+		QueryPairMiddle++;
+		QueryPairStart = std::find(QueryPairMiddle, RequestQueryString.end(), '&');
+		auto Value = std::string(QueryPairMiddle, QueryPairStart);
+
+		RequestQueryStrings.insert({ Key, Value });
+	}
 }
 
 Uri nyvux::Uri::Parse(const std::string& uri)

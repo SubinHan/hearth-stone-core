@@ -6,6 +6,8 @@
 #include "CardSpec.h"
 #include "ApiConnection.h"
 
+#include <boost/json.hpp>
+
 namespace nyvux
 {
 	class HearthstoneApi
@@ -13,7 +15,8 @@ namespace nyvux
 	public:
 		static const std::vector<std::string> GetAllCardList();
 		//static const std::string GetEnv(std::string Key);
-		static const CardSpec GetCardSpecById(const int id);
+		static const CardSpec GetCardSpecById(const int Id);
+		static const std::vector<CardSpec> GetCardSpecsByPage(const int Page);
 
 	public:
 		static constexpr std::string_view OAUTH_URL_HOST{ "oauth.battle.net" };
@@ -22,8 +25,12 @@ namespace nyvux
 		static constexpr std::string_view OAUTH_TARGET_TOKEN{ "/token" };
 		static constexpr std::string_view ENV_ID{ "BLIZZARD_API_CLIENT_ID" };
 		static constexpr std::string_view ENV_SECRET{ "BLIZZARD_API_CLIENT_SECRET" };
-		
-	private:
-		static CardSpec ParseToCard(std::string_view JsonContent);
+		static constexpr std::string_view HEADER_AUTHORIZATION = "Authorization";
+		static constexpr std::string_view QUERY_LOCALE_KEY = "locale";
+		static constexpr std::string_view QUERY_LOCALE_VALUE = "en_US";
+		static constexpr std::string_view QUERY_PAGE_KEY = "page";
+		static constexpr std::string_view QUERY_PAGE_SIZE_KEY = "pageSize";
+		static constexpr std::string_view QUERY_PAGE_SIZE_VALUE = "500";
+
 	};
 }

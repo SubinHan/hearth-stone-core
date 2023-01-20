@@ -55,7 +55,7 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
@@ -264,6 +264,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ApiConnection.cpp" />
+    <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardFactory.cpp" />
+    <ClCompile Include="CardSpecRepository.cpp" />
+    <ClCompile Include="Deck.cpp" />
     <ClCompile Include="HearthstoneApi.cpp" />
     <ClCompile Include="HearthstoneApiAuth.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -271,7 +275,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApiConnection.h" />
+    <ClInclude Include="Card.h" />
+    <ClInclude Include="CardFactory.h" />
     <ClInclude Include="CardSpec.h" />
+    <ClInclude Include="CardSpecRepository.h" />
+    <ClInclude Include="Deck.h" />
     <ClInclude Include="HearthstoneApi.h" />
     <ClInclude Include="HearthstoneApiAuth.h" />
     <ClInclude Include="RequestBuilder.h" />
