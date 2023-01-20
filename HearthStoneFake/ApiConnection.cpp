@@ -85,18 +85,8 @@ std::string ApiConnection::SendHttpsRequest(Request Request)
 	using namespace boost::asio;
 	using namespace boost::beast;
 
-	// The SSL context is required, and holds certificates
-	ssl::context ctx{ ssl::context::sslv23_client };
-
-	boost::asio::io_context Context;
-	ssl::stream<ip::tcp::socket> Stream{ Context, ctx };
-
-	boost::asio::ip::tcp::resolver Resolver(Context);
-	auto const Results = Resolver.resolve(Request.Host, Request.Port);
-
-	// Make the connection on the IP address we get from a lookup
-	boost::asio::connect(Stream.next_layer(), Results.begin(), Results.end());
-	Stream.handshake(ssl::stream_base::client);
+	SocketPool& SocketPool = SocketPool::GetInstance();
+	ssl::stream<ip::tcp::socket>& Stream = SocketPool.GetSslStream(Request.Host, Request.Port);
 
 	auto Req = MakeRequest(Request);
 
@@ -105,14 +95,6 @@ std::string ApiConnection::SendHttpsRequest(Request Request)
 	flat_buffer Buffer;
 	http::response<http::dynamic_body> Res;
 	http::read(Stream, Buffer, Res);
-
-	boost::beast::error_code ec;
-	Stream.shutdown(ec);
-
-	if (ec && ec != boost::beast::errc::not_connected)
-	{
-		std::clog << "error: " << ec.message() << std::endl;
-	}
 
 	switch (Res.base().result_int())
 	{
@@ -129,12 +111,8 @@ std::string ApiConnection::SendHttpRequest(Request Request)
 	using namespace boost::asio;
 	using namespace boost::beast;
 
-	io_context Context;
-	tcp_stream Stream{ Context };
-
-	ip::tcp::resolver Resolver(Context);
-	auto const Results = Resolver.resolve(Request.Host, Request.Port);
-	Stream.connect(Results);
+	SocketPool& SocketPool = SocketPool::GetInstance();
+	auto& Stream = SocketPool.GetTcpStream(Request.Host, Request.Port);
 
 	auto Req = MakeRequest(Request);
 
@@ -144,21 +122,12 @@ std::string ApiConnection::SendHttpRequest(Request Request)
 	http::response<http::dynamic_body> Res;
 	http::read(Stream, Buffer, Res);
 
-	boost::beast::error_code ec;
-	Stream.socket().shutdown(boost::asio::ip::tcp::socket::shutdown_both, ec);
-
-	if (ec && ec != boost::beast::errc::not_connected)
-	{
-		std::clog << "error: " << ec.message() << std::endl;
-	}
-
 	switch (Res.base().result_int())
 	{
 	case 301:
 		Request.Url = Res.base()["Location"];
 		return SendRequest(Request);
 	}
-
 
 	return buffers_to_string(Res.body().data());
 }

@@ -9,6 +9,7 @@
 #include <boost/beast/version.hpp>
 
 #include "Request.h"
+#include "SocketPool.h"
 
 namespace nyvux
 {
