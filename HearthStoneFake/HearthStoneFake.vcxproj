@@ -271,7 +271,7 @@
     <ClCompile Include="HearthstoneApi.cpp" />
     <ClCompile Include="HearthstoneApiAuth.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="RequestBuilder.cpp" />
+    <ClCompile Include="Request.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ApiConnection.h" />
@@ -282,7 +282,7 @@
     <ClInclude Include="Deck.h" />
     <ClInclude Include="HearthstoneApi.h" />
     <ClInclude Include="HearthstoneApiAuth.h" />
-    <ClInclude Include="RequestBuilder.h" />
+    <ClInclude Include="Request.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

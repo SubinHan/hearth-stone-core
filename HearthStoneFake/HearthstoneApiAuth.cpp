@@ -34,14 +34,14 @@ const AccessToken HearthstoneApiAuth::GetAccessToken()
 	EncodedAuth.resize(EncodedSize);
 	boost::beast::detail::base64::encode(&EncodedAuth[0], &AuthContent[0], AuthContent.size());
 
-	auto Request = ApiConnection::CreateRequestBuilder()
+	auto RequestBuilder = ApiConnection::CreateRequestBuilder()
 		.Url(string(HearthstoneApi::OAUTH_URL_HOST) + string(HearthstoneApi::OAUTH_TARGET_TOKEN))
 		.Authentification("Basic " + EncodedAuth)
 		.Data(Data)
-		.Method(RequestBuilder::EMethod::POST)
-		.Header("Content-Type", "application/x-www-form-urlencoded");
+		.Method(EMethod::POST)
+		.PutHeader("Content-Type", "application/x-www-form-urlencoded");
 
-	string Response = ApiConnection::SendRequest(Request);
+	string Response = ApiConnection::SendRequest(RequestBuilder.Build());
 
 	auto Json = boost::json::parse(Response).as_object();
 

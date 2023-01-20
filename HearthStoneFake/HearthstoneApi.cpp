@@ -1,6 +1,7 @@
 #include "HearthstoneApi.h"
 #include "HearthstoneApiAuth.h"
 #include "CardSpecRepository.h"
+#include "Request.h"
 
 #include <nyvux/utils/EnvironmentVariableReader.h>
 
@@ -32,7 +33,7 @@ namespace nyvux
 
 	const string MakeAuthorizationContent(AccessToken Token)
 	{
-		return"Bearer " + Token.Token;
+		return "Bearer " + Token.Token;
 	}
 
 
@@ -87,12 +88,12 @@ const CardSpec HearthstoneApi::GetCardSpecById(const int id)
 {
 	auto Token = GetAccessToken();
 
-	auto Request = ApiConnection::CreateRequestBuilder()
+	auto RequestBuilder = ApiConnection::CreateRequestBuilder()
 		.Url(string(API_URL_HOST) + string(API_TARGET_CARD_SEARCH) + "/" + to_string(id) + "?locale=en_US")
-		.Header(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
-		.Method(RequestBuilder::EMethod::GET);
+		.PutHeader(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
+		.Method(EMethod::GET);
 
-	string Response = ApiConnection::SendRequest(Request);
+	string Response = ApiConnection::SendRequest(RequestBuilder.Build());
 
 	auto Converted = json::parse(Response).as_object();
 
@@ -103,15 +104,15 @@ const std::vector<CardSpec> nyvux::HearthstoneApi::GetCardSpecsByPage(const int 
 {
 	auto Token = GetAccessToken();
 
-	auto Request = ApiConnection::CreateRequestBuilder()
+	auto RequestBuilder = ApiConnection::CreateRequestBuilder()
 		.Url(string(API_URL_HOST) + string(API_TARGET_CARD_SEARCH))
-		.Header(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
-		.Method(RequestBuilder::EMethod::GET)
-		.QueryString(string(QUERY_LOCALE_KEY), string(QUERY_LOCALE_VALUE))
-		.QueryString(string(QUERY_PAGE_KEY), to_string(Page))
-		.QueryString(string(QUERY_PAGE_SIZE_KEY), string(QUERY_PAGE_SIZE_VALUE));
+		.PutHeader(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
+		.Method(EMethod::GET)
+		.PutQueryString(string(QUERY_LOCALE_KEY), string(QUERY_LOCALE_VALUE))
+		.PutQueryString(string(QUERY_PAGE_KEY), to_string(Page))
+		.PutQueryString(string(QUERY_PAGE_SIZE_KEY), string(QUERY_PAGE_SIZE_VALUE));
 
-	string Response = ApiConnection::SendRequest(Request);
+	string Response = ApiConnection::SendRequest(RequestBuilder.Build());
 
 	auto JsonContent = json::parse(Response).as_object();
 

@@ -20,7 +20,7 @@ RequestBuilder ApiConnection::CreateRequestBuilder()
 	return RequestBuilder();
 }
 
-std::string ApiConnection::SendHttpsRequest(RequestBuilder Request)
+std::string ApiConnection::SendHttpsRequest(Request Request)
 {
 	using namespace boost::asio;
 	using namespace boost::beast;
@@ -33,7 +33,7 @@ std::string ApiConnection::SendHttpsRequest(RequestBuilder Request)
 	boost::beast::tcp_stream Stream2(Context);
 
 	boost::asio::ip::tcp::resolver Resolver(Context);
-	auto const Results = Resolver.resolve(Request.RequestHost, Request.RequestPort);
+	auto const Results = Resolver.resolve(Request.Host, Request.Port);
 
 	// Make the connection on the IP address we get from a lookup
 	boost::asio::connect(Stream.next_layer(), Results.begin(), Results.end());
@@ -58,13 +58,14 @@ std::string ApiConnection::SendHttpsRequest(RequestBuilder Request)
 	switch (Res.base().result_int())
 	{
 	case 301:
-		return SendRequest(Request.Url(Res.base()["Location"]));
+		Request.Url = Res.base()["Location"];
+		return SendRequest(Request);
 	}
 
 	return buffers_to_string(Res.body().data());
 }
 
-std::string ApiConnection::SendHttpRequest(RequestBuilder Request)
+std::string ApiConnection::SendHttpRequest(Request Request)
 {
 	using namespace boost::asio;
 	using namespace boost::beast;
@@ -73,7 +74,7 @@ std::string ApiConnection::SendHttpRequest(RequestBuilder Request)
 	tcp_stream Stream{ Context };
 
 	ip::tcp::resolver Resolver(Context);
-	auto const Results = Resolver.resolve(Request.RequestHost, Request.RequestPort);
+	auto const Results = Resolver.resolve(Request.Host, Request.Port);
 	Stream.connect(Results);
 
 	auto Req = MakeRequest(Request);
@@ -95,31 +96,32 @@ std::string ApiConnection::SendHttpRequest(RequestBuilder Request)
 	switch (Res.base().result_int())
 	{
 	case 301:
-		return SendRequest(Request.Url(Res.base()["Location"]));
+		Request.Url = Res.base()["Location"];
+		return SendRequest(Request);
 	}
 
 
 	return buffers_to_string(Res.body().data());
 }
 
-http::request<http::string_body> ApiConnection::MakeRequest(RequestBuilder Request)
+http::request<http::string_body> ApiConnection::MakeRequest(Request Request)
 {
-	std::string UrlHost = Request.RequestHost;
+	std::string UrlHost = Request.Host;
 	UrlHost += ":";
-	UrlHost += Request.RequestPort;
+	UrlHost += Request.Port;
 
 	int Version = 11;
 
 	std::stringstream Target;
 
-	Target << Request.RequestPath;
-	if (!Request.RequestQueryStrings.empty())
+	Target << Request.Path;
+	if (!Request.QueryStrings.empty())
 	{
 		Target << "?";
-		auto Iter = Request.RequestQueryStrings.begin();
+		auto Iter = Request.QueryStrings.begin();
 		Target << Iter->first << "=" << Iter->second;
 		Iter++;
-		for (; Iter != Request.RequestQueryStrings.end(); Iter++)
+		for (; Iter != Request.QueryStrings.end(); Iter++)
 		{
 			Target << "&";
 			Target << Iter->first << "=" << Iter->second;
@@ -128,26 +130,26 @@ http::request<http::string_body> ApiConnection::MakeRequest(RequestBuilder Reque
 
 	http::request<http::string_body> Req
 	{
-	Request.RequestMethod == RequestBuilder::EMethod::GET ? http::verb::get : http::verb::post,
+	Request.Method == EMethod::GET ? http::verb::get : http::verb::post,
 	Target.view(),
 	Version
 	};
 	Req.set(http::field::host, UrlHost);
 	Req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
 
-	if (!Request.RequestAuthentification.empty())
+	if (!Request.Authentification.empty())
 	{
-		Req.set(http::field::authorization, Request.RequestAuthentification);
+		Req.set(http::field::authorization, Request.Authentification);
 	}
 
-	for (auto &[Key, Value] : Request.RequestHeaders)
+	for (auto &[Key, Value] : Request.Headers)
 	{
 		Req.set(Key, Value);
 	}
 
-	if (!Request.RequestData.empty())
+	if (!Request.Data.empty())
 	{
-		Req.body() = Request.RequestData;
+		Req.body() = Request.Data;
 	}
 
 	Req.prepare_payload();
@@ -155,7 +157,7 @@ http::request<http::string_body> ApiConnection::MakeRequest(RequestBuilder Reque
 	return Req;
 }
 
-std::string ApiConnection::SendRequest(RequestBuilder Request)
+std::string ApiConnection::SendRequest(Request Request)
 {
 	if (Request.IsHttpsRequest())
 	{

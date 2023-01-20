@@ -13,10 +13,31 @@ namespace nyvux
 		static Uri Parse(const std::string& uri);
 	};
 
+	enum class EMethod
+	{
+		GET,
+		POST
+	};
+
+	struct Request
+	{
+		EMethod Method;
+		std::string Url;
+		std::string Authentification;
+		std::string Data;
+		std::string Port;
+		std::string Path;
+		std::string Protocol;
+		std::string Host;
+		std::map<std::string, std::string> Headers;
+		std::map<std::string, std::string> QueryStrings;
+
+		bool IsHttpsRequest();
+	};
+
 	class RequestBuilder
 	{
 	public:
-		enum class EMethod;
 		friend class ApiConnection;
 
 		RequestBuilder();
@@ -27,36 +48,20 @@ namespace nyvux
 		RequestBuilder& Authentification(std::string Auth);
 		RequestBuilder& Data(std::string Data);
 		RequestBuilder& Port(const unsigned int Port);
-		RequestBuilder& Header(std::string Key, std::string Value);
-		RequestBuilder& QueryString(std::string Key, std::string Value);
+		RequestBuilder& PutHeader(std::string Key, std::string Value);
+		RequestBuilder& PutQueryString(std::string Key, std::string Value);
 
-		bool IsHttpsRequest();
+		Request Build();
+
+	public:
+		static constexpr std::string_view PORT_HTTPS = "443";
+		static constexpr std::string_view PORT_HTTP = "80";
 
 	private:
 		void ParseIfUriContainsQueryStrings(Uri Uri);
 
-	public:
-		enum class EMethod
-		{
-			GET,
-			POST
-		};
-
-
 	private:
-		static constexpr std::string_view PORT_HTTPS = "443";
-		static constexpr std::string_view PORT_HTTP = "80";
-
-		EMethod RequestMethod;
-		std::string RequestUrl;
-		std::string RequestAuthentification;
-		std::string RequestData;
-		std::string RequestPort;
-		std::string RequestPath;
-		std::string RequestProtocol;
-		std::string RequestHost;
-		std::map<std::string, std::string> RequestHeaders;
-		std::map<std::string, std::string> RequestQueryStrings;
+		Request Request;
 	};
 
 }

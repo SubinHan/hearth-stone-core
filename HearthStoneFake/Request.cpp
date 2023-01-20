@@ -1,47 +1,48 @@
 
-#include "RequestBuilder.h"
+#include "Request.h"
 
 #include <boost/regex.hpp>
 
 
 using namespace nyvux;
 
-RequestBuilder::RequestBuilder() :
-	RequestMethod(EMethod::GET),
-	RequestUrl(),
-	RequestAuthentification(),
-	RequestData(),
-	RequestPort(PORT_HTTPS),
-	RequestHeaders()
+bool Request::IsHttpsRequest()
 {
+	return Port == RequestBuilder::PORT_HTTPS;
+}
+
+RequestBuilder::RequestBuilder() : Request()
+{
+	Request.Method = EMethod::GET;
+	Request.Port = PORT_HTTPS;
 }
 
 RequestBuilder& nyvux::RequestBuilder::Method(EMethod Method)
 {
-	RequestMethod = Method;
+	Request.Method = Method;
 	return *this;
 }
 
 RequestBuilder& RequestBuilder::Url(std::string Url)
 {
-	RequestUrl = Url;
+	Request.Url = Url;
 
-	Uri Uri = Uri::Parse(RequestUrl);
+	Uri Uri = Uri::Parse(Request.Url);
 
 	ParseIfUriContainsQueryStrings(Uri);
 
-	RequestPath = Uri.Path;
-	RequestProtocol = Uri.Protocol;
-	RequestHost = Uri.Host;
+	Request.Path = Uri.Path;
+	Request.Protocol = Uri.Protocol;
+	Request.Host = Uri.Host;
 
-	if (RequestPort.empty())
+	if (Request.Port.empty())
 	{
-		RequestPort = Uri.Port;
+		Request.Port = Uri.Port;
 	}
 
-	if (RequestPort.empty())
+	if (Request.Port.empty())
 	{
-		RequestPort = PORT_HTTPS;
+		Request.Port = PORT_HTTPS;
 	}
 
 	return *this;
@@ -49,43 +50,43 @@ RequestBuilder& RequestBuilder::Url(std::string Url)
 
 RequestBuilder& RequestBuilder::Authentification(std::string Auth)
 {
-	RequestAuthentification = Auth;
+	Request.Authentification = Auth;
 	return *this;
 }
 
 RequestBuilder& RequestBuilder::Data(std::string Data)
 {
-	RequestData = Data;
+	Request.Data = Data;
 	return *this;
 }
 
 RequestBuilder& nyvux::RequestBuilder::Port(const unsigned int Port)
 {
 	if (Port > 65535)
-		RequestPort = std::string(PORT_HTTPS);
+		Request.Port = std::string(PORT_HTTPS);
 
-	RequestPort = std::to_string(Port);
-
-	return *this;
-}
-
-RequestBuilder& nyvux::RequestBuilder::Header(std::string Key, std::string Value)
-{
-	RequestHeaders.insert({ Key, Value });
+	Request.Port = std::to_string(Port);
 
 	return *this;
 }
 
-RequestBuilder& nyvux::RequestBuilder::QueryString(std::string Key, std::string Value)
+RequestBuilder& nyvux::RequestBuilder::PutHeader(std::string Key, std::string Value)
 {
-	RequestQueryStrings.insert({ Key, Value });
+	Request.Headers.insert({ Key, Value });
 
 	return *this;
 }
 
-bool nyvux::RequestBuilder::IsHttpsRequest()
+RequestBuilder& nyvux::RequestBuilder::PutQueryString(std::string Key, std::string Value)
 {
-	return RequestPort == PORT_HTTPS;
+	Request.QueryStrings.insert({ Key, Value });
+
+	return *this;
+}
+
+Request nyvux::RequestBuilder::Build()
+{
+	return Request;
 }
 
 void RequestBuilder::ParseIfUriContainsQueryStrings(Uri Uri)
@@ -102,7 +103,7 @@ void RequestBuilder::ParseIfUriContainsQueryStrings(Uri Uri)
 		QueryPairStart = std::find(QueryPairMiddle, RequestQueryString.end(), '&');
 		auto Value = std::string(QueryPairMiddle, QueryPairStart);
 
-		RequestQueryStrings.insert({ Key, Value });
+		Request.QueryStrings.insert({ Key, Value });
 	}
 }
 

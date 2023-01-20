@@ -7,7 +7,7 @@
 #include <boost/beast/http.hpp>
 #include <boost/beast/version.hpp>
 
-#include "RequestBuilder.h"
+#include "Request.h"
 
 namespace nyvux
 {
@@ -18,13 +18,17 @@ namespace nyvux
 		ApiConnection& operator=(const ApiConnection& Rhs) = delete;
 
 		static RequestBuilder CreateRequestBuilder();
-		static std::string SendRequest(RequestBuilder Request);
+		static std::string SendRequest(Request Request);
+
+	public:
 
 	private:
-		static std::string SendHttpsRequest(RequestBuilder Request);
-		static std::string SendHttpRequest(RequestBuilder Request);
+		static std::string SendHttpsRequest(Request Request);
+		static std::string SendHttpRequest(Request Request);
 		static boost::beast::http::request<boost::beast::http::string_body> 
-			MakeRequest(RequestBuilder Request);
+			MakeRequest(Request Request);
+
+	private:
 	};
 
 	

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../HearthStoneFake/RequestBuilder.h"
+#include "../HearthStoneFake/Request.h"
 #include "../HearthStoneFake/ApiConnection.h"
 
 namespace nyvux
@@ -11,7 +11,7 @@ namespace nyvux
 
 		auto Builder = ApiConnection::CreateRequestBuilder()
 			.Url("https://www.test.com/path/test?querykey=queryvalue&another=theother")
-			.QueryString("key", "value");
+			.PutQueryString("key", "value");
 
 		// TODO: Test this.
 		//ApiConnection::SendRequest(Builder);
