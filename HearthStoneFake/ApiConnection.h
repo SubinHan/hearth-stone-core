@@ -2,6 +2,7 @@
 
 #include <string>
 #include <memory>
+#include <map>
 
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
@@ -17,16 +18,17 @@ namespace nyvux
 		ApiConnection(const ApiConnection& Copy) = delete;
 		ApiConnection& operator=(const ApiConnection& Rhs) = delete;
 
-		static RequestBuilder CreateRequestBuilder();
-		static std::string SendRequest(Request Request);
+		ApiConnection();
+
+		static ApiConnection& GetInstance();
+
+		std::string SendRequest(Request Request);
 
 	public:
-
+		
 	private:
-		static std::string SendHttpsRequest(Request Request);
-		static std::string SendHttpRequest(Request Request);
-		static boost::beast::http::request<boost::beast::http::string_body> 
-			MakeRequest(Request Request);
+		std::string SendHttpsRequest(Request Request);
+		std::string SendHttpRequest(Request Request);
 
 	private:
 	};

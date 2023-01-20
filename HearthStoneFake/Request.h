@@ -43,6 +43,8 @@ namespace nyvux
 		RequestBuilder();
 		RequestBuilder& operator=(const RequestBuilder& Rhs) = delete;
 
+		static RequestBuilder CreateRequestBuilder();
+
 		RequestBuilder& Method(EMethod Method);
 		RequestBuilder& Url(std::string Url);
 		RequestBuilder& Authentification(std::string Auth);

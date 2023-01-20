@@ -14,10 +14,70 @@ using namespace nyvux;
 using namespace boost::asio;
 using namespace boost::beast;
 
-
-RequestBuilder ApiConnection::CreateRequestBuilder()
+namespace nyvux
 {
-	return RequestBuilder();
+	http::request<http::string_body> MakeRequest(Request Request)
+	{
+		std::string UrlHost = Request.Host;
+		UrlHost += ":";
+		UrlHost += Request.Port;
+
+		int Version = 11;
+
+		std::stringstream Target;
+
+		Target << Request.Path;
+		if (!Request.QueryStrings.empty())
+		{
+			Target << "?";
+			auto Iter = Request.QueryStrings.begin();
+			Target << Iter->first << "=" << Iter->second;
+			Iter++;
+			for (; Iter != Request.QueryStrings.end(); Iter++)
+			{
+				Target << "&";
+				Target << Iter->first << "=" << Iter->second;
+			}
+		}
+
+		http::request<http::string_body> Req
+		{
+		Request.Method == EMethod::GET ? http::verb::get : http::verb::post,
+		Target.view(),
+		Version
+		};
+		Req.set(http::field::host, UrlHost);
+		Req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
+
+		if (!Request.Authentification.empty())
+		{
+			Req.set(http::field::authorization, Request.Authentification);
+		}
+
+		for (auto& [Key, Value] : Request.Headers)
+		{
+			Req.set(Key, Value);
+		}
+
+		if (!Request.Data.empty())
+		{
+			Req.body() = Request.Data;
+		}
+
+		Req.prepare_payload();
+
+		return Req;
+	}
+}
+
+nyvux::ApiConnection::ApiConnection()
+{
+}
+
+ApiConnection& nyvux::ApiConnection::GetInstance()
+{
+	static ApiConnection Instance;
+	return Instance;
 }
 
 std::string ApiConnection::SendHttpsRequest(Request Request)
@@ -30,7 +90,6 @@ std::string ApiConnection::SendHttpsRequest(Request Request)
 
 	boost::asio::io_context Context;
 	ssl::stream<ip::tcp::socket> Stream{ Context, ctx };
-	boost::beast::tcp_stream Stream2(Context);
 
 	boost::asio::ip::tcp::resolver Resolver(Context);
 	auto const Results = Resolver.resolve(Request.Host, Request.Port);
@@ -102,59 +161,6 @@ std::string ApiConnection::SendHttpRequest(Request Request)
 
 
 	return buffers_to_string(Res.body().data());
-}
-
-http::request<http::string_body> ApiConnection::MakeRequest(Request Request)
-{
-	std::string UrlHost = Request.Host;
-	UrlHost += ":";
-	UrlHost += Request.Port;
-
-	int Version = 11;
-
-	std::stringstream Target;
-
-	Target << Request.Path;
-	if (!Request.QueryStrings.empty())
-	{
-		Target << "?";
-		auto Iter = Request.QueryStrings.begin();
-		Target << Iter->first << "=" << Iter->second;
-		Iter++;
-		for (; Iter != Request.QueryStrings.end(); Iter++)
-		{
-			Target << "&";
-			Target << Iter->first << "=" << Iter->second;
-		}
-	}
-
-	http::request<http::string_body> Req
-	{
-	Request.Method == EMethod::GET ? http::verb::get : http::verb::post,
-	Target.view(),
-	Version
-	};
-	Req.set(http::field::host, UrlHost);
-	Req.set(http::field::user_agent, BOOST_BEAST_VERSION_STRING);
-
-	if (!Request.Authentification.empty())
-	{
-		Req.set(http::field::authorization, Request.Authentification);
-	}
-
-	for (auto &[Key, Value] : Request.Headers)
-	{
-		Req.set(Key, Value);
-	}
-
-	if (!Request.Data.empty())
-	{
-		Req.body() = Request.Data;
-	}
-
-	Req.prepare_payload();
-
-	return Req;
 }
 
 std::string ApiConnection::SendRequest(Request Request)

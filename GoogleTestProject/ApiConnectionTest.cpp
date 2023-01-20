@@ -23,12 +23,12 @@ namespace nyvux
 
 		try
 		{
-
-			auto RequestBuilder = ApiConnection::CreateRequestBuilder()
+			auto RequestBuilder = RequestBuilder::CreateRequestBuilder()
 				.Url(Host + Target)
 				.Port(80);
 
-			string Response = ApiConnection::SendRequest(RequestBuilder.Build());
+			ApiConnection& Connection = ApiConnection::GetInstance();
+			string Response = Connection.SendRequest(RequestBuilder.Build());
 
 			EXPECT_EQ(Expected, Response);
 		}

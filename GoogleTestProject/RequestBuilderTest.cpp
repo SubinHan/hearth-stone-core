@@ -9,7 +9,7 @@ namespace nyvux
 		using namespace std;
 		using namespace nyvux;
 
-		auto Builder = ApiConnection::CreateRequestBuilder()
+		auto Builder = RequestBuilder::CreateRequestBuilder()
 			.Url("https://www.test.com/path/test?querykey=queryvalue&another=theother")
 			.PutQueryString("key", "value");
 

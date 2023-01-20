@@ -88,12 +88,14 @@ const CardSpec HearthstoneApi::GetCardSpecById(const int id)
 {
 	auto Token = GetAccessToken();
 
-	auto RequestBuilder = ApiConnection::CreateRequestBuilder()
+	auto RequestBuilder = RequestBuilder::CreateRequestBuilder()
 		.Url(string(API_URL_HOST) + string(API_TARGET_CARD_SEARCH) + "/" + to_string(id) + "?locale=en_US")
 		.PutHeader(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
 		.Method(EMethod::GET);
 
-	string Response = ApiConnection::SendRequest(RequestBuilder.Build());
+	ApiConnection& Connection = ApiConnection::GetInstance();
+
+	string Response = Connection.SendRequest(RequestBuilder.Build());
 
 	auto Converted = json::parse(Response).as_object();
 
@@ -104,7 +106,7 @@ const std::vector<CardSpec> nyvux::HearthstoneApi::GetCardSpecsByPage(const int 
 {
 	auto Token = GetAccessToken();
 
-	auto RequestBuilder = ApiConnection::CreateRequestBuilder()
+	auto RequestBuilder = RequestBuilder::CreateRequestBuilder()
 		.Url(string(API_URL_HOST) + string(API_TARGET_CARD_SEARCH))
 		.PutHeader(string(HEADER_AUTHORIZATION), MakeAuthorizationContent(Token))
 		.Method(EMethod::GET)
@@ -112,7 +114,9 @@ const std::vector<CardSpec> nyvux::HearthstoneApi::GetCardSpecsByPage(const int 
 		.PutQueryString(string(QUERY_PAGE_KEY), to_string(Page))
 		.PutQueryString(string(QUERY_PAGE_SIZE_KEY), string(QUERY_PAGE_SIZE_VALUE));
 
-	string Response = ApiConnection::SendRequest(RequestBuilder.Build());
+	ApiConnection& Connection = ApiConnection::GetInstance();
+
+	string Response = Connection.SendRequest(RequestBuilder.Build());
 
 	auto JsonContent = json::parse(Response).as_object();
 

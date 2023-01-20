@@ -17,6 +17,11 @@ RequestBuilder::RequestBuilder() : Request()
 	Request.Port = PORT_HTTPS;
 }
 
+RequestBuilder RequestBuilder::CreateRequestBuilder()
+{
+	return RequestBuilder();
+}
+
 RequestBuilder& nyvux::RequestBuilder::Method(EMethod Method)
 {
 	Request.Method = Method;
