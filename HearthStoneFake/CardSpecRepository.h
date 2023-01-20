@@ -18,6 +18,7 @@ namespace nyvux
 
 	public:
 		static const CardSpec INVALID_CARDSPEC;
+		static const CardSpec DUMMY_CARDSPEC;
 
 	private:
 		void InitRepository();

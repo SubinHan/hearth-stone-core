@@ -53,7 +53,7 @@ namespace nyvux
 		EXPECT_TRUE(Expected == Actual);
 	}
 
-	TEST(HearthstoneApiTest, TestGetCards)
+	TEST(HearthstoneApiTest, TestGetAllCards)
 	{
 		int TotalNumCards{ 0 };
 

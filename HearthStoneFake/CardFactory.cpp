@@ -11,5 +11,12 @@ namespace nyvux
 		return Card(Repo.GetCardSpecById(Id));
 	}
 
+	Card CardFactory::CreateDummyCard()
+	{
+		CardSpecRepository& Repo = CardSpecRepository::GetInstance();
+
+		return Card(Repo.DUMMY_CARDSPEC);
+	}
+
 }
 

@@ -23,6 +23,25 @@ namespace nyvux
 			std::vector<int>{}
 		};
 
+	const CardSpec CardSpecRepository::DUMMY_CARDSPEC =
+		CardSpec{
+			1,
+			false,
+			"1-dummy-slug",
+			1,
+			std::vector<int>{},
+			1,
+			1,
+			1,
+			1,
+			1,
+			"Dummy Card",
+			"It's a dummy card for tests",
+			1,
+			std::vector<int>{},
+			std::vector<int>{}
+	};
+
 	CardSpecRepository::CardSpecRepository() : Repo()
 	{
 		InitRepository();

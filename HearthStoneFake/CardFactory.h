@@ -8,5 +8,6 @@ namespace nyvux
 	{
 	public:
 		static Card CreateCardById(int Id);
+		static Card CreateDummyCard();
 	};
 }

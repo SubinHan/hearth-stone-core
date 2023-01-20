@@ -14,7 +14,7 @@ namespace nyvux
 		vector<Card> DummyCards{};
 		for (int i = 0; i < Deck::DEFAULT_DECK_SIZE; i++)
 		{
-			DummyCards.push_back(CardFactory::CreateCardById(i + 1));
+			DummyCards.push_back(CardFactory::CreateDummyCard());
 		}
 		return DummyCards;
 	}
