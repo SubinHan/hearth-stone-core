@@ -267,9 +267,12 @@
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardFactory.cpp" />
     <ClCompile Include="CardSpecRepository.cpp" />
+    <ClCompile Include="CardStatDecoratorModifier.cpp" />
+    <ClCompile Include="CardStatVanilla.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="HearthstoneApi.cpp" />
     <ClCompile Include="HearthstoneApiAuth.cpp" />
+    <ClCompile Include="ICardStatDecorator.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Request.cpp" />
     <ClCompile Include="SocketPool.cpp" />
@@ -280,9 +283,13 @@
     <ClInclude Include="CardFactory.h" />
     <ClInclude Include="CardSpec.h" />
     <ClInclude Include="CardSpecRepository.h" />
+    <ClInclude Include="CardStatDecoratorModifier.h" />
+    <ClInclude Include="CardStatVanilla.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="HearthstoneApi.h" />
     <ClInclude Include="HearthstoneApiAuth.h" />
+    <ClInclude Include="ICardStatDecorator.h" />
+    <ClInclude Include="ICardStat.h" />
     <ClInclude Include="Request.h" />
     <ClInclude Include="SocketPool.h" />
   </ItemGroup>

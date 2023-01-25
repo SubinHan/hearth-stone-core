@@ -45,6 +45,15 @@
     <ClCompile Include="SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CardStatVanilla.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ICardStatDecorator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CardStatDecoratorModifier.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="HearthstoneApi.h">
@@ -75,6 +84,18 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="SocketPool.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ICardStatDecorator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ICardStat.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CardStatVanilla.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CardStatDecoratorModifier.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

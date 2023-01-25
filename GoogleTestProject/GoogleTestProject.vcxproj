@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ApiConnectionTest.cpp" />
+    <ClCompile Include="CardStatDecoratorTest.cpp" />
     <ClCompile Include="DeckTest.cpp" />
     <ClCompile Include="HearthstoneApiAuthTest.cpp" />
     <ClCompile Include="HearthstoneApiTest.cpp" />
