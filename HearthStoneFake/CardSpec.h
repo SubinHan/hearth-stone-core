@@ -16,6 +16,8 @@ namespace nyvux
 		static constexpr std::string_view KEY_CARD_TYPE_ID = "cardTypeId";
 		static constexpr std::string_view KEY_CARD_SET_ID = "cardSetId";
 		static constexpr std::string_view KEY_RARITY_ID = "rarityId";
+		static constexpr std::string_view KEY_HEALTH = "health";
+		static constexpr std::string_view KEY_ATTACK = "attack";
 		static constexpr std::string_view KEY_MANA_COST = "manaCost";
 		static constexpr std::string_view KEY_NAME = "name";
 		static constexpr std::string_view KEY_TEXT = "text";
@@ -32,6 +34,8 @@ namespace nyvux
 		int CardTypeId;
 		int CardSetId;
 		int RarityId;
+		int Health;
+		int Attack;
 		int ManaCost;
 		std::string Name;
 		std::string Text;

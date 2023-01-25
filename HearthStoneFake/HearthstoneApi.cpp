@@ -62,6 +62,10 @@ namespace nyvux
 			Result.CardSetId = static_cast<int>(*Value);
 		if (auto Value = JsonContent[CardSpec::KEY_RARITY_ID].if_int64())
 			Result.RarityId = static_cast<int>(*Value);
+		if (auto Value = JsonContent[CardSpec::KEY_HEALTH].if_int64())
+			Result.Health = static_cast<int>(*Value);
+		if (auto Value = JsonContent[CardSpec::KEY_ATTACK].if_int64())
+			Result.Attack = static_cast<int>(*Value);
 		if (auto Value = JsonContent[CardSpec::KEY_MANA_COST].if_int64())
 			Result.ManaCost = static_cast<int>(*Value);
 		if (auto Value = JsonContent[CardSpec::KEY_NAME].if_string())
