@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "../HearthStoneFake/ApiConnection.h"
+#include "../HearthStoneFake/Core/Api/ApiConnection.h"
 
 namespace nyvux
 {

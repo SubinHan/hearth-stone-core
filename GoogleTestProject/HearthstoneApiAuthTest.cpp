@@ -1,6 +1,6 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/HearthstoneApiAuth.h"
+#include "../HearthStoneFake/Core/Api/HearthstoneApiAuth.h"
 
 #include <memory>
 

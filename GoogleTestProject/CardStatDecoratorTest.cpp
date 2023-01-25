@@ -1,11 +1,9 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/HearthstoneApi.h"
-#include "../HearthStoneFake/CardStat.h"
-#include "../HearthStoneFake/CardSpec.h"
-#include "../HearthStoneFake/ICardStatDecorator.h"
-#include "../HearthStoneFake/CardStatDecoratorEmpty.h"
-#include "../HearthStoneFake/CardStatDecoratorModifier.h"
+#include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
+#include "../HearthStoneFake/Model/Card/ICardStatDecorator.h"
+#include "../HearthStoneFake/Model/Card/CardStatDecoratorEmpty.h"
+#include "../HearthStoneFake/Model/Card/CardStatDecoratorModifier.h"
 #include <vector>
 #include <memory>
 

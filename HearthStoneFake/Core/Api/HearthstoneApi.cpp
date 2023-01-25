@@ -1,11 +1,8 @@
 #include "HearthstoneApi.h"
 #include "HearthstoneApiAuth.h"
-#include "CardSpecRepository.h"
+#include "../../Model/Card/CardSpecRepository.h"
 #include "Request.h"
 
-#include <nyvux/utils/EnvironmentVariableReader.h>
-
-#include <boost/beast/core/detail/base64.hpp>
 #include <boost/json.hpp>
 
 using namespace std;

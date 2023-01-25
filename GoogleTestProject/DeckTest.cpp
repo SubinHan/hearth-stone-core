@@ -1,9 +1,9 @@
 #include "pch.h"
 
 #include <vector>
-#include "../HearthStoneFake/Card.h"
-#include "../HearthStoneFake/Deck.h"
-#include "../HearthStoneFake/CardFactory.h"
+#include "../HearthStoneFake/Model/Card/Card.h"
+#include "../HearthStoneFake/Model/Card/Deck.h"
+#include "../HearthStoneFake/Model/Card/CardFactory.h"
 
 using namespace std;
 

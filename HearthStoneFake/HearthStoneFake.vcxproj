@@ -263,38 +263,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ApiConnection.cpp" />
-    <ClCompile Include="Card.cpp" />
-    <ClCompile Include="CardFactory.cpp" />
-    <ClCompile Include="CardSpecRepository.cpp" />
-    <ClCompile Include="CardStat.cpp" />
-    <ClCompile Include="CardStatDecoratorModifier.cpp" />
-    <ClCompile Include="CardStatDecoratorSilence.cpp" />
-    <ClCompile Include="CardStatDecoratorEmpty.cpp" />
-    <ClCompile Include="Deck.cpp" />
-    <ClCompile Include="HearthstoneApi.cpp" />
-    <ClCompile Include="HearthstoneApiAuth.cpp" />
-    <ClCompile Include="ICardStatDecorator.cpp" />
+    <ClCompile Include="Core\Api\ApiConnection.cpp" />
+    <ClCompile Include="Model\Card\Card.cpp" />
+    <ClCompile Include="Model\Card\CardFactory.cpp" />
+    <ClCompile Include="Model\Card\CardSpecRepository.cpp" />
+    <ClCompile Include="Model\Card\CardStat.cpp" />
+    <ClCompile Include="Model\Card\CardStatDecoratorModifier.cpp" />
+    <ClCompile Include="Model\Card\CardStatDecoratorSilence.cpp" />
+    <ClCompile Include="Model\Card\CardStatDecoratorEmpty.cpp" />
+    <ClCompile Include="Model\Card\Deck.cpp" />
+    <ClCompile Include="Core\Api\HearthstoneApi.cpp" />
+    <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp" />
+    <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Request.cpp" />
-    <ClCompile Include="SocketPool.cpp" />
+    <ClCompile Include="Core\Api\Request.cpp" />
+    <ClCompile Include="Core\Api\SocketPool.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ApiConnection.h" />
-    <ClInclude Include="Card.h" />
-    <ClInclude Include="CardFactory.h" />
-    <ClInclude Include="CardSpec.h" />
-    <ClInclude Include="CardSpecRepository.h" />
-    <ClInclude Include="CardStat.h" />
-    <ClInclude Include="CardStatDecoratorModifier.h" />
-    <ClInclude Include="CardStatDecoratorSilence.h" />
-    <ClInclude Include="CardStatDecoratorEmpty.h" />
-    <ClInclude Include="Deck.h" />
-    <ClInclude Include="HearthstoneApi.h" />
-    <ClInclude Include="HearthstoneApiAuth.h" />
-    <ClInclude Include="ICardStatDecorator.h" />
-    <ClInclude Include="Request.h" />
-    <ClInclude Include="SocketPool.h" />
+    <ClInclude Include="Core\Api\ApiConnection.h" />
+    <ClInclude Include="Model\Card\Card.h" />
+    <ClInclude Include="Model\Card\CardFactory.h" />
+    <ClInclude Include="Model\Card\CardSpec.h" />
+    <ClInclude Include="Model\Card\CardSpecRepository.h" />
+    <ClInclude Include="Model\Card\CardStat.h" />
+    <ClInclude Include="Model\Card\CardStatDecoratorModifier.h" />
+    <ClInclude Include="Model\Card\CardStatDecoratorSilence.h" />
+    <ClInclude Include="Model\Card\CardStatDecoratorEmpty.h" />
+    <ClInclude Include="Model\Card\Deck.h" />
+    <ClInclude Include="Core\Api\HearthstoneApi.h" />
+    <ClInclude Include="Core\Api\HearthstoneApiAuth.h" />
+    <ClInclude Include="Model\Card\ICardStatDecorator.h" />
+    <ClInclude Include="Model\Field\Field.h" />
+    <ClInclude Include="Core\Api\Request.h" />
+    <ClInclude Include="Core\Api\SocketPool.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

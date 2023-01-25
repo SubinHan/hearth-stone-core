@@ -1,15 +1,11 @@
 #pragma once
 
 #include <string>
-#include <memory>
-#include <map>
 
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
 
 #include "Request.h"
-#include "SocketPool.h"
 
 namespace nyvux
 {

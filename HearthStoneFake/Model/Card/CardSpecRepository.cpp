@@ -1,6 +1,6 @@
 #include "CardSpecRepository.h"
 #include "CardSpecRepository.h"
-#include "HearthstoneApi.h"
+#include "../../Core/Api/HearthstoneApi.h"
 
 namespace nyvux
 {

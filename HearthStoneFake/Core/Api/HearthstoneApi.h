@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-#include "CardSpec.h"
+#include "../../Model/Card/CardSpec.h"
 #include "ApiConnection.h"
 
 #include <boost/json.hpp>
@@ -14,7 +14,6 @@ namespace nyvux
 	{
 	public:
 		static const std::vector<std::string> GetAllCardList();
-		//static const std::string GetEnv(std::string Key);
 		static const CardSpec GetCardSpecById(const int Id);
 		static const std::vector<CardSpec> GetCardSpecsByPage(const int Page);
 

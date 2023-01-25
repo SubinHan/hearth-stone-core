@@ -18,93 +18,96 @@
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="HearthstoneApi.cpp">
+    <ClCompile Include="Core\Api\HearthstoneApi.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ApiConnection.cpp">
+    <ClCompile Include="Core\Api\ApiConnection.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="HearthstoneApiAuth.cpp">
+    <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Request.cpp">
+    <ClCompile Include="Core\Api\Request.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardSpecRepository.cpp">
+    <ClCompile Include="Model\Card\CardSpecRepository.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardFactory.cpp">
+    <ClCompile Include="Model\Card\CardFactory.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Card.cpp">
+    <ClCompile Include="Model\Card\Card.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Deck.cpp">
+    <ClCompile Include="Model\Card\Deck.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="SocketPool.cpp">
+    <ClCompile Include="Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardStatDecoratorEmpty.cpp">
+    <ClCompile Include="Model\Card\CardStatDecoratorEmpty.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="ICardStatDecorator.cpp">
+    <ClCompile Include="Model\Card\ICardStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardStatDecoratorModifier.cpp">
+    <ClCompile Include="Model\Card\CardStatDecoratorModifier.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardStatDecoratorSilence.cpp">
+    <ClCompile Include="Model\Card\CardStatDecoratorSilence.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardStat.cpp">
+    <ClCompile Include="Model\Card\CardStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HearthstoneApi.h">
+    <ClInclude Include="Core\Api\HearthstoneApi.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ApiConnection.h">
+    <ClInclude Include="Core\Api\ApiConnection.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardSpec.h">
+    <ClInclude Include="Model\Card\CardSpec.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="HearthstoneApiAuth.h">
+    <ClInclude Include="Core\Api\HearthstoneApiAuth.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Request.h">
+    <ClInclude Include="Core\Api\Request.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Deck.h">
+    <ClInclude Include="Model\Card\Deck.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Card.h">
+    <ClInclude Include="Model\Card\Card.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardFactory.h">
+    <ClInclude Include="Model\Card\CardFactory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardSpecRepository.h">
+    <ClInclude Include="Model\Card\CardSpecRepository.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="SocketPool.h">
+    <ClInclude Include="Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ICardStatDecorator.h">
+    <ClInclude Include="Model\Card\ICardStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardStatDecoratorEmpty.h">
+    <ClInclude Include="Model\Card\CardStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardStatDecoratorModifier.h">
+    <ClInclude Include="Model\Card\CardStatDecoratorModifier.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardStatDecoratorSilence.h">
+    <ClInclude Include="Model\Card\CardStatDecoratorSilence.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CardStat.h">
+    <ClInclude Include="Model\Card\CardStat.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Field\Field.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
