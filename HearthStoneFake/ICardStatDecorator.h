@@ -1,17 +1,17 @@
 #pragma once
 
-#include "ICardStat.h"
-
 #include <memory>
 
 namespace nyvux
 {
-	class ICardStatDecorator : public ICardStat
+	class ICardStatDecorator
 	{
 	public:
-		ICardStatDecorator(std::shared_ptr<ICardStat> Component);
+		ICardStatDecorator(std::shared_ptr<ICardStatDecorator> Component);
+		virtual int GetDeltaHealth() = 0;
+		virtual int GetDeltaAttack() = 0;
 
 	protected:
-		std::shared_ptr<ICardStat> Component;
+		std::shared_ptr<ICardStatDecorator> Component;
 	};
 }

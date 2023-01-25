@@ -3,7 +3,7 @@
 using namespace std;
 
 nyvux::CardStatDecoratorModifier::CardStatDecoratorModifier(
-	shared_ptr<ICardStat> Component, int DeltaAttack, int DeltaHealth)
+	shared_ptr<ICardStatDecorator> Component, int DeltaAttack, int DeltaHealth)
 	: ICardStatDecorator(Component), DeltaAttack(DeltaAttack), DeltaHealth(DeltaHealth)
 {
 }
@@ -12,13 +12,13 @@ nyvux::CardStatDecoratorModifier::~CardStatDecoratorModifier()
 {
 }
 
-int nyvux::CardStatDecoratorModifier::GetMaxHealth()
+int nyvux::CardStatDecoratorModifier::GetDeltaHealth()
 {
-	return DeltaHealth + Component->GetMaxHealth();
+	return DeltaHealth + Component->GetDeltaHealth();
 }
 
-int nyvux::CardStatDecoratorModifier::GetAttack()
+int nyvux::CardStatDecoratorModifier::GetDeltaAttack()
 {
-	return DeltaAttack + Component->GetAttack();
+	return DeltaAttack + Component->GetDeltaAttack();
 }
 

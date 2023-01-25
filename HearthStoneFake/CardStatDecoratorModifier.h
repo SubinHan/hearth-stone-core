@@ -9,10 +9,10 @@ namespace nyvux
 	class CardStatDecoratorModifier : public ICardStatDecorator
 	{
 	public:
-		CardStatDecoratorModifier(std::shared_ptr<ICardStat> Component, int DeltaAttack, int DeltaHealth);
+		CardStatDecoratorModifier(std::shared_ptr<ICardStatDecorator> Component, int DeltaAttack, int DeltaHealth);
 		virtual ~CardStatDecoratorModifier();
-		int GetMaxHealth() override;
-		int GetAttack() override;
+		int GetDeltaHealth() override;
+		int GetDeltaAttack() override;
 
 	private:
 		int DeltaAttack;

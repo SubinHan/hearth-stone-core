@@ -1,6 +1,9 @@
 #pragma once
 
 #include "CardSpec.h"
+#include "CardStat.h"
+
+#include <memory>
 
 namespace nyvux
 {
@@ -8,19 +11,13 @@ namespace nyvux
 	{
 	public:
 		Card(const CardSpec& Spec);
-		int GetMaxHealth();
-		int GetAttack();
+		int GetDeltaHealth();
+		int GetDeltaAttack();
 		int GetCurrentHealth();
 		bool IsGenerated();
 
 	private:
 		const CardSpec& Spec;
-
-		int MaxHealth;
-		int Attack;
-		int CurrentHealth;
-
-		bool bIsGenerated;
-
+		CardStat Stat;
 	};
 }

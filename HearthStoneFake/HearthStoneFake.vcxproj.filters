@@ -45,13 +45,19 @@
     <ClCompile Include="SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="CardStatVanilla.cpp">
+    <ClCompile Include="CardStatDecoratorEmpty.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="ICardStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CardStatDecoratorModifier.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CardStatDecoratorSilence.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CardStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -89,13 +95,16 @@
     <ClInclude Include="ICardStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="ICardStat.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CardStatVanilla.h">
+    <ClInclude Include="CardStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CardStatDecoratorModifier.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CardStatDecoratorSilence.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CardStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
