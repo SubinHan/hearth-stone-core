@@ -9,6 +9,7 @@ namespace nyvux
 	{
 	public:
 		Card(const CardSpec& Spec);
+		const CardSpec& GetCardSpec();
 
 	private:
 		const CardSpec& Spec;

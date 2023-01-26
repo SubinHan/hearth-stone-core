@@ -16,7 +16,7 @@ namespace nyvux
 		bool CanPutMinion();
 
 	private:
-		static constexpr int FIELD_SIZE = 7;
+		static constexpr int MAX_FIELD_SIZE = 7;
 
 		std::list<std::shared_ptr<IPlaceable>> FieldImpl;
 	};

@@ -285,6 +285,7 @@
     <ClCompile Include="Core\Api\SocketPool.cpp" />
     <ClCompile Include="Model\Card\Minion.h" />
     <ClCompile Include="Model\Player\Field.cpp" />
+    <ClCompile Include="Model\Player\Hand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\ApiConnection.h" />
@@ -308,6 +309,7 @@
     <ClInclude Include="Model\Player\Field.h" />
     <ClInclude Include="Core\Api\Request.h" />
     <ClInclude Include="Core\Api\SocketPool.h" />
+    <ClInclude Include="Model\Player\Hand.h" />
     <ClInclude Include="Model\Player\Player.h" />
   </ItemGroup>
   <ItemGroup>

@@ -6,6 +6,9 @@ namespace nyvux
 	{
 	}
 
-
+	const CardSpec& Card::GetCardSpec()
+	{
+		return Spec;
+	}
 }
 
