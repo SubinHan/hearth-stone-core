@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Card.h"
+#include "../Card/Card.h"
 
 #include <vector>
 #include <deque>

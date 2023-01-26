@@ -2,7 +2,7 @@
 
 #include "../HearthStoneFake/Model/Card/CardFactory.h"
 #include "../HearthStoneFake/Model/Card/Minion.h"
-#include "../HearthStoneFake/Model/Field/Field.h"
+#include "../HearthStoneFake/Model/Player/Field.h"
 
 #include <memory>
 

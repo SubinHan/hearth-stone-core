@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "../HearthStoneFake/Model/Card/Card.h"
-#include "../HearthStoneFake/Model/Card/Deck.h"
+#include "../HearthStoneFake/Model/Player/Deck.h"
 #include "../HearthStoneFake/Model/Card/CardFactory.h"
 
 #include <memory>

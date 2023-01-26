@@ -39,7 +39,7 @@
     <ClCompile Include="Model\Card\Card.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\Deck.cpp">
+    <ClCompile Include="Model\Player\Deck.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Core\Api\SocketPool.cpp">
@@ -78,7 +78,7 @@
     <ClCompile Include="Model\Card\Minion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Field\Field.cpp">
+    <ClCompile Include="Model\Player\Field.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -98,7 +98,7 @@
     <ClInclude Include="Core\Api\Request.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\Deck.h">
+    <ClInclude Include="Model\Player\Deck.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Card\Card.h">
@@ -128,7 +128,7 @@
     <ClInclude Include="Model\Card\MinionStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Field\Field.h">
+    <ClInclude Include="Model\Player\Field.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Card\CardStat.h">
@@ -144,6 +144,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Card\IPlaceable.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Player\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
