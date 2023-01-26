@@ -268,16 +268,21 @@
     <ClCompile Include="Model\Card\CardFactory.cpp" />
     <ClCompile Include="Model\Card\CardSpecRepository.cpp" />
     <ClCompile Include="Model\Card\CardStat.cpp" />
-    <ClCompile Include="Model\Card\CardStatDecoratorModifier.cpp" />
-    <ClCompile Include="Model\Card\CardStatDecoratorSilence.cpp" />
-    <ClCompile Include="Model\Card\CardStatDecoratorEmpty.cpp" />
+    <ClCompile Include="Model\Card\CardStatDecoratorVanilla.cpp" />
+    <ClCompile Include="Model\Card\CardStatDecoratorModify.cpp" />
+    <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
+    <ClCompile Include="Model\Card\MinionStat.cpp" />
+    <ClCompile Include="Model\Card\MinionStatDecoratorModifier.cpp" />
+    <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp" />
+    <ClCompile Include="Model\Card\MinionStatDecoratorEmpty.cpp" />
     <ClCompile Include="Model\Card\Deck.cpp" />
     <ClCompile Include="Core\Api\HearthstoneApi.cpp" />
     <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp" />
-    <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
+    <ClCompile Include="Model\Card\IMinionStatDecorator.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Core\Api\Request.cpp" />
     <ClCompile Include="Core\Api\SocketPool.cpp" />
+    <ClCompile Include="Model\Card\Minion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\ApiConnection.h" />
@@ -286,13 +291,17 @@
     <ClInclude Include="Model\Card\CardSpec.h" />
     <ClInclude Include="Model\Card\CardSpecRepository.h" />
     <ClInclude Include="Model\Card\CardStat.h" />
-    <ClInclude Include="Model\Card\CardStatDecoratorModifier.h" />
-    <ClInclude Include="Model\Card\CardStatDecoratorSilence.h" />
-    <ClInclude Include="Model\Card\CardStatDecoratorEmpty.h" />
+    <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h" />
+    <ClInclude Include="Model\Card\ICardStatDecorator.h" />
+    <ClInclude Include="Model\Card\CardStatDecoratorModify.h" />
+    <ClInclude Include="Model\Card\MinionStat.h" />
+    <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h" />
+    <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h" />
+    <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h" />
     <ClInclude Include="Model\Card\Deck.h" />
     <ClInclude Include="Core\Api\HearthstoneApi.h" />
     <ClInclude Include="Core\Api\HearthstoneApiAuth.h" />
-    <ClInclude Include="Model\Card\ICardStatDecorator.h" />
+    <ClInclude Include="Model\Card\IMinionStatDecorator.h" />
     <ClInclude Include="Model\Field\Field.h" />
     <ClInclude Include="Core\Api\Request.h" />
     <ClInclude Include="Core\Api\SocketPool.h" />

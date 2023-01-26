@@ -1,56 +1,21 @@
 #include "CardStat.h"
 
-#include "CardStatDecoratorEmpty.h"
+#include "CardStatDecoratorVanilla.h"
 
-nyvux::CardStat::CardStat(const CardSpec& CardSpec)
-	: Spec(CardSpec),
-	Decorator(std::make_shared<CardStatDecoratorEmpty>()),
+nyvux::CardStat::CardStat(const CardSpec& Spec)
+	: Spec(Spec),
+	Decorator(std::make_shared<CardStatDecoratorVanilla>(Spec.ManaCost)),
 	bIsGenerated(false),
-	CurrentHealth(Spec.Health)
+	CurrentManaCost(Spec.ManaCost)
 {
 }
 
-int nyvux::CardStat::GetMaxHealth()
+int nyvux::CardStat::GetManaCost()
 {
-	return Spec.Health + Decorator->GetDeltaHealth();
-}
-
-int nyvux::CardStat::GetAttack()
-{
-	return Spec.Attack + Decorator->GetDeltaAttack();
-}
-
-int nyvux::CardStat::GetCurrentHealth()
-{
-	return CurrentHealth;
-}
-
-void nyvux::CardStat::Damage(const int Amount)
-{
-	CurrentHealth -= Amount;
-
-	CorrectCurrentHealth();
-}
-
-void nyvux::CardStat::Heal(const int Amount)
-{
-	CurrentHealth += Amount;
-
-	CorrectCurrentHealth();
+	return Decorator->GetCurrentManaCost();
 }
 
 bool nyvux::CardStat::IsGenerated()
 {
 	return bIsGenerated;
-}
-
-void nyvux::CardStat::CorrectCurrentHealth()
-{
-	const int MaxHealth = GetMaxHealth();
-
-	if (MaxHealth < CurrentHealth)
-		CurrentHealth = MaxHealth;
-
-	if (CurrentHealth < 0)
-		CurrentHealth = 0;
 }

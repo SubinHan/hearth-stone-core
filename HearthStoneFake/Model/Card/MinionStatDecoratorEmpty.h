@@ -1,15 +1,15 @@
 #pragma once
 
-#include "ICardStatDecorator.h"
+#include "IMinionStatDecorator.h"
 #include "CardSpec.h"
 
 namespace nyvux
 {
-	class CardStatDecoratorEmpty : public ICardStatDecorator
+	class MinionStatDecoratorEmpty : public IMinionStatDecorator
 	{
 	public:
-		CardStatDecoratorEmpty();
-		virtual ~CardStatDecoratorEmpty();
+		MinionStatDecoratorEmpty();
+		virtual ~MinionStatDecoratorEmpty();
 		int GetDeltaHealth() override;
 		int GetDeltaAttack() override;
 

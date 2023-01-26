@@ -45,16 +45,31 @@
     <ClCompile Include="Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStatDecoratorEmpty.cpp">
+    <ClCompile Include="Model\Card\MinionStatDecoratorEmpty.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\IMinionStatDecorator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\MinionStatDecoratorModifier.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\MinionStat.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\Minion.h">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Model\Card\ICardStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStatDecoratorModifier.cpp">
+    <ClCompile Include="Model\Card\CardStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStatDecoratorSilence.cpp">
+    <ClCompile Include="Model\Card\CardStatDecoratorVanilla.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Model\Card\CardStat.cpp">
@@ -92,22 +107,34 @@
     <ClInclude Include="Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\ICardStatDecorator.h">
+    <ClInclude Include="Model\Card\IMinionStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStatDecoratorEmpty.h">
+    <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStatDecoratorModifier.h">
+    <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStatDecoratorSilence.h">
+    <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Card\MinionStat.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Field\Field.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Card\CardStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Field\Field.h">
+    <ClInclude Include="Model\Card\ICardStatDecorator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Card\CardStatDecoratorModify.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

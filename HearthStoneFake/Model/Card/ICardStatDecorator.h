@@ -1,5 +1,4 @@
 #pragma once
-
 #include <memory>
 
 namespace nyvux
@@ -8,8 +7,7 @@ namespace nyvux
 	{
 	public:
 		ICardStatDecorator(std::shared_ptr<ICardStatDecorator> Component);
-		virtual int GetDeltaHealth() = 0;
-		virtual int GetDeltaAttack() = 0;
+		virtual int GetCurrentManaCost() = 0;
 
 	protected:
 		std::shared_ptr<ICardStatDecorator> Component;

@@ -1,51 +1,37 @@
 #pragma once
+#include <memory>
 
 #include "CardSpec.h"
 #include "ICardStatDecorator.h"
-
-#include <memory>
 
 namespace nyvux
 {
 	class CardStat
 	{
 	public:
-		CardStat(const CardSpec& CardSpec);
-
-		void Damage(const int Amount);
-		void Heal(const int Amount);
+		CardStat(const CardSpec& Spec);
 
 		template<class DecoratorType, class... Types>
-		void Modify(Types... args);
+		void Modify(Types... Args);
 
-		int GetMaxHealth();
-		int GetAttack();
-		int GetCurrentHealth();
+		int GetManaCost();
 		bool IsGenerated();
 
 	private:
-		void CorrectCurrentHealth();
+		void CorrectCurrentManaCost();
 
 	private:
 		const CardSpec& Spec;
 		std::shared_ptr<ICardStatDecorator> Decorator;
 
-		int CurrentHealth;
+		int CurrentManaCost;
 		bool bIsGenerated;
+		
 	};
 
-	template<class DecoratorType, class... Types>
-	inline void CardStat::Modify(Types... Args)
+	template <class DecoratorType, class ... Types>
+	void CardStat::Modify(Types... Args)
 	{
-		const int MaxHealthPrev = GetMaxHealth();
-
-		Decorator = make_shared<DecoratorType>(Decorator, Args...);
-
-		const int MaxHealth = GetMaxHealth();
-		const int DeltaHealth = MaxHealth - MaxHealthPrev;
-
-		CurrentHealth += DeltaHealth;
-
-		CorrectCurrentHealth();
+		Decorator = std::make_shared<DecoratorType>(Decorator, Args...);
 	}
 }
