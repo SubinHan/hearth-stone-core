@@ -1,22 +1,34 @@
 #include "CardFactory.h"
-#include "CardFactory.h"
 #include "CardSpecRepository.h"
+
+using namespace std;
 
 namespace nyvux
 {
-	Card CardFactory::CreateCardById(int Id)
+	std::shared_ptr<Card> CardFactory::CreateCardById(const int Id)
 	{
 		CardSpecRepository& Repo = CardSpecRepository::GetInstance();
 
-		return Card(Repo.GetCardSpecById(Id));
+		return make_shared<Card>(Repo.GetCardSpecById(Id));
 	}
 
-	Card CardFactory::CreateDummyCard()
+	std::shared_ptr<Card> CardFactory::CreateDummyCard()
 	{
 		CardSpecRepository& Repo = CardSpecRepository::GetInstance();
 
-		return Card(Repo.DUMMY_CARDSPEC);
+		return make_shared<Card>(Repo.DUMMY_CARDSPEC);
 	}
 
+	std::shared_ptr<Minion> CardFactory::CreateMinionById(const int Id)
+	{
+		CardSpecRepository& Repo = CardSpecRepository::GetInstance();
+
+		return make_shared<Minion>(Repo.GetCardSpecById(Id));
+	}
+
+	std::shared_ptr<Minion> CardFactory::CreateMinionBySpec(const CardSpec& Spec)
+	{
+		return make_shared<Minion>(Spec);
+	}
 }
 

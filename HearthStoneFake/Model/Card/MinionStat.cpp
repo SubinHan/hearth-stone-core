@@ -6,6 +6,7 @@ nyvux::MinionStat::MinionStat(const CardSpec& CardSpec)
 	: Spec(CardSpec),
 	Decorator(std::make_shared<MinionStatDecoratorEmpty>()),
 	bIsGenerated(false),
+	bCanBeTarget(true),
 	CurrentHealth(Spec.Health)
 {
 }
@@ -42,6 +43,11 @@ void nyvux::MinionStat::Heal(const int Amount)
 bool nyvux::MinionStat::IsGenerated()
 {
 	return bIsGenerated;
+}
+
+bool nyvux::MinionStat::CanBeTarget()
+{
+	return bCanBeTarget;
 }
 
 void nyvux::MinionStat::CorrectCurrentHealth()

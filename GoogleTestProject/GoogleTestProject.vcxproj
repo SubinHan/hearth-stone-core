@@ -67,6 +67,7 @@
     <ClCompile Include="ApiConnectionTest.cpp" />
     <ClCompile Include="CardStatDecoratorTest.cpp" />
     <ClCompile Include="CardStatTest.cpp" />
+    <ClCompile Include="FieldTest.cpp" />
     <ClCompile Include="MinionStatTest.cpp" />
     <ClCompile Include="DeckTest.cpp" />
     <ClCompile Include="HearthstoneApiAuthTest.cpp" />

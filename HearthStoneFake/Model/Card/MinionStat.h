@@ -22,6 +22,7 @@ namespace nyvux
 		int GetAttack();
 		int GetCurrentHealth();
 		bool IsGenerated();
+		bool CanBeTarget();
 
 	private:
 		void CorrectCurrentHealth();
@@ -32,6 +33,7 @@ namespace nyvux
 
 		int CurrentHealth;
 		bool bIsGenerated;
+		bool bCanBeTarget;
 	};
 
 	template<class DecoratorType, class... Types>

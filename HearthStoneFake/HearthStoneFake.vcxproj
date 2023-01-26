@@ -271,6 +271,7 @@
     <ClCompile Include="Model\Card\CardStatDecoratorVanilla.cpp" />
     <ClCompile Include="Model\Card\CardStatDecoratorModify.cpp" />
     <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
+    <ClCompile Include="Model\Card\Minion.cpp" />
     <ClCompile Include="Model\Card\MinionStat.cpp" />
     <ClCompile Include="Model\Card\MinionStatDecoratorModifier.cpp" />
     <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp" />
@@ -283,6 +284,7 @@
     <ClCompile Include="Core\Api\Request.cpp" />
     <ClCompile Include="Core\Api\SocketPool.cpp" />
     <ClCompile Include="Model\Card\Minion.h" />
+    <ClCompile Include="Model\Field\Field.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\ApiConnection.h" />
@@ -294,6 +296,7 @@
     <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h" />
     <ClInclude Include="Model\Card\ICardStatDecorator.h" />
     <ClInclude Include="Model\Card\CardStatDecoratorModify.h" />
+    <ClInclude Include="Model\Card\IPlaceable.h" />
     <ClInclude Include="Model\Card\MinionStat.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h" />
