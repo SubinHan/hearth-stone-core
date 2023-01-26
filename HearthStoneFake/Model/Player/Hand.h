@@ -10,6 +10,9 @@ namespace nyvux
 	class Hand
 	{
 	public:
+		Hand();
+		static std::shared_ptr<Hand> CreateHand();
+
 		int GetNumCards();
 		std::shared_ptr<Card> GetCard(int ZeroBasedIndex);
 
@@ -17,7 +20,6 @@ namespace nyvux
 		void AddCard(std::shared_ptr<Card> Card);
 
 		bool IsFull();
-		
 
 	private:
 		static constexpr int MAX_HAND_SIZE = 10;

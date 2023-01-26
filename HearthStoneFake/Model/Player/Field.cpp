@@ -9,6 +9,11 @@ nyvux::Field::Field() : FieldImpl()
 {
 }
 
+std::shared_ptr<nyvux::Field> nyvux::Field::CreateField()
+{
+	return make_shared<Field>();
+}
+
 void nyvux::Field::PutMinion(shared_ptr<Minion> Minion, int ColumnNumber)
 {
 	ColumnNumber = clamp(ColumnNumber, 0, static_cast<int>(FieldImpl.size()));

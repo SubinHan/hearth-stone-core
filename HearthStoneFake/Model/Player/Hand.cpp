@@ -4,6 +4,11 @@
 
 using namespace std;
 
+std::shared_ptr<nyvux::Hand> nyvux::Hand::CreateHand()
+{
+	return make_shared<Hand>();
+}
+
 int nyvux::Hand::GetNumCards()
 {
 	return HandImpl.size();
@@ -32,4 +37,8 @@ void nyvux::Hand::AddCard(std::shared_ptr<Card> Card)
 bool nyvux::Hand::IsFull()
 {
 	return HandImpl.size() >= MAX_HAND_SIZE;
+}
+
+nyvux::Hand::Hand()
+{
 }

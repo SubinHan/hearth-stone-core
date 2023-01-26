@@ -1,26 +1,17 @@
 #include "pch.h"
 
 #include <vector>
+#include "Helper.h"
 #include "../HearthStoneFake/Model/Card/Card.h"
 #include "../HearthStoneFake/Model/Player/Deck.h"
-#include "../HearthStoneFake/Model/Card/CardFactory.h"
 
 #include <memory>
 
 using namespace std;
+using namespace nyvux;
 
 namespace nyvux
 {
-	vector<shared_ptr<Card>> MakeDummyCards()
-	{
-		vector<shared_ptr<Card>> DummyCards{};
-		for (int i = 0; i < Deck::DEFAULT_DECK_SIZE; i++)
-		{
-			DummyCards.push_back(CardFactory::CreateDummyCard());
-		}
-		return DummyCards;
-	}
-
 	class DeckTest : public ::testing::Test
 	{
 	public:
@@ -39,13 +30,12 @@ namespace nyvux
 
 	};
 
-
 	TEST_F(DeckTest, TestDraw)
 	{
-		Deck CardDeck(DummyCards);
+		shared_ptr<Deck> CardDeck = Deck::CreateDeck(DummyCards);
 
-		EXPECT_EQ(CardDeck.GetCount(), Deck::DEFAULT_DECK_SIZE);
-		shared_ptr<Card> Drawn = CardDeck.Draw();
-		EXPECT_EQ(CardDeck.GetCount(), Deck::DEFAULT_DECK_SIZE - 1);
+		EXPECT_EQ(CardDeck->GetCount(), Deck::DEFAULT_DECK_SIZE);
+		shared_ptr<Card> Drawn = CardDeck->Draw();
+		EXPECT_EQ(CardDeck->GetCount(), Deck::DEFAULT_DECK_SIZE - 1);
 	}
 }

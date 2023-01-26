@@ -19,53 +19,54 @@ namespace nyvux
 
 		void SetUp() override
 		{
+			Hand = Hand::CreateHand();
 		}
 
-		Hand Hand;
+		std::shared_ptr<Hand> Hand;
 	};
 
 	TEST_F(HandTest, TestGetNumCards)
 	{
 		shared_ptr<Card> Card = CardFactory::CreateMinionById(69543);
 
-		EXPECT_EQ(0, Hand.GetNumCards());
-		Hand.AddCard(Card);
-		EXPECT_EQ(1, Hand.GetNumCards());
+		EXPECT_EQ(0, Hand->GetNumCards());
+		Hand->AddCard(Card);
+		EXPECT_EQ(1, Hand->GetNumCards());
 	}
 
 	TEST_F(HandTest, TestIsFull)
 	{
 		for(int i = 0; i < 10; i++)
 		{
-			EXPECT_FALSE(Hand.IsFull());
+			EXPECT_FALSE(Hand->IsFull());
 			shared_ptr<Card> Card = CardFactory::CreateMinionById(69543);
-			Hand.AddCard(Card);
+			Hand->AddCard(Card);
 		}
 
-		EXPECT_TRUE(Hand.IsFull());
+		EXPECT_TRUE(Hand->IsFull());
 	}
 
 	TEST_F(HandTest, TestAddCardALot)
 	{
-		EXPECT_EQ(0, Hand.GetNumCards());
+		EXPECT_EQ(0, Hand->GetNumCards());
 
 		for (int i = 0; i < 10; i++)
 		{
 			shared_ptr<Card> Card = CardFactory::CreateMinionById(69543);
-			Hand.AddCard(Card);
+			Hand->AddCard(Card);
 		}
 
 		for (int i = 0; i < 100; i++)
 		{
 			shared_ptr<Card> Card = CardFactory::CreateDummyCard();
-			Hand.AddCard(Card);
+			Hand->AddCard(Card);
 		}
 
 		Card Expected = *CardFactory::CreateMinionById(69543);
 
-		EXPECT_EQ(10, Hand.GetNumCards());
-		EXPECT_TRUE(Expected.GetCardSpec() == (*Hand.GetCard(0)).GetCardSpec());
-		EXPECT_TRUE(Expected.GetCardSpec() == (*Hand.GetCard(9)).GetCardSpec());
+		EXPECT_EQ(10, Hand->GetNumCards());
+		EXPECT_TRUE(Expected.GetCardSpec() == (*Hand->GetCard(0)).GetCardSpec());
+		EXPECT_TRUE(Expected.GetCardSpec() == (*Hand->GetCard(9)).GetCardSpec());
 	}
 
 }

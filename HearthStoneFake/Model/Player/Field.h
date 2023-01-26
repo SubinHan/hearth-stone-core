@@ -10,6 +10,8 @@ namespace nyvux
 	{
 	public:
 		Field();
+		static std::shared_ptr<Field> CreateField();
+
 		void PutMinion(std::shared_ptr<Minion> Minion, int ColumnNumber);
 
 		int GetNumPlayed();

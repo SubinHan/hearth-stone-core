@@ -8,6 +8,11 @@ namespace nyvux
 	{
 	}
 
+	std::shared_ptr<Deck> Deck::CreateDeck(std::vector<std::shared_ptr<Card>> Cards)
+	{
+		return make_shared<Deck>(Cards);
+	}
+
 	shared_ptr<Card> Deck::Draw()
 	{
 		shared_ptr<Card> Drawn = DeckImpl.front();
