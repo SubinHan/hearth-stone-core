@@ -93,6 +93,15 @@
     <ClCompile Include="Model\Card\AbstractPlaceableCard.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Core\Game\Game.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="View\UserInteraction.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Game\GameMediator.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\HearthstoneApi.h">
@@ -165,6 +174,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Player\PlayerException.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Game\GameMediator.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Game\Game.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="View\UserInteraction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
