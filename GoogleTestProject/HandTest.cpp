@@ -69,4 +69,27 @@ namespace nyvux
 		EXPECT_TRUE(Expected.GetCardSpec() == (*Hand->GetCard(9)).GetCardSpec());
 	}
 
+	TEST_F(HandTest, TestRemoveCard)
+	{
+		EXPECT_EQ(0, Hand->GetNumCards());
+
+		{
+			shared_ptr<Card> Card = CardFactory::CreateMinionById(69543);
+			Hand->AddCard(Card);
+		}
+
+		for (int i = 0; i < 9; i++)
+		{
+			shared_ptr<Card> Card = CardFactory::CreateDummyCard();
+			Hand->AddCard(Card);
+		}
+
+		shared_ptr<Card> Removed = Hand->RemoveCard(0);
+		Card Expected = *CardFactory::CreateMinionById(69543);
+
+		EXPECT_TRUE(Expected.GetCardSpec() == Removed->GetCardSpec());
+		EXPECT_EQ(9, Hand->GetNumCards());
+		EXPECT_FALSE(Expected.GetCardSpec() == Hand->GetCard(0)->GetCardSpec());
+	}
+
 }

@@ -16,7 +16,7 @@ namespace nyvux
 		int GetNumCards();
 		std::shared_ptr<Card> GetCard(int ZeroBasedIndex);
 
-		void RemoveCard(int ZeroBasedIndex);
+		std::shared_ptr<Card> RemoveCard(int ZeroBasedIndex);
 		void AddCard(std::shared_ptr<Card> Card);
 
 		bool IsFull();

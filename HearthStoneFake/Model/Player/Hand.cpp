@@ -19,11 +19,14 @@ std::shared_ptr<nyvux::Card> nyvux::Hand::GetCard(int ZeroBasedIndex)
 	return HandImpl[ZeroBasedIndex];
 }
 
-void nyvux::Hand::RemoveCard(int ZeroBasedIndex)
+std::shared_ptr<nyvux::Card> nyvux::Hand::RemoveCard(int ZeroBasedIndex)
 {
 	ZeroBasedIndex = clamp(ZeroBasedIndex, 0, static_cast<int>(HandImpl.size()));
 
+	shared_ptr<Card> Removed = *(HandImpl.begin() + ZeroBasedIndex);
 	HandImpl.erase(HandImpl.begin() + ZeroBasedIndex);
+
+	return Removed;
 }
 
 void nyvux::Hand::AddCard(std::shared_ptr<Card> Card)

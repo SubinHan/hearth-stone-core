@@ -15,6 +15,10 @@ namespace nyvux
 		static std::shared_ptr<Player> CreatePlayer(std::shared_ptr<Deck> Deck);
 
 		void DrawCard();
+		int GetNumCardsInDeck() const;
+		int GetNumCardsInHand() const;
+		int GetNumPlayedInField() const;
+		void PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
 
 	private:
 		std::shared_ptr<Deck> Deck;
