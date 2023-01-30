@@ -1,5 +1,7 @@
 #include "Player.h"
 
+#include "PlayerException.h"
+
 using namespace std;
 using namespace nyvux;
 
@@ -38,22 +40,31 @@ int nyvux::Player::GetNumPlayedInField() const
 
 void nyvux::Player::PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex)
 {
-	//if (!Field->CanPutMinion())
-	//{
-	//	throw PlayerException();
-	//}
+	if (!Field->CanPlace())
+	{
+		throw PlayerException("The field is full.");
+	}
 
-	//if(Hand->IsEmpty())
-	//{
-	//	throw PlayerException();
-	//}
+	if(Hand->IsEmpty())
+	{
+		throw PlayerException("The hand is empty.");
+	}
 
-	//auto ToPlay = Hand->GetCard(ZeroBasedHandIndex);
+	auto ToPlay = Hand->GetCard(ZeroBasedHandIndex);
 
-	//auto Placeable = std::static_pointer_cast<IPlaceable>(ToPlay);
+	auto Placeable = std::dynamic_pointer_cast<AbstractPlaceableCard>(ToPlay);
+	if(!Placeable)
+	{
+		throw PlayerException("The given card is not a minion or a location.");
+	}
 
+	Hand->RemoveCard(ZeroBasedHandIndex);
+	Field->PlaceCard(Placeable, ZeroBasedFieldIndex);
+	FirePlayed();
+}
 
-	//Field->PutMinion(ZeroBasedFieldIndex);
-
+void Player::FirePlayed()
+{
+	// TODO: Implement it.
 }
 

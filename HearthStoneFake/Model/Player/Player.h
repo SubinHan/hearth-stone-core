@@ -21,6 +21,9 @@ namespace nyvux
 		void PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
 
 	private:
+		void FirePlayed();
+
+	private:
 		std::shared_ptr<Deck> Deck;
 		std::shared_ptr<Field> Field;
 		std::shared_ptr<Hand> Hand;

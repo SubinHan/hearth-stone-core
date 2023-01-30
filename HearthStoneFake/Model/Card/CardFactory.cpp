@@ -12,11 +12,11 @@ namespace nyvux
 		return make_shared<Card>(Repo.GetCardSpecById(Id));
 	}
 
-	std::shared_ptr<Card> CardFactory::CreateDummyCard()
+	std::shared_ptr<Minion> CardFactory::CreateDummyMinion()
 	{
 		CardSpecRepository& Repo = CardSpecRepository::GetInstance();
 
-		return make_shared<Card>(Repo.DUMMY_CARDSPEC);
+		return make_shared<Minion>(Repo.DUMMY_MINION_CARDSPEC);
 	}
 
 	std::shared_ptr<Minion> CardFactory::CreateMinionById(const int Id)

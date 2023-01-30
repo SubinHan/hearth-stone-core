@@ -58,7 +58,7 @@ namespace nyvux
 
 		for (int i = 0; i < 100; i++)
 		{
-			shared_ptr<Card> Card = CardFactory::CreateDummyCard();
+			shared_ptr<Card> Card = CardFactory::CreateDummyMinion();
 			Hand->AddCard(Card);
 		}
 
@@ -80,7 +80,7 @@ namespace nyvux
 
 		for (int i = 0; i < 9; i++)
 		{
-			shared_ptr<Card> Card = CardFactory::CreateDummyCard();
+			shared_ptr<Card> Card = CardFactory::CreateDummyMinion();
 			Hand->AddCard(Card);
 		}
 

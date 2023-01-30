@@ -8,7 +8,9 @@ namespace nyvux
 	class Card
 	{
 	public:
-		Card(const CardSpec& Spec);
+		virtual ~Card() = default;
+		Card(const CardSpec& Spec);		
+
 		const CardSpec& GetCardSpec();
 
 	private:

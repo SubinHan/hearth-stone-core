@@ -37,9 +37,14 @@ void nyvux::Hand::AddCard(std::shared_ptr<Card> Card)
 	HandImpl.push_back(Card);
 }
 
-bool nyvux::Hand::IsFull()
+bool nyvux::Hand::IsFull() const
 {
 	return HandImpl.size() >= MAX_HAND_SIZE;
+}
+
+bool nyvux::Hand::IsEmpty() const
+{
+	return HandImpl.empty();
 }
 
 nyvux::Hand::Hand()

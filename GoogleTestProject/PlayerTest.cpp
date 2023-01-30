@@ -38,7 +38,6 @@ namespace nyvux
 
 	TEST_F(PlayerTest, TestPlay)
 	{
-		// TODO: Not completed.
 		Player->DrawCard();
 		Player->DrawCard();
 		Player->DrawCard();

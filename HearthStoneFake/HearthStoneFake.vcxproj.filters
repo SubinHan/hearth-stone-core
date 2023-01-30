@@ -87,6 +87,12 @@
     <ClCompile Include="Model\Player\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Player\PlayerException.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Card\AbstractPlaceableCard.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\HearthstoneApi.h">
@@ -149,13 +155,16 @@
     <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\IPlaceable.h">
+    <ClInclude Include="Model\Card\AbstractPlaceableCard.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Player\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Player\Hand.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Player\PlayerException.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

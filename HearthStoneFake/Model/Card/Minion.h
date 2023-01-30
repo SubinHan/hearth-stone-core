@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Card.h"
-#include "IPlaceable.h"
+#include "AbstractPlaceableCard.h"
 #include "MinionStat.h"
 
 namespace nyvux
 {
-	class Minion : public Card, public IPlaceable
+	class Minion : public AbstractPlaceableCard
 	{
 	public:
 		Minion(const CardSpec& CardSpec);

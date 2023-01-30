@@ -1,7 +1,7 @@
 #include "Minion.h"
 
 nyvux::Minion::Minion(const CardSpec& CardSpec)
-	: Card(CardSpec),
+	: AbstractPlaceableCard(CardSpec),
 	MinionStat(CardSpec)
 {
 }

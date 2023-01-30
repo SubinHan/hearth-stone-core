@@ -28,75 +28,75 @@ namespace nyvux
 	{
 		shared_ptr<Minion> Minion = CardFactory::CreateMinionById(CARD_ID);
 		EXPECT_EQ(0, Field->GetNumPlayed());
-		Field->PutMinion(Minion, 0);
+		Field->PlaceCard(Minion, 0);
 		EXPECT_EQ(1, Field->GetNumPlayed());
 	}
 
 	TEST_F(FieldTest, TestPutMinion)
 	{
-		EXPECT_TRUE(Field->CanPutMinion());
+		EXPECT_TRUE(Field->CanPlace());
 
 		shared_ptr<Minion> Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_FALSE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_FALSE(Field->CanPlace());
 	}
 
 
 	TEST_F(FieldTest, TestPutMinionWeird)
 	{
-		EXPECT_TRUE(Field->CanPutMinion());
+		EXPECT_TRUE(Field->CanPlace());
 
 		shared_ptr<Minion> Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, -1);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, -1);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 230);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 230);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, -58432);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, -58432);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 3);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 3);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 514823);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 514823);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, -4295);
-		EXPECT_TRUE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, -4295);
+		EXPECT_TRUE(Field->CanPlace());
 
 		Minion = CardFactory::CreateMinionById(CARD_ID);
-		Field->PutMinion(Minion, 0);
-		EXPECT_FALSE(Field->CanPutMinion());
+		Field->PlaceCard(Minion, 0);
+		EXPECT_FALSE(Field->CanPlace());
 	}
 
 }

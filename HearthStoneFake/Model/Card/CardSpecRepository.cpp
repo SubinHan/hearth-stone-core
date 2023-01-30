@@ -25,7 +25,7 @@ namespace nyvux
 			std::vector<int>{}
 		};
 
-	const CardSpec CardSpecRepository::DUMMY_CARDSPEC =
+	const CardSpec CardSpecRepository::DUMMY_MINION_CARDSPEC =
 		CardSpec{
 			1,
 			false,

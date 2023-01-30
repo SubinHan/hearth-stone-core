@@ -264,6 +264,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Core\Api\ApiConnection.cpp" />
+    <ClCompile Include="Model\Card\AbstractPlaceableCard.cpp" />
     <ClCompile Include="Model\Card\Card.cpp" />
     <ClCompile Include="Model\Card\CardFactory.cpp" />
     <ClCompile Include="Model\Card\CardSpecRepository.cpp" />
@@ -287,6 +288,7 @@
     <ClCompile Include="Model\Player\Field.cpp" />
     <ClCompile Include="Model\Player\Hand.cpp" />
     <ClCompile Include="Model\Player\Player.cpp" />
+    <ClCompile Include="Model\Player\PlayerException.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\ApiConnection.h" />
@@ -298,7 +300,7 @@
     <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h" />
     <ClInclude Include="Model\Card\ICardStatDecorator.h" />
     <ClInclude Include="Model\Card\CardStatDecoratorModify.h" />
-    <ClInclude Include="Model\Card\IPlaceable.h" />
+    <ClInclude Include="Model\Card\AbstractPlaceableCard.h" />
     <ClInclude Include="Model\Card\MinionStat.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h" />
@@ -312,6 +314,7 @@
     <ClInclude Include="Core\Api\SocketPool.h" />
     <ClInclude Include="Model\Player\Hand.h" />
     <ClInclude Include="Model\Player\Player.h" />
+    <ClInclude Include="Model\Player\PlayerException.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

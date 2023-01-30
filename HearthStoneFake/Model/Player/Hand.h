@@ -19,7 +19,8 @@ namespace nyvux
 		std::shared_ptr<Card> RemoveCard(int ZeroBasedIndex);
 		void AddCard(std::shared_ptr<Card> Card);
 
-		bool IsFull();
+		bool IsFull() const;
+		bool IsEmpty() const;
 
 	private:
 		static constexpr int MAX_HAND_SIZE = 10;

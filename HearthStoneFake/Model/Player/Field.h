@@ -12,14 +12,14 @@ namespace nyvux
 		Field();
 		static std::shared_ptr<Field> CreateField();
 
-		void PutMinion(std::shared_ptr<Minion> Minion, int ColumnNumber);
+		void PlaceCard(std::shared_ptr<AbstractPlaceableCard> PlaceableCard, int ColumnNumber);
 
 		int GetNumPlayed();
-		bool CanPutMinion();
+		bool CanPlace();
 
 	private:
 		static constexpr int MAX_FIELD_SIZE = 7;
 
-		std::list<std::shared_ptr<IPlaceable>> FieldImpl;
+		std::list<std::shared_ptr<AbstractPlaceableCard>> FieldImpl;
 	};
 }
