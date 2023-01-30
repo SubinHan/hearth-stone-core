@@ -21,6 +21,7 @@ void Player::DrawCard()
 {
 	shared_ptr<Card> Drawn = Deck->Draw();
 	Hand->AddCard(Drawn);
+	FireDrawed();
 }
 
 int Player::GetNumCardsInDeck() const
@@ -64,6 +65,11 @@ void nyvux::Player::PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBa
 }
 
 void Player::FirePlayed()
+{
+	// TODO: Implement it.
+}
+
+void Player::FireDrawed()
 {
 	// TODO: Implement it.
 }

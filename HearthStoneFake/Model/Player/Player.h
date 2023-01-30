@@ -22,12 +22,11 @@ namespace nyvux
 
 	private:
 		void FirePlayed();
+		void FireDrawed();
 
 	private:
 		std::shared_ptr<Deck> Deck;
 		std::shared_ptr<Field> Field;
 		std::shared_ptr<Hand> Hand;
-
-		
 	};
 }

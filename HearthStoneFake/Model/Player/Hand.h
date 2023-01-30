@@ -22,8 +22,10 @@ namespace nyvux
 		bool IsFull() const;
 		bool IsEmpty() const;
 
-	private:
+	public:
 		static constexpr int MAX_HAND_SIZE = 10;
+
+	private:
 
 		std::vector<std::shared_ptr<Card>> HandImpl;
 

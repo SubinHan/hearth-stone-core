@@ -36,7 +36,7 @@ namespace nyvux
 		EXPECT_EQ(29, Player->GetNumCardsInDeck());		
 	}
 
-	TEST_F(PlayerTest, TestPlay)
+	TEST_F(PlayerTest, TestPlayPlaceable)
 	{
 		Player->DrawCard();
 		Player->DrawCard();
@@ -44,10 +44,32 @@ namespace nyvux
 
 		EXPECT_EQ(3, Player->GetNumCardsInHand());
 		EXPECT_EQ(0, Player->GetNumPlayedInField());
+
 		constexpr int HAND_POS = 0;
 		constexpr int FIELD_POS = 0;
 		Player->PlaceCardWithoutBattleCry(HAND_POS, FIELD_POS);
+
 		EXPECT_EQ(2, Player->GetNumCardsInHand());
 		EXPECT_EQ(1, Player->GetNumPlayedInField());
 	}
+
+	TEST_F(PlayerTest, TestDrawDiscards)
+	{
+		for(int i = 0; i < Hand::MAX_HAND_SIZE; i++)
+		{
+			Player->DrawCard();
+		}
+
+		EXPECT_EQ(Hand::MAX_HAND_SIZE, Player->GetNumCardsInHand());
+
+		Player->DrawCard();
+
+		EXPECT_EQ(Hand::MAX_HAND_SIZE, Player->GetNumCardsInHand());
+		EXPECT_EQ(
+			Deck::DEFAULT_DECK_SIZE - Hand::MAX_HAND_SIZE - 1, 
+			Player->GetNumCardsInDeck()
+		);
+	}
+
+
 }
