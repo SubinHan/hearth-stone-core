@@ -51,7 +51,7 @@
     <ClCompile Include="Model\Card\IMinionStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\MinionStatDecoratorModifier.cpp">
+    <ClCompile Include="Model\Card\MinionStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp">
@@ -102,6 +102,12 @@
     <ClCompile Include="Core\Game\GameMediator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Model\Event\ModifyMinionStatCommand.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Model\Event\EventListener.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Api\HearthstoneApi.h">
@@ -140,7 +146,7 @@
     <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h">
+    <ClInclude Include="Model\Card\MinionStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h">
@@ -183,6 +189,18 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="View\UserInteraction.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Event\ModifyMinionStatCommand.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Event\EventListener.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Event\Event.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Model\Event\ICommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

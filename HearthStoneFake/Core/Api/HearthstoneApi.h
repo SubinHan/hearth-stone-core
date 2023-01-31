@@ -13,9 +13,11 @@ namespace nyvux
 	class HearthstoneApi
 	{
 	public:
-		static const std::vector<std::string> GetAllCardList();
-		static const CardSpec GetCardSpecById(const int Id);
-		static const std::vector<CardSpec> GetCardSpecsByPage(const int Page);
+		HearthstoneApi() = default;
+		virtual ~HearthstoneApi() = default;
+		virtual const std::vector<std::string> GetAllCardList();
+		virtual const CardSpec GetCardSpecById(const int Id);
+		virtual const std::vector<CardSpec> GetCardSpecsByPage(const int Page);
 
 	public:
 		static constexpr std::string_view OAUTH_URL_HOST{ "oauth.battle.net" };

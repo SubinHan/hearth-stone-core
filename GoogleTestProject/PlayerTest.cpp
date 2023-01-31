@@ -23,7 +23,7 @@ namespace nyvux
 			DummyCards = MakeDummyCards();
 			shared_ptr<Deck> Deck = Deck::CreateDeck(DummyCards);
 
-			Player = Player::CreatePlayer(Deck);
+			Player = MakeDummyPlayerWithFakeGameMediator();
 		}
 
 		shared_ptr<Player> Player;

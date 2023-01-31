@@ -15,7 +15,10 @@ namespace nyvux
 		void PlaceCard(std::shared_ptr<AbstractPlaceableCard> PlaceableCard, int ColumnNumber);
 
 		int GetNumPlayed();
+		std::shared_ptr<AbstractPlaceableCard> GetCardAt(int ZeroBasedIndex);
+
 		bool CanPlace();
+		bool IsPlaced(std::shared_ptr<AbstractPlaceableCard> Card);
 
 	private:
 		static constexpr int MAX_FIELD_SIZE = 7;

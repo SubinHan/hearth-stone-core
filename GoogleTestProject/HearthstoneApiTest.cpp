@@ -36,7 +36,7 @@ namespace nyvux
 		ExpectedKeywordIds.push_back(238);
 		Expected.KeywordIds = ExpectedKeywordIds;
 
-		CardSpec Actual = HearthstoneApi::GetCardSpecById(CARD_ID);
+		CardSpec Actual = HearthstoneApi().GetCardSpecById(CARD_ID);
 
 		EXPECT_TRUE(Expected == Actual);
 	}
@@ -48,7 +48,7 @@ namespace nyvux
 		constexpr int CARD_ID = 1;
 		
 		CardSpec Expected = CardSpecRepository::INVALID_CARDSPEC;
-		CardSpec Actual = HearthstoneApi::GetCardSpecById(CARD_ID);
+		CardSpec Actual = HearthstoneApi().GetCardSpecById(CARD_ID);
 
 		EXPECT_TRUE(Expected == Actual);
 	}
@@ -59,7 +59,7 @@ namespace nyvux
 
 		for (int i = 1;; i++)
 		{
-			vector<CardSpec> CardSpecs = HearthstoneApi::GetCardSpecsByPage(i);
+			vector<CardSpec> CardSpecs = HearthstoneApi().GetCardSpecsByPage(i);
 			TotalNumCards += CardSpecs.size();
 
 			if (CardSpecs.empty())

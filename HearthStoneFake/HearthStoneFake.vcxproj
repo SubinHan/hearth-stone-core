@@ -276,9 +276,11 @@
     <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
     <ClCompile Include="Model\Card\Minion.cpp" />
     <ClCompile Include="Model\Card\MinionStat.cpp" />
-    <ClCompile Include="Model\Card\MinionStatDecoratorModifier.cpp" />
+    <ClCompile Include="Model\Card\MinionStatDecoratorModify.cpp" />
     <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp" />
     <ClCompile Include="Model\Card\MinionStatDecoratorEmpty.cpp" />
+    <ClCompile Include="Model\Event\EventListener.cpp" />
+    <ClCompile Include="Model\Event\ModifyMinionStatCommand.cpp" />
     <ClCompile Include="Model\Player\Deck.cpp" />
     <ClCompile Include="Core\Api\HearthstoneApi.cpp" />
     <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp" />
@@ -307,9 +309,13 @@
     <ClInclude Include="Model\Card\CardStatDecoratorModify.h" />
     <ClInclude Include="Model\Card\AbstractPlaceableCard.h" />
     <ClInclude Include="Model\Card\MinionStat.h" />
-    <ClInclude Include="Model\Card\MinionStatDecoratorModifier.h" />
+    <ClInclude Include="Model\Card\MinionStatDecoratorModify.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h" />
     <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h" />
+    <ClInclude Include="Model\Event\Event.h" />
+    <ClInclude Include="Model\Event\ICommand.h" />
+    <ClInclude Include="Model\Event\ModifyMinionStatCommand.h" />
+    <ClInclude Include="Model\Event\EventListener.h" />
     <ClInclude Include="Model\Player\Deck.h" />
     <ClInclude Include="Core\Api\HearthstoneApi.h" />
     <ClInclude Include="Core\Api\HearthstoneApiAuth.h" />

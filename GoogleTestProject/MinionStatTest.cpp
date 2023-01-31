@@ -3,7 +3,7 @@
 #include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
 #include "../HearthStoneFake/Model/Card/MinionStat.h"
 #include "../HearthStoneFake/Model/Card/CardSpec.h"
-#include "../HearthStoneFake/Model/Card/MinionStatDecoratorModifier.h"
+#include "../HearthStoneFake/Model/Card/MinionStatDecoratorModify.h"
 #include "../HearthStoneFake/Model/Card/MinionStatDecoratorSilence.h"
 
 using namespace std;
@@ -15,8 +15,8 @@ namespace nyvux
 	protected:
 		void SetUp() override
 		{
-			constexpr int CARD_ID = 69543;
-			CardSpec = HearthstoneApi::GetCardSpecById(CARD_ID);
+			constexpr int CARD_ID = MOCK_CARD_ID;
+			CardSpec = MakeCardSpecRepositoryToMock().GetCardSpecById(CARD_ID);
 		}
 
 		CardSpec CardSpec;
@@ -43,7 +43,7 @@ namespace nyvux
 		constexpr int EXPECTED_CURRENT_HEALTH = 7;
 
 		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
 		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
@@ -59,8 +59,8 @@ namespace nyvux
 		constexpr int EXPECTED_CURRENT_HEALTH = 9;
 
 		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
 		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
@@ -76,8 +76,8 @@ namespace nyvux
 		constexpr int EXPECTED_CURRENT_HEALTH = 5;
 
 		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 		MinionStat.Modify<MinionStatDecoratorSilence>();
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
@@ -94,10 +94,10 @@ namespace nyvux
 		constexpr int EXPECTED_CURRENT_HEALTH = 7;
 
 		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 		MinionStat.Modify<MinionStatDecoratorSilence>();
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
 		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
@@ -130,7 +130,7 @@ namespace nyvux
 		MinionStat MinionStat(CardSpec);
 
 		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
 		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
@@ -149,7 +149,7 @@ namespace nyvux
 		MinionStat MinionStat(CardSpec);
 
 		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
 		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
@@ -167,7 +167,7 @@ namespace nyvux
 		MinionStat MinionStat(CardSpec);
 
 		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModifier>(MODIFY_ATTACK, MODIFY_HEALTH);
+		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 		MinionStat.Modify<MinionStatDecoratorSilence>();
 
 		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());

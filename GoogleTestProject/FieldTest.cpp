@@ -10,15 +10,16 @@ using namespace std;
 
 namespace nyvux
 {
-	class MinionStatDecoratorModifier;
+	class MinionStatDecoratorModify;
 
 	class FieldTest : public ::testing::Test
 	{
 	protected:
-		static constexpr int CARD_ID = 69543;
+		static constexpr int CARD_ID = MOCK_CARD_ID;
 
 		void SetUp() override
 		{
+			MakeCardSpecRepositoryToMock();
 			Field = Field::CreateField();
 		}
 		
@@ -97,6 +98,20 @@ namespace nyvux
 		Minion = CardFactory::CreateMinionById(CARD_ID);
 		Field->PlaceCard(Minion, 0);
 		EXPECT_FALSE(Field->CanPlace());
+	}
+
+	TEST_F(FieldTest, TestIsPlaced)
+	{
+		shared_ptr<Minion> Minion = CardFactory::CreateMinionById(CARD_ID);
+
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->IsPlaced(Minion));
+
+		Minion = CardFactory::CreateMinionById(CARD_ID);
+		EXPECT_FALSE(Field->IsPlaced(Minion));
+
+		Field->PlaceCard(Minion, 0);
+		EXPECT_TRUE(Field->IsPlaced(Minion));
 	}
 
 }

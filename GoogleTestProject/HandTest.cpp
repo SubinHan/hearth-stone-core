@@ -10,7 +10,7 @@ using namespace std;
 
 namespace nyvux
 {
-	class MinionStatDecoratorModifier;
+	class MinionStatDecoratorModify;
 
 	class HandTest : public ::testing::Test
 	{
@@ -19,6 +19,7 @@ namespace nyvux
 
 		void SetUp() override
 		{
+			MakeCardSpecRepositoryToMock();
 			Hand = Hand::CreateHand();
 		}
 

@@ -1,23 +1,23 @@
-#include "MinionStatDecoratorModifier.h"
+#include "MinionStatDecoratorModify.h"
 
 using namespace std;
 
-nyvux::MinionStatDecoratorModifier::MinionStatDecoratorModifier(
+nyvux::MinionStatDecoratorModify::MinionStatDecoratorModify(
 	shared_ptr<IMinionStatDecorator> Component, int DeltaAttack, int DeltaHealth)
 	: IMinionStatDecorator(Component), DeltaAttack(DeltaAttack), DeltaHealth(DeltaHealth)
 {
 }
 
-nyvux::MinionStatDecoratorModifier::~MinionStatDecoratorModifier()
+nyvux::MinionStatDecoratorModify::~MinionStatDecoratorModify()
 {
 }
 
-int nyvux::MinionStatDecoratorModifier::GetDeltaHealth()
+int nyvux::MinionStatDecoratorModify::GetDeltaHealth()
 {
 	return DeltaHealth + Component->GetDeltaHealth();
 }
 
-int nyvux::MinionStatDecoratorModifier::GetDeltaAttack()
+int nyvux::MinionStatDecoratorModify::GetDeltaAttack()
 {
 	return DeltaAttack + Component->GetDeltaAttack();
 }

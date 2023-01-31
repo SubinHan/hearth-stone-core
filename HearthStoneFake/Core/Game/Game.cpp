@@ -3,9 +3,9 @@
 using namespace std;
 
 nyvux::Game::Game()
-	: PlayerA(make_shared<Player>(UserInteraction.ReadDeckPlayerA())),
-	PlayerB(make_shared<Player>(UserInteraction.ReadDeckPlayerB())),
-	GameMediator()
+	: GameMediator(),
+	PlayerA(make_shared<Player>(UserInteraction.ReadDeckPlayerA(), GameMediator)),
+	PlayerB(make_shared<Player>(UserInteraction.ReadDeckPlayerB(), GameMediator))
 {
-
+	GameMediator->RegisterPlayers(PlayerA, PlayerB);
 }

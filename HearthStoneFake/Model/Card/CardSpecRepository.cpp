@@ -46,7 +46,7 @@ namespace nyvux
 			std::vector<int>{}
 	};
 
-	CardSpecRepository::CardSpecRepository() : Repo()
+	CardSpecRepository::CardSpecRepository() : Repo(), Api(std::make_shared<HearthstoneApi>())
 	{
 		InitRepository();
 	}
@@ -62,10 +62,15 @@ namespace nyvux
 		if (Repo.find(CardId) != Repo.end())
 			return Repo[CardId];
 
-		CardSpec Spec = HearthstoneApi::GetCardSpecById(CardId);
+		CardSpec Spec = Api->GetCardSpecById(CardId);
 		Repo[CardId] = Spec;
 
 		return Repo[CardId];
+	}
+
+	void CardSpecRepository::SetHearthstoneApi(std::shared_ptr<HearthstoneApi> Api)
+	{
+		this->Api = Api;
 	}
 
 	void CardSpecRepository::InitRepository()

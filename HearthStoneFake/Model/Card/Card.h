@@ -1,11 +1,14 @@
 #pragma once
 
+#include "../Event/EventListener.h"
 #include "CardSpec.h"
 #include "CardStat.h"
 
 namespace nyvux
 {
-	class Card
+	class EventListener;
+
+	class Card : public EventListener
 	{
 	public:
 		virtual ~Card() = default;

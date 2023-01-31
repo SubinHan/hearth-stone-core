@@ -82,6 +82,7 @@ namespace nyvux
 
 const vector<string> HearthstoneApi::GetAllCardList()
 {
+	// TODO: Implement this.
 	return vector<string>{};
 }
 

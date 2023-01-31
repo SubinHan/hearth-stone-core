@@ -33,3 +33,18 @@ bool nyvux::Field::CanPlace()
 {
 	return FieldImpl.size() < MAX_FIELD_SIZE;
 }
+
+bool nyvux::Field::IsPlaced(std::shared_ptr<AbstractPlaceableCard> Card)
+{
+	auto Iter = find(FieldImpl.begin(), FieldImpl.end(), Card);
+	bool Found = Iter != FieldImpl.end();
+	return Found;
+}
+
+std::shared_ptr<nyvux::AbstractPlaceableCard> nyvux::Field::GetCardAt(int ZeroBasedIndex)
+{
+	auto Iter = FieldImpl.begin();
+	std::advance(Iter, ZeroBasedIndex);
+
+	return *Iter;
+}

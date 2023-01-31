@@ -3,7 +3,7 @@
 #include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
 #include "../HearthStoneFake/Model/Card/IMinionStatDecorator.h"
 #include "../HearthStoneFake/Model/Card/MinionStatDecoratorEmpty.h"
-#include "../HearthStoneFake/Model/Card/MinionStatDecoratorModifier.h"
+#include "../HearthStoneFake/Model/Card/MinionStatDecoratorModify.h"
 #include <vector>
 #include <memory>
 
@@ -25,7 +25,7 @@ namespace nyvux
 		constexpr int BUFF_HEALTH = 2;
 
 		shared_ptr<IMinionStatDecorator> Empty = make_shared<MinionStatDecoratorEmpty>();
-		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModifier>(
+		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModify>(
 			Empty, BUFF_ATTACK, BUFF_HEALTH);
 		
 		EXPECT_EQ(BUFF_ATTACK, Buffed->GetDeltaAttack());
@@ -38,9 +38,9 @@ namespace nyvux
 		constexpr int BUFF_HEALTH = 2;
 
 		shared_ptr<IMinionStatDecorator> Empty = make_shared<MinionStatDecoratorEmpty>();
-		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModifier>(
+		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModify>(
 			Empty, BUFF_ATTACK, BUFF_HEALTH);
-		shared_ptr<IMinionStatDecorator> MoreBuffed = make_shared<MinionStatDecoratorModifier>(
+		shared_ptr<IMinionStatDecorator> MoreBuffed = make_shared<MinionStatDecoratorModify>(
 			Buffed, BUFF_ATTACK, BUFF_HEALTH);
 
 		EXPECT_EQ(2 * BUFF_ATTACK, MoreBuffed->GetDeltaAttack());

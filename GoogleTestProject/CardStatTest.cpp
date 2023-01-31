@@ -3,13 +3,15 @@
 #include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
 #include "../HearthStoneFake/Model/Card/CardStat.h"
 #include "../HearthStoneFake/Model/Card/CardSpec.h"
+#include "../HearthStoneFake/Model/Card/CardSpecRepository.h"
 #include "../HearthStoneFake/Model/Card/CardStatDecoratorModify.h"
 
 using namespace std;
+using ::testing::Return;
 
 namespace nyvux
 {
-	class MinionStatDecoratorModifier;
+	class MinionStatDecoratorModify;
 
 	class CardStatTest : public ::testing::Test
 	{
@@ -17,7 +19,8 @@ namespace nyvux
 		void SetUp() override
 		{
 			constexpr int CARD_ID = 69543;
-			CardSpec = HearthstoneApi::GetCardSpecById(CARD_ID);
+			CardSpecRepository& Repository = MakeCardSpecRepositoryToMock();
+			CardSpec = Repository.GetCardSpecById(CARD_ID);
 		}
 
 		CardSpec CardSpec;

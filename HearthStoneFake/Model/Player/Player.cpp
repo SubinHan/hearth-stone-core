@@ -5,23 +5,24 @@
 using namespace std;
 using namespace nyvux;
 
-Player::Player(shared_ptr<nyvux::Deck> Deck)
+Player::Player(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMediator> GameMediator)
 	: Deck(Deck),
 	Field(Field::CreateField()),
-	Hand(Hand::CreateHand())
+	Hand(Hand::CreateHand()),
+	GameMediator(GameMediator)
 {
 }
 
-std::shared_ptr<Player> Player::CreatePlayer(std::shared_ptr<nyvux::Deck> Deck)
+std::shared_ptr<Player> Player::CreatePlayer(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMediator> GameMediator)
 {
-	return make_shared<Player>(Deck);
+	return make_shared<Player>(Deck, GameMediator);
 }
 
 void Player::DrawCard()
 {
 	shared_ptr<Card> Drawn = Deck->Draw();
 	Hand->AddCard(Drawn);
-	FireDrawed();
+	FireDrawed(Drawn);
 }
 
 int Player::GetNumCardsInDeck() const
@@ -61,16 +62,31 @@ void nyvux::Player::PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBa
 
 	Hand->RemoveCard(ZeroBasedHandIndex);
 	Field->PlaceCard(Placeable, ZeroBasedFieldIndex);
-	FirePlayed();
+	FirePlayed(Placeable);
+
+	if(Field->IsPlaced(Placeable))
+	{
+		FireSummoned(Placeable);
+	}
 }
 
-void Player::FirePlayed()
+std::shared_ptr<AbstractPlaceableCard> Player::GetCardInFieldAt(int ZeroBasedIndex)
+{
+	return Field->GetCardAt(ZeroBasedIndex);
+}
+
+void Player::FirePlayed(std::shared_ptr<Card> Card)
 {
 	// TODO: Implement it.
 }
 
-void Player::FireDrawed()
+void Player::FireDrawed(std::shared_ptr<Card> Card)
 {
-	// TODO: Implement it.
+	GameMediator->FireDrawed(shared_from_this(), Card);
+}
+
+void Player::FireSummoned(std::shared_ptr<AbstractPlaceableCard> Shared)
+{
+	GameMediator->FireSummoned(shared_from_this(), Shared);
 }
 
