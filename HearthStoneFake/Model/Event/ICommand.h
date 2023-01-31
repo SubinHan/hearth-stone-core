@@ -7,6 +7,6 @@ namespace nyvux
 	class ICommand
 	{
 	public:
-		virtual void execute(Event Event) = 0;
+		virtual void Execute(Event Event) = 0;
 	};
 }

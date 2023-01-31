@@ -14,7 +14,7 @@ namespace nyvux
 		ModifyMinionStatCommand() = delete;
 		ModifyMinionStatCommand(std::shared_ptr<Minion> Target, int DeltaAttack, int DeltaHealth);
 
-		void execute(Event Event) override;
+		void Execute(Event Event) override;
 
 	private:
 		std::shared_ptr<Minion> Target;

@@ -8,7 +8,7 @@ void nyvux::EventListener::OnDrawed(Event Event)
 {
 	for(auto Command : OnDrawedCommands)
 	{
-		Command->execute(Event);
+		Command->Execute(Event);
 	}
 }
 
@@ -16,7 +16,7 @@ void nyvux::EventListener::OnDamaged(Event Event)
 {
 	for (auto Command : OnDamagedCommands)
 	{
-		Command->execute(Event);
+		Command->Execute(Event);
 	}
 }
 
@@ -24,7 +24,7 @@ void nyvux::EventListener::OnHealed(Event Event)
 {
 	for (auto Command : OnHealedCommands)
 	{
-		Command->execute(Event);
+		Command->Execute(Event);
 	}
 }
 
@@ -32,7 +32,7 @@ void nyvux::EventListener::OnSummoned(Event Event)
 {
 	for (auto Command : OnSummonedCommands)
 	{
-		Command->execute(Event);
+		Command->Execute(Event);
 	}
 }
 

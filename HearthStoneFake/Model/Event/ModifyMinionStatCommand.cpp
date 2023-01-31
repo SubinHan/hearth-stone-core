@@ -10,7 +10,7 @@ nyvux::ModifyMinionStatCommand::ModifyMinionStatCommand(
 {
 }
 
-void nyvux::ModifyMinionStatCommand::execute(Event Event)
+void nyvux::ModifyMinionStatCommand::Execute(Event Event)
 {
 	Target->Modify<MinionStatDecoratorModify>(DeltaAttack, DeltaHealth);
 }

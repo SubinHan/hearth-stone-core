@@ -7,7 +7,6 @@
 #include "../HearthStoneFake/Model/Card/CardStatDecoratorModify.h"
 
 using namespace std;
-using ::testing::Return;
 
 namespace nyvux
 {
