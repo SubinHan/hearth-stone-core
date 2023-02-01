@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CardSpec.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/IMinionStatDecorator.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorBase.h"
 
 #include <memory>
 
@@ -23,6 +23,7 @@ namespace nyvux
 		int GetAttack();
 		int GetCurrentHealth();
 		bool IsGenerated();
+		bool IsTaunt();
 		bool CanBeTarget();
 
 	private:
@@ -30,7 +31,7 @@ namespace nyvux
 
 	private:
 		const CardSpec& Spec;
-		std::shared_ptr<IMinionStatDecorator> Decorator;
+		std::shared_ptr<MinionStatDecoratorBase> Decorator;
 
 		int CurrentHealth;
 		bool bIsGenerated;

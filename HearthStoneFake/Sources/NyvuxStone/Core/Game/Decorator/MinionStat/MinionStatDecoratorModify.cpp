@@ -3,8 +3,8 @@
 using namespace std;
 
 nyvux::MinionStatDecoratorModify::MinionStatDecoratorModify(
-	shared_ptr<nyvux::IMinionStatDecorator> Component, int DeltaAttack, int DeltaHealth)
-	: IMinionStatDecorator(Component), DeltaAttack(DeltaAttack), DeltaHealth(DeltaHealth)
+	shared_ptr<nyvux::MinionStatDecoratorBase> Component, int DeltaAttack, int DeltaHealth)
+	: MinionStatDecoratorBase(Component), DeltaAttack(DeltaAttack), DeltaHealth(DeltaHealth)
 {
 }
 

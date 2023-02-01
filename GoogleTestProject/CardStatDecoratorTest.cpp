@@ -1,8 +1,7 @@
 #include "pch.h"
 
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/IMinionStatDecorator.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorEmpty.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorBase.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 
 #include <vector>
@@ -12,12 +11,12 @@ using namespace std;
 
 namespace nyvux
 {
-	TEST(CardStatDecoratorTest, TestDecoratorEmpty)
+	TEST(CardStatDecoratorTest, TestDecoratorBase)
 	{
-		shared_ptr<IMinionStatDecorator> Empty = make_shared<MinionStatDecoratorEmpty>();
+		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
 
-		EXPECT_EQ(0, Empty->GetDeltaAttack());
-		EXPECT_EQ(0, Empty->GetDeltaHealth());
+		EXPECT_EQ(0, Base->GetDeltaAttack());
+		EXPECT_EQ(0, Base->GetDeltaHealth());
 	}
 
 	TEST(CardStatDecoratorTest, TestModifier)
@@ -25,9 +24,9 @@ namespace nyvux
 		constexpr int BUFF_ATTACK = 1;
 		constexpr int BUFF_HEALTH = 2;
 
-		shared_ptr<IMinionStatDecorator> Empty = make_shared<MinionStatDecoratorEmpty>();
-		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModify>(
-			Empty, BUFF_ATTACK, BUFF_HEALTH);
+		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
+		shared_ptr<MinionStatDecoratorBase> Buffed = make_shared<MinionStatDecoratorModify>(
+			Base, BUFF_ATTACK, BUFF_HEALTH);
 		
 		EXPECT_EQ(BUFF_ATTACK, Buffed->GetDeltaAttack());
 		EXPECT_EQ(BUFF_HEALTH, Buffed->GetDeltaHealth());
@@ -38,10 +37,10 @@ namespace nyvux
 		constexpr int BUFF_ATTACK = 1;
 		constexpr int BUFF_HEALTH = 2;
 
-		shared_ptr<IMinionStatDecorator> Empty = make_shared<MinionStatDecoratorEmpty>();
-		shared_ptr<IMinionStatDecorator> Buffed = make_shared<MinionStatDecoratorModify>(
-			Empty, BUFF_ATTACK, BUFF_HEALTH);
-		shared_ptr<IMinionStatDecorator> MoreBuffed = make_shared<MinionStatDecoratorModify>(
+		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
+		shared_ptr<MinionStatDecoratorBase> Buffed = make_shared<MinionStatDecoratorModify>(
+			Base, BUFF_ATTACK, BUFF_HEALTH);
+		shared_ptr<MinionStatDecoratorBase> MoreBuffed = make_shared<MinionStatDecoratorModify>(
 			Buffed, BUFF_ATTACK, BUFF_HEALTH);
 
 		EXPECT_EQ(2 * BUFF_ATTACK, MoreBuffed->GetDeltaAttack());

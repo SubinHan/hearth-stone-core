@@ -23,7 +23,7 @@ namespace nyvux
 
 	int Deck::GetCount()
 	{
-		return DeckImpl.size();
+		return static_cast<int>(DeckImpl.size());
 	}
 
 }

@@ -1,7 +1,7 @@
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
 
-nyvux::MinionStatDecoratorSilence::MinionStatDecoratorSilence(std::shared_ptr<nyvux::IMinionStatDecorator> Component)
-	: IMinionStatDecorator(Component)
+nyvux::MinionStatDecoratorSilence::MinionStatDecoratorSilence(std::shared_ptr<nyvux::MinionStatDecoratorBase> Component)
+	: MinionStatDecoratorBase(Component)
 {
 }
 
@@ -18,3 +18,9 @@ int nyvux::MinionStatDecoratorSilence::GetDeltaAttack()
 {
 	return 0;
 }
+
+bool nyvux::MinionStatDecoratorSilence::IsTaunt()
+{
+	return false;
+}
+

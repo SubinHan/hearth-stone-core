@@ -45,10 +45,7 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorEmpty.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\IMinionStatDecorator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorBase.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.cpp">
@@ -108,6 +105,9 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h">
@@ -140,10 +140,7 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\IMinionStatDecorator.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorEmpty.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorBase.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.h">
@@ -201,6 +198,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Event\ICommand.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,7 +26,7 @@ void nyvux::Field::PlaceCard(std::shared_ptr<AbstractPlaceableCard> PlaceableCar
 
 int nyvux::Field::GetNumPlayed()
 {
-	return FieldImpl.size();
+	return static_cast<int>(FieldImpl.size());
 }
 
 bool nyvux::Field::CanPlace()

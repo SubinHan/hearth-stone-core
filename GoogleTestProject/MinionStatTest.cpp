@@ -3,6 +3,7 @@
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorTaunt.h"
 #include "NyvuxStone/Model/Card/MinionStat.h"
 #include "NyvuxStone/Model/Card/CardSpec.h"
 
@@ -201,4 +202,17 @@ namespace nyvux
 		EXPECT_EQ(EXPECTED_HEALTH, MinionStat.GetCurrentHealth());
 	}
 
+	TEST_F(MinionStatTest, TestTaunt)
+	{
+		MinionStat MinionStat(CardSpec);
+
+		EXPECT_FALSE(MinionStat.IsTaunt());
+		MinionStat.Modify<MinionStatDecoratorTaunt>();
+		EXPECT_TRUE(MinionStat.IsTaunt());
+		MinionStat.Modify<MinionStatDecoratorSilence>();
+		EXPECT_FALSE(MinionStat.IsTaunt());
+		MinionStat.Modify<MinionStatDecoratorTaunt>();
+		EXPECT_TRUE(MinionStat.IsTaunt());
+	}
+	
 }

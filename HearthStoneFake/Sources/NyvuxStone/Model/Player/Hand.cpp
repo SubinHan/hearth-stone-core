@@ -11,7 +11,7 @@ shared_ptr<nyvux::Hand> nyvux::Hand::CreateHand()
 
 int nyvux::Hand::GetNumCards()
 {
-	return HandImpl.size();
+	return static_cast<int>(HandImpl.size());
 }
 
 std::shared_ptr<nyvux::Card> nyvux::Hand::GetCard(int ZeroBasedIndex)

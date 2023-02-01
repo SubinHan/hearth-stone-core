@@ -60,7 +60,7 @@ namespace nyvux
 		for (int i = 1;; i++)
 		{
 			vector<CardSpec> CardSpecs = HearthstoneApi().GetCardSpecsByPage(i);
-			TotalNumCards += CardSpecs.size();
+			TotalNumCards += static_cast<int>(CardSpecs.size());
 
 			if (CardSpecs.empty())
 				break;
