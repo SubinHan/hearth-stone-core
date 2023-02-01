@@ -2,8 +2,6 @@
 
 #include "NyvuxStone/Core/Api/HearthstoneApiAuth.h"
 
-#include <memory>
-
 namespace nyvux
 {
 	TEST(HearthstoneApiAuthTest, TestSingleton) 

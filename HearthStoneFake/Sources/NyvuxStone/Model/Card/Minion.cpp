@@ -37,3 +37,8 @@ bool nyvux::Minion::IsGenerated()
 {
 	return MinionStat.IsGenerated();
 }
+
+bool nyvux::Minion::IsTaunt()
+{
+	return MinionStat.IsTaunt();
+}

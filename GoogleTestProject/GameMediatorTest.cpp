@@ -5,8 +5,6 @@
 #include "NyvuxStone/Model/Card/Minion.h"
 #include "NyvuxStone/Model/Event/ModifyMinionStatCommand.h"
 
-#include <memory>
-
 using namespace std;
 
 namespace nyvux
@@ -32,7 +30,7 @@ namespace nyvux
 	TEST_F(GameMediatorTest, TestDrawEvent)
 	{
 		PlayerA->DrawCard();
-		PlayerA->PlaceCardWithoutBattleCry(0, 0);
+		PlayerA->PlaceCardWithoutBattlecry(0, 0);
 		auto Placeable = PlayerA->GetCardInFieldAt(0);
 
 		shared_ptr<Minion> Minion = dynamic_pointer_cast<nyvux::Minion>(Placeable);
@@ -53,6 +51,15 @@ namespace nyvux
 
 		EXPECT_EQ(DUMMY_ORIGINAL_HEALTH + MODIFY_HEALTH, Minion->GetMaxHealth());
 		EXPECT_EQ(DUMMY_ORIGINAL_ATTACK + MODIFY_ATTACK, Minion->GetAttack());
+	}
+
+	TEST_F(GameMediatorTest, TestGetOpponentPlayer)
+	{
+		EXPECT_TRUE(&(*(GameMediator->GetOpponentPlayerOf(PlayerA))) == &(*(PlayerB)));
+		EXPECT_TRUE(&(*(GameMediator->GetOpponentPlayerOf(PlayerB))) == &(*(PlayerA)));
+
+		EXPECT_TRUE(GameMediator->GetOpponentPlayerOf(PlayerA) == PlayerB);
+		EXPECT_TRUE(GameMediator->GetOpponentPlayerOf(PlayerB) == PlayerA);
 	}
 	
 }

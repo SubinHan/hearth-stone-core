@@ -1,11 +1,12 @@
 #include "pch.h"
 
-#include "NyvuxStone/Core/Api/HearthstoneApi.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorTaunt.h"
 #include "NyvuxStone/Model/Card/MinionStat.h"
 #include "NyvuxStone/Model/Card/CardSpec.h"
+
+#include "Helper.h"
 
 using namespace std;
 

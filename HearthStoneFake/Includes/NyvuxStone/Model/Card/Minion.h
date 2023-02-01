@@ -19,6 +19,7 @@ namespace nyvux
 
 		template<class DecoratorType, class... Types>
 		void Modify(Types... Args);
+		bool IsTaunt();
 
 	private:
 		MinionStat MinionStat;

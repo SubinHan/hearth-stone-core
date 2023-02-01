@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "Helper.h"
 
 #include "NyvuxStone/Model/Card/CardFactory.h"

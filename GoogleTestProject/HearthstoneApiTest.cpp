@@ -3,7 +3,6 @@
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
 #include "NyvuxStone/Model/Card/CardSpec.h"
 #include "NyvuxStone/Model/Card/CardSpecRepository.h"
-#include <vector>
 
 using namespace std;
 

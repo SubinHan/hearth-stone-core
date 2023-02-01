@@ -4,7 +4,7 @@
 #include "NyvuxStone/Model/Card/Minion.h"
 #include "NyvuxStone/Model/Player/Field.h"
 
-#include <memory>
+#include "Helper.h"
 
 using namespace std;
 

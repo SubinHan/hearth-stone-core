@@ -4,9 +4,6 @@
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorBase.h"
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 
-#include <vector>
-#include <memory>
-
 using namespace std;
 
 namespace nyvux

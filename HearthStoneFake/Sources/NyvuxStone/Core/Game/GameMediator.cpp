@@ -13,6 +13,11 @@ void nyvux::GameMediator::RegisterPlayers(std::shared_ptr<Player> PlayerA, std::
 	this->PlayerB = PlayerB;
 }
 
+std::shared_ptr<nyvux::Player> nyvux::GameMediator::GetOpponentPlayerOf(std::shared_ptr<Player> This)
+{
+	return This == PlayerA ? PlayerB : PlayerA;
+}
+
 void nyvux::GameMediator::FireDrawed(std::shared_ptr<Player> Player, std::shared_ptr<nyvux::Card> Card)
 {
 	for (auto& Listener : Listeners)

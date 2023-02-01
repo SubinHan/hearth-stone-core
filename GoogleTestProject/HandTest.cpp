@@ -4,7 +4,7 @@
 #include "NyvuxStone/Model/Card/Card.h"
 #include "NyvuxStone/Model/Player/Hand.h"
 
-#include <memory>
+#include "Helper.h"
 
 using namespace std;
 

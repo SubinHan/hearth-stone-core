@@ -1,11 +1,9 @@
 #include "pch.h"
 
-#include <vector>
-#include "Helper.h"
 #include "NyvuxStone/Model/Card/Card.h"
 #include "NyvuxStone/Model/Player/Player.h"
 
-#include <memory>
+#include "Helper.h"
 
 using namespace std;
 
@@ -47,7 +45,7 @@ namespace nyvux
 
 		constexpr int HAND_POS = 0;
 		constexpr int FIELD_POS = 0;
-		Player->PlaceCardWithoutBattleCry(HAND_POS, FIELD_POS);
+		Player->PlaceCardWithoutBattlecry(HAND_POS, FIELD_POS);
 
 		EXPECT_EQ(2, Player->GetNumCardsInHand());
 		EXPECT_EQ(1, Player->GetNumPlayedInField());
@@ -69,10 +67,5 @@ namespace nyvux
 			Deck::DEFAULT_DECK_SIZE - Hand::MAX_HAND_SIZE - 1, 
 			Player->GetNumCardsInDeck()
 		);
-	}
-
-	TEST_F(PlayerTest, TestCanAttack)
-	{
-		
 	}
 }

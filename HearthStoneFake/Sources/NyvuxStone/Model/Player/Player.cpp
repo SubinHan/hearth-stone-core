@@ -42,7 +42,7 @@ int nyvux::Player::GetNumPlayedInField() const
 	return Field->GetNumPlayed();
 }
 
-void nyvux::Player::PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex)
+void nyvux::Player::PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex)
 {
 	if (!Field->CanPlace())
 	{
@@ -75,6 +75,41 @@ void nyvux::Player::PlaceCardWithoutBattleCry(int ZeroBasedHandIndex, int ZeroBa
 std::shared_ptr<AbstractPlaceableCard> Player::GetCardInFieldAt(int ZeroBasedIndex)
 {
 	return Field->GetCardAt(ZeroBasedIndex);
+}
+
+bool nyvux::Player::CanAttack(int ZeroBasedFieldIndexOfOpponents)
+{
+	auto Opponent = GameMediator->GetOpponentPlayerOf(shared_from_this());
+	auto Placeable = Opponent->GetCardInFieldAt(ZeroBasedFieldIndexOfOpponents);
+
+	auto Minion = dynamic_pointer_cast<nyvux::Minion>(Placeable);
+
+	if (!Minion)
+	{
+		// The card is a location.
+		return false;
+	}
+
+	if (Minion->IsTaunt())
+	{
+		return true;
+	}
+
+	for(int i = 0; i < Opponent->GetNumPlayedInField(); i++)
+	{
+		if (i == ZeroBasedFieldIndexOfOpponents)
+			continue;
+		auto AnotherPlaceable = Opponent->GetCardInFieldAt(i);
+		auto AnotherMinion = dynamic_pointer_cast<nyvux::Minion>(AnotherPlaceable);
+
+		if (!AnotherMinion)
+			continue;
+
+		if (AnotherMinion->IsTaunt())
+			return false;
+	}
+
+	return true;
 }
 
 void Player::FirePlayed(std::shared_ptr<Card> Card)

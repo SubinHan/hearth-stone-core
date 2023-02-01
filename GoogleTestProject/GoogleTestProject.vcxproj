@@ -87,6 +87,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLib|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="PlayerGameMediatorTest.cpp" />
     <ClCompile Include="PlayerTest.cpp" />
     <ClCompile Include="RequestBuilderTest.cpp" />
   </ItemGroup>

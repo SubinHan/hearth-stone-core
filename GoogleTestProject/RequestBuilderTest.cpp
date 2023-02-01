@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "NyvuxStone/Core/Api/Request.h"
-#include "NyvuxStone/Core/Api/ApiConnection.h"
 
 namespace nyvux
 {

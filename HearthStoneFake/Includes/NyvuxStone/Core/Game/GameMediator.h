@@ -20,6 +20,8 @@ namespace nyvux
 		~GameMediator() = default;
 
 		void RegisterPlayers(std::shared_ptr<Player> PlayerA, std::shared_ptr<Player> PlayerB);
+		std::shared_ptr<Player> GetOpponentPlayerOf(std::shared_ptr<Player> This);
+
 		void FireDrawed(std::shared_ptr<Player> Player, std::shared_ptr<Card> Card);
 		void FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<AbstractPlaceableCard> Card);
 
