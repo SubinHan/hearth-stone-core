@@ -1,7 +1,6 @@
 #pragma once
 
 #include "IMinionStatDecorator.h"
-#include "CardSpec.h"
 
 namespace nyvux
 {
@@ -12,8 +11,5 @@ namespace nyvux
 		virtual ~MinionStatDecoratorEmpty();
 		int GetDeltaHealth() override;
 		int GetDeltaAttack() override;
-
-	private:
-		CardSpec Spec;
 	};
 }

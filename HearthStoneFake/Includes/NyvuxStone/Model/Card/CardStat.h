@@ -2,7 +2,7 @@
 #include <memory>
 
 #include "CardSpec.h"
-#include "ICardStatDecorator.h"
+#include "NyvuxStone/Core/Game/Decorator/CardStat/ICardStatDecorator.h"
 
 namespace nyvux
 {

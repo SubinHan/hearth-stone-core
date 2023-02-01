@@ -1,6 +1,6 @@
 #include "NyvuxStone/Model/Card/MinionStat.h"
 
-#include "NyvuxStone/Model/Card/MinionStatDecoratorEmpty.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorEmpty.h"
 
 nyvux::MinionStat::MinionStat(const CardSpec& CardSpec)
 	: Spec(CardSpec),

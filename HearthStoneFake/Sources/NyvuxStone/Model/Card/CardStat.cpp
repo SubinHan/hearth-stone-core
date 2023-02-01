@@ -1,6 +1,6 @@
 #include "NyvuxStone/Model/Card/CardStat.h"
 
-#include "NyvuxStone/Model/Card/CardStatDecoratorVanilla.h"
+#include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorVanilla.h"
 
 nyvux::CardStat::CardStat(const CardSpec& Spec)
 	: Spec(Spec),

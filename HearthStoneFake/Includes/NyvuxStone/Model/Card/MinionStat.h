@@ -1,9 +1,10 @@
 #pragma once
 
 #include "CardSpec.h"
-#include "IMinionStatDecorator.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/IMinionStatDecorator.h"
 
 #include <memory>
+
 
 namespace nyvux
 {

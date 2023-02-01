@@ -1,4 +1,4 @@
-#include "NyvuxStone/Model/Card/CardStatDecoratorVanilla.h"
+#include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorVanilla.h"
 
 nyvux::CardStatDecoratorVanilla::CardStatDecoratorVanilla(int ManaCost)
 	: ICardStatDecorator(nullptr),

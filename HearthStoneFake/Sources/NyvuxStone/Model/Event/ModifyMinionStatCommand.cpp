@@ -1,6 +1,6 @@
 #include "NyvuxStone/Model/Event/ModifyMinionStatCommand.h"
 
-#include "NyvuxStone/Model/Card/MinionStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 
 nyvux::ModifyMinionStatCommand::ModifyMinionStatCommand(
 	std::shared_ptr<Minion> Target, 

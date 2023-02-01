@@ -45,16 +45,16 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorEmpty.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\IMinionStatDecorator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\IMinionStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorModify.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorSilence.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorSilence.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp">
@@ -63,13 +63,13 @@
     <ClCompile Include="Includes\NyvuxStone\Model\Card\Minion.h">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\ICardStatDecorator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CardStat\ICardStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorModify.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CardStat\CardStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorVanilla.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CardStat\CardStatDecoratorVanilla.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStat.cpp">
@@ -140,16 +140,16 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\IMinionStatDecorator.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\IMinionStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorModify.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorSilence.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorSilence.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
@@ -161,13 +161,13 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\ICardStatDecorator.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CardStat\ICardStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorModify.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CardStat\CardStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorVanilla.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CardStat\CardStatDecoratorVanilla.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Card\AbstractPlaceableCard.h">

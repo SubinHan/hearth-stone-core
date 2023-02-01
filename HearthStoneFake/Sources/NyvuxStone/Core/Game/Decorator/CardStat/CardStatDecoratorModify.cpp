@@ -1,4 +1,4 @@
-#include "NyvuxStone/Model/Card/CardStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorModify.h"
 
 #include <algorithm>
 

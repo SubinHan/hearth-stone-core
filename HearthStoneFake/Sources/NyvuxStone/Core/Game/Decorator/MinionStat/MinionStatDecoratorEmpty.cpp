@@ -1,4 +1,4 @@
-#include "NyvuxStone/Model/Card/MinionStatDecoratorEmpty.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorEmpty.h"
 
 #include <memory>
 

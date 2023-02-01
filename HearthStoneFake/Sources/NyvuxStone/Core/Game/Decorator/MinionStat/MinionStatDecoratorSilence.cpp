@@ -1,6 +1,6 @@
-#include "NyvuxStone/Model/Card/MinionStatDecoratorSilence.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
 
-nyvux::MinionStatDecoratorSilence::MinionStatDecoratorSilence(std::shared_ptr<IMinionStatDecorator> Component)
+nyvux::MinionStatDecoratorSilence::MinionStatDecoratorSilence(std::shared_ptr<nyvux::IMinionStatDecorator> Component)
 	: IMinionStatDecorator(Component)
 {
 }

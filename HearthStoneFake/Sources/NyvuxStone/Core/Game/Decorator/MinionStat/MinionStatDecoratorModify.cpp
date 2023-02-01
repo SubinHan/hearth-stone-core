@@ -1,9 +1,9 @@
-#include "NyvuxStone/Model/Card/MinionStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 
 using namespace std;
 
 nyvux::MinionStatDecoratorModify::MinionStatDecoratorModify(
-	shared_ptr<IMinionStatDecorator> Component, int DeltaAttack, int DeltaHealth)
+	shared_ptr<nyvux::IMinionStatDecorator> Component, int DeltaAttack, int DeltaHealth)
 	: IMinionStatDecorator(Component), DeltaAttack(DeltaAttack), DeltaHealth(DeltaHealth)
 {
 }
