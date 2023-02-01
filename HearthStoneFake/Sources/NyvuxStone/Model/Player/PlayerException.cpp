@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Player/PlayerException.h"
 
 nyvux::PlayerException::PlayerException(const char* Message)

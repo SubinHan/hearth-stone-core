@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
 
 using namespace std;

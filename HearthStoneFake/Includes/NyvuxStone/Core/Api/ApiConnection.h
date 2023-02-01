@@ -2,9 +2,6 @@
 
 #include <string>
 
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-
 #include "Request.h"
 
 namespace nyvux

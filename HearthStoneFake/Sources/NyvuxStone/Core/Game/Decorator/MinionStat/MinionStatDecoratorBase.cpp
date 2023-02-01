@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorBase.h"
 
 nyvux::MinionStatDecoratorBase::MinionStatDecoratorBase()

@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Api/Request.h"
 
 #include <boost/regex.hpp>

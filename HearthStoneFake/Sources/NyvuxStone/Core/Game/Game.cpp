@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Game.h"
 
 using namespace std;

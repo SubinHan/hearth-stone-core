@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Player/Hand.h"
 
 #include <algorithm>

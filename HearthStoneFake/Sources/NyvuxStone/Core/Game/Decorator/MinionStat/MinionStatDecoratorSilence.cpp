@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
 
 nyvux::MinionStatDecoratorSilence::MinionStatDecoratorSilence(std::shared_ptr<nyvux::MinionStatDecoratorBase> Component)

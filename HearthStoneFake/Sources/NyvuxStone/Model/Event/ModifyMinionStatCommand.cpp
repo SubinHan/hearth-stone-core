@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Event/ModifyMinionStatCommand.h"
 
 #include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"

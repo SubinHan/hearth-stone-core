@@ -1,5 +1,6 @@
-#include "NyvuxStone/View/UserInteraction.h"
+#include "pch.h"
 
+#include "NyvuxStone/View/UserInteraction.h"
 #include "NyvuxStone/Model/Card/CardFactory.h"
 
 #include <memory>

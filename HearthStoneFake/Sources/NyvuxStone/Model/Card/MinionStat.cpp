@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Card/MinionStat.h"
 
 nyvux::MinionStat::MinionStat(const CardSpec& CardSpec)

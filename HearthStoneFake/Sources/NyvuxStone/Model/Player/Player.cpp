@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Player/Player.h"
 
 #include "NyvuxStone/Model/Player/PlayerException.h"

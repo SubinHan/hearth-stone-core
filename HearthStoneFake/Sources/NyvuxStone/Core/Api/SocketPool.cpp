@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Api/SocketPool.h"
 
 #include <iostream>

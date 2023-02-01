@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorVanilla.h"
 
 nyvux::CardStatDecoratorVanilla::CardStatDecoratorVanilla(int ManaCost)

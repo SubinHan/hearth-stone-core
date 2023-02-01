@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/GameMediator.h"
 
 nyvux::GameMediator::GameMediator()

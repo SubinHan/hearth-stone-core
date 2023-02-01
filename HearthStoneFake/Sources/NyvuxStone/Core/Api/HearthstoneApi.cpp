@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
 
 #include "NyvuxStone/Core/Api/HearthstoneApiAuth.h"

@@ -1,12 +1,6 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Api/ApiConnection.h"
-
-#include <iostream>
-
-#include <boost/beast/core.hpp>
-#include <boost/beast/http.hpp>
-#include <boost/beast/version.hpp>
-#include <boost/asio/ip/tcp.hpp>
-#include <boost/asio/ssl/error.hpp>
 
 #include "NyvuxStone/Core/Api/SocketPool.h"
 

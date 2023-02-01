@@ -108,6 +108,9 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\pch.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h">
@@ -201,6 +204,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,12 +1,8 @@
 #pragma once
 
-#include <vector>
-#include <string>
 
 #include "../../Model/Card/CardSpec.h"
 #include "ApiConnection.h"
-
-#include <boost/json.hpp>
 
 namespace nyvux
 {

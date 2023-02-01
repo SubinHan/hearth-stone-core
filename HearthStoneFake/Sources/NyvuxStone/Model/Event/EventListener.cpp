@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Event/EventListener.h"
 
 nyvux::EventListener::~EventListener()

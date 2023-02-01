@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Model/Card/CardSpecRepository.h"
 
 namespace nyvux

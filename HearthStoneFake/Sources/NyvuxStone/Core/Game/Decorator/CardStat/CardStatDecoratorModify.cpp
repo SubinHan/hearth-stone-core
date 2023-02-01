@@ -1,3 +1,5 @@
+#include "pch.h"
+
 #include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorModify.h"
 
 #include <algorithm>
