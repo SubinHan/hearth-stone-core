@@ -1,9 +1,9 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
-#include "../HearthStoneFake/Model/Card/IMinionStatDecorator.h"
-#include "../HearthStoneFake/Model/Card/MinionStatDecoratorEmpty.h"
-#include "../HearthStoneFake/Model/Card/MinionStatDecoratorModify.h"
+#include "NyvuxStone/Core/Api/HearthstoneApi.h"
+#include "NyvuxStone/Model/Card/IMinionStatDecorator.h"
+#include "NyvuxStone/Model/Card/MinionStatDecoratorEmpty.h"
+#include "NyvuxStone/Model/Card/MinionStatDecoratorModify.h"
 #include <vector>
 #include <memory>
 

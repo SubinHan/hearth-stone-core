@@ -2,8 +2,8 @@
 
 #include <vector>
 #include "Helper.h"
-#include "../HearthStoneFake/Model/Card/Card.h"
-#include "../HearthStoneFake/Model/Player/Deck.h"
+#include "NyvuxStone/Model/Card/Card.h"
+#include "NyvuxStone/Model/Player/Deck.h"
 
 #include <memory>
 

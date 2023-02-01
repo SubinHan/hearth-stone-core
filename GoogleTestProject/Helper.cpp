@@ -1,7 +1,7 @@
 #include "Helper.h"
 
-#include "../HearthStoneFake/Model/Card/CardFactory.h"
-#include "../HearthStoneFake/Model/Player/Deck.h"
+#include "NyvuxStone/Model/Card/CardFactory.h"
+#include "NyvuxStone/Model/Player/Deck.h"
 
 using namespace std;
 using namespace nyvux;

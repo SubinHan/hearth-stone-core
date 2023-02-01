@@ -53,6 +53,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(ExternalIncludePath)</ExternalIncludePath>
     <Microsoft-GoogleTest-Disable-gtest_main>true</Microsoft-GoogleTest-Disable-gtest_main>
+    <IncludePath>D:\c++\HearthStoneFake\HearthStoneFake\Includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|x64'">
     <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(ExternalIncludePath)</ExternalIncludePath>

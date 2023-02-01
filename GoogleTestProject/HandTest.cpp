@@ -1,8 +1,8 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/Model/Card/CardFactory.h"
-#include "../HearthStoneFake/Model/Card/Card.h"
-#include "../HearthStoneFake/Model/Player/Hand.h"
+#include "NyvuxStone/Model/Card/CardFactory.h"
+#include "NyvuxStone/Model/Card/Card.h"
+#include "NyvuxStone/Model/Player/Hand.h"
 
 #include <memory>
 

@@ -1,9 +1,9 @@
 #include "pch.h"
 
 #include "Helper.h"
-#include "../HearthStoneFake/Core/Game/GameMediator.h"
-#include "../HearthStoneFake/Model/Card/Minion.h"
-#include "../HearthStoneFake/Model/Event/ModifyMinionStatCommand.h"
+#include "NyvuxStone/Core/Game/GameMediator.h"
+#include "NyvuxStone/Model/Card/Minion.h"
+#include "NyvuxStone/Model/Event/ModifyMinionStatCommand.h"
 
 #include <memory>
 

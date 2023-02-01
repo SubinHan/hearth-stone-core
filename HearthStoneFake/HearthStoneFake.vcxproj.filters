@@ -18,189 +18,189 @@
     <ClCompile Include="Main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Api\HearthstoneApi.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\HearthstoneApi.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Api\ApiConnection.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\ApiConnection.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\HearthstoneApiAuth.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Api\Request.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\Request.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardSpecRepository.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardSpecRepository.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardFactory.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardFactory.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\Card.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Card.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Player\Deck.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Deck.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Api\SocketPool.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\MinionStatDecoratorEmpty.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\IMinionStatDecorator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\IMinionStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\MinionStatDecoratorModify.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorSilence.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\MinionStat.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\Minion.h">
+    <ClCompile Include="Includes\NyvuxStone\Model\Card\Minion.h">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\ICardStatDecorator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\ICardStatDecorator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStatDecoratorModify.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStatDecoratorVanilla.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorVanilla.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\CardStat.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\Minion.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Minion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Player\Field.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Field.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Player\Hand.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Hand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Player\Player.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Player.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Player\PlayerException.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\PlayerException.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Card\AbstractPlaceableCard.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\AbstractPlaceableCard.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Game\Game.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Game.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="View\UserInteraction.cpp">
+    <ClCompile Include="Sources\NyvuxStone\View\UserInteraction.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Core\Game\GameMediator.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\GameMediator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Event\ModifyMinionStatCommand.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\ModifyMinionStatCommand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Model\Event\EventListener.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Api\HearthstoneApi.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Api\ApiConnection.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\ApiConnection.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardSpec.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardSpec.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Api\HearthstoneApiAuth.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApiAuth.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Api\Request.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\Request.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Player\Deck.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Deck.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\Card.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Card.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardFactory.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardFactory.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardSpecRepository.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardSpecRepository.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Api\SocketPool.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\IMinionStatDecorator.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\IMinionStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\MinionStatDecoratorModify.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorSilence.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\MinionStat.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Player\Field.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Field.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStat.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\ICardStatDecorator.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\ICardStatDecorator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStatDecoratorModify.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorVanilla.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Card\AbstractPlaceableCard.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\AbstractPlaceableCard.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Player\Player.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Player.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Player\Hand.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Hand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Player\PlayerException.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\PlayerException.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Game\GameMediator.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\GameMediator.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Core\Game\Game.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Game.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="View\UserInteraction.h">
+    <ClInclude Include="Includes\NyvuxStone\View\UserInteraction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Event\ModifyMinionStatCommand.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\ModifyMinionStatCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Event\EventListener.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Event\Event.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Model\Event\ICommand.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\ICommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,10 +2,10 @@
 
 #include <gmock/gmock.h>
 
-#include "../HearthStoneFake/Model/Card/Card.h"
-#include "../HearthStoneFake/Model/Card/CardSpecRepository.h"
-#include "../HearthStoneFake/Model/Player/Player.h"
-#include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
+#include "NyvuxStone/Model/Card/Card.h"
+#include "NyvuxStone/Model/Card/CardSpecRepository.h"
+#include "NyvuxStone/Model/Player/Player.h"
+#include "NyvuxStone/Core/Api/HearthstoneApi.h"
 
 #include <memory>
 #include <vector>

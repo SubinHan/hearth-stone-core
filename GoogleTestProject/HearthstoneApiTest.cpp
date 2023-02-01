@@ -1,8 +1,8 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
-#include "../HearthStoneFake/Model/Card/CardSpec.h"
-#include "../HearthStoneFake/Model/Card/CardSpecRepository.h"
+#include "NyvuxStone/Core/Api/HearthstoneApi.h"
+#include "NyvuxStone/Model/Card/CardSpec.h"
+#include "NyvuxStone/Model/Card/CardSpecRepository.h"
 #include <vector>
 
 using namespace std;

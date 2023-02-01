@@ -2,8 +2,8 @@
 
 #include <vector>
 #include "Helper.h"
-#include "../HearthStoneFake/Model/Card/Card.h"
-#include "../HearthStoneFake/Model/Player/Player.h"
+#include "NyvuxStone/Model/Card/Card.h"
+#include "NyvuxStone/Model/Player/Player.h"
 
 #include <memory>
 
@@ -71,5 +71,8 @@ namespace nyvux
 		);
 	}
 
-
+	TEST_F(PlayerTest, TestCanAttack)
+	{
+		
+	}
 }

@@ -140,6 +140,7 @@
     </Linkage-openssl>
     <Linkage-zlib>
     </Linkage-zlib>
+    <IncludePath>D:\c++\HearthStoneFake\HearthStoneFake\Includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -263,70 +264,70 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Core\Api\ApiConnection.cpp" />
-    <ClCompile Include="Core\Game\Game.cpp" />
-    <ClCompile Include="Core\Game\GameMediator.cpp" />
-    <ClCompile Include="Model\Card\AbstractPlaceableCard.cpp" />
-    <ClCompile Include="Model\Card\Card.cpp" />
-    <ClCompile Include="Model\Card\CardFactory.cpp" />
-    <ClCompile Include="Model\Card\CardSpecRepository.cpp" />
-    <ClCompile Include="Model\Card\CardStat.cpp" />
-    <ClCompile Include="Model\Card\CardStatDecoratorVanilla.cpp" />
-    <ClCompile Include="Model\Card\CardStatDecoratorModify.cpp" />
-    <ClCompile Include="Model\Card\ICardStatDecorator.cpp" />
-    <ClCompile Include="Model\Card\Minion.cpp" />
-    <ClCompile Include="Model\Card\MinionStat.cpp" />
-    <ClCompile Include="Model\Card\MinionStatDecoratorModify.cpp" />
-    <ClCompile Include="Model\Card\MinionStatDecoratorSilence.cpp" />
-    <ClCompile Include="Model\Card\MinionStatDecoratorEmpty.cpp" />
-    <ClCompile Include="Model\Event\EventListener.cpp" />
-    <ClCompile Include="Model\Event\ModifyMinionStatCommand.cpp" />
-    <ClCompile Include="Model\Player\Deck.cpp" />
-    <ClCompile Include="Core\Api\HearthstoneApi.cpp" />
-    <ClCompile Include="Core\Api\HearthstoneApiAuth.cpp" />
-    <ClCompile Include="Model\Card\IMinionStatDecorator.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\ApiConnection.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Game.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\GameMediator.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\AbstractPlaceableCard.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Card.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardFactory.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardSpecRepository.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStat.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorVanilla.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CardStatDecoratorModify.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\ICardStatDecorator.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Minion.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorModify.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorSilence.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\ModifyMinionStatCommand.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Deck.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\HearthstoneApi.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\HearthstoneApiAuth.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\IMinionStatDecorator.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Core\Api\Request.cpp" />
-    <ClCompile Include="Core\Api\SocketPool.cpp" />
-    <ClCompile Include="Model\Card\Minion.h" />
-    <ClCompile Include="Model\Player\Field.cpp" />
-    <ClCompile Include="Model\Player\Hand.cpp" />
-    <ClCompile Include="Model\Player\Player.cpp" />
-    <ClCompile Include="Model\Player\PlayerException.cpp" />
-    <ClCompile Include="View\UserInteraction.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\Request.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp" />
+    <ClCompile Include="Includes\NyvuxStone\Model\Card\Minion.h" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Field.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Hand.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Player.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\PlayerException.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\View\UserInteraction.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Core\Api\ApiConnection.h" />
-    <ClInclude Include="Core\Game\Game.h" />
-    <ClInclude Include="Core\Game\GameMediator.h" />
-    <ClInclude Include="Model\Card\Card.h" />
-    <ClInclude Include="Model\Card\CardFactory.h" />
-    <ClInclude Include="Model\Card\CardSpec.h" />
-    <ClInclude Include="Model\Card\CardSpecRepository.h" />
-    <ClInclude Include="Model\Card\CardStat.h" />
-    <ClInclude Include="Model\Card\CardStatDecoratorVanilla.h" />
-    <ClInclude Include="Model\Card\ICardStatDecorator.h" />
-    <ClInclude Include="Model\Card\CardStatDecoratorModify.h" />
-    <ClInclude Include="Model\Card\AbstractPlaceableCard.h" />
-    <ClInclude Include="Model\Card\MinionStat.h" />
-    <ClInclude Include="Model\Card\MinionStatDecoratorModify.h" />
-    <ClInclude Include="Model\Card\MinionStatDecoratorSilence.h" />
-    <ClInclude Include="Model\Card\MinionStatDecoratorEmpty.h" />
-    <ClInclude Include="Model\Event\Event.h" />
-    <ClInclude Include="Model\Event\ICommand.h" />
-    <ClInclude Include="Model\Event\ModifyMinionStatCommand.h" />
-    <ClInclude Include="Model\Event\EventListener.h" />
-    <ClInclude Include="Model\Player\Deck.h" />
-    <ClInclude Include="Core\Api\HearthstoneApi.h" />
-    <ClInclude Include="Core\Api\HearthstoneApiAuth.h" />
-    <ClInclude Include="Model\Card\IMinionStatDecorator.h" />
-    <ClInclude Include="Model\Player\Field.h" />
-    <ClInclude Include="Core\Api\Request.h" />
-    <ClInclude Include="Core\Api\SocketPool.h" />
-    <ClInclude Include="Model\Player\Hand.h" />
-    <ClInclude Include="Model\Player\Player.h" />
-    <ClInclude Include="Model\Player\PlayerException.h" />
-    <ClInclude Include="View\UserInteraction.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\ApiConnection.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Game.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\GameMediator.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Card.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardFactory.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardSpec.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardSpecRepository.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStat.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorVanilla.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\ICardStatDecorator.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CardStatDecoratorModify.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\AbstractPlaceableCard.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorModify.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorSilence.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStatDecoratorEmpty.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\ICommand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\ModifyMinionStatCommand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Deck.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApiAuth.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\IMinionStatDecorator.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Field.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\Request.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Api\SocketPool.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Hand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Player.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\PlayerException.h" />
+    <ClInclude Include="Includes\NyvuxStone\View\UserInteraction.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -1,10 +1,10 @@
 #include "pch.h"
 
-#include "../HearthStoneFake/Core/Api/HearthstoneApi.h"
-#include "../HearthStoneFake/Model/Card/CardStat.h"
-#include "../HearthStoneFake/Model/Card/CardSpec.h"
-#include "../HearthStoneFake/Model/Card/CardSpecRepository.h"
-#include "../HearthStoneFake/Model/Card/CardStatDecoratorModify.h"
+#include "NyvuxStone/Core/Api/HearthstoneApi.h"
+#include "NyvuxStone/Model/Card/CardStat.h"
+#include "NyvuxStone/Model/Card/CardSpec.h"
+#include "NyvuxStone/Model/Card/CardSpecRepository.h"
+#include "NyvuxStone/Model/Card/CardStatDecoratorModify.h"
 
 using namespace std;
 
