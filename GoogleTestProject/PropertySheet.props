@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ImportGroup Label="PropertySheets" />
+  <PropertyGroup Label="UserMacros">
+    <TestTargetSolutionDir>$(MSBuildStartupDirectory)\NyvuxStone</TestTargetSolutionDir>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemDefinitionGroup />
+  <ItemGroup>
+    <BuildMacro Include="TestTargetSolutionDir">
+      <Value>$(TestTargetSolutionDir)</Value>
+    </BuildMacro>
+  </ItemGroup>
+</Project>

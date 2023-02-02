@@ -33,6 +33,7 @@
     <ProjectGuid>{b0f9207d-11ed-4caf-aa45-0a7989f97db0}</ProjectGuid>
     <RootNamespace>HearthStoneFake</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>NyvuxStone</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -108,7 +109,7 @@
     <Linkage-zlib>
     </Linkage-zlib>
     <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\c++\HearthStoneFake\HearthStoneFake\Includes</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\Includes</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -117,7 +118,7 @@
     <Linkage-openssl />
     <Linkage-zlib />
     <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\c++\HearthStoneFake\HearthStoneFake\Includes</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\Includes</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -130,7 +131,7 @@
     <Linkage-zlib>
     </Linkage-zlib>
     <ExternalIncludePath>C:\Program Files\OpenSSL-Win64\include;$(VC_IncludePath);$(WindowsSDK_IncludePath);</ExternalIncludePath>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\c++\HearthStoneFake\HearthStoneFake\Includes</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\Includes</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -143,7 +144,7 @@
     </Linkage-openssl>
     <Linkage-zlib>
     </Linkage-zlib>
-    <IncludePath>D:\c++\HearthStoneFake\HearthStoneFake\Includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildProjectDirectory)\Includes;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugLib|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -152,7 +153,7 @@
     <Linkage-libssh2 />
     <Linkage-openssl />
     <Linkage-zlib />
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\c++\HearthStoneFake\HearthStoneFake\Includes</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\Includes</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -165,7 +166,7 @@
     </Linkage-openssl>
     <Linkage-zlib>
     </Linkage-zlib>
-    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);;D:\c++\HearthStoneFake\HearthStoneFake\Includes</IncludePath>
+    <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);$(MSBuildProjectDirectory)\Includes</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -308,7 +309,12 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Api\Request.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp" />
     <ClCompile Include="Includes\NyvuxStone\Model\Card\Minion.h">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLib|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Player\Field.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Player\Hand.cpp" />
