@@ -1,5 +1,4 @@
 #pragma once
-#include "NyvuxStone/Model/Player/Hero.h"
 #include "NyvuxStone/Model/Card/Character.h"
 
 #include <memory>
@@ -15,7 +14,6 @@ namespace nyvux
 		bool NeedTarget();
 		virtual void Use() noexcept(false);
 		virtual void UseTo(std::shared_ptr<Character> Target) noexcept(false);
-		virtual void UseTo(std::shared_ptr<Hero> Target) noexcept(false);
 
 		int GetCost();
 

@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 int main(int argc, char** argv) {
 	::testing::InitGoogleTest(&argc, argv);

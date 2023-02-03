@@ -46,3 +46,13 @@ CardSpecRepository& nyvux::MakeCardSpecRepositoryToMock()
 	return Repository;
 }
 
+std::shared_ptr<MockCharacter> nyvux::MakeMockCharacter()
+{
+	return std::make_shared<MockCharacter>();
+}
+
+MockCharacter::MockCharacter()
+	: Character(MockCardSpec)
+{
+}
+

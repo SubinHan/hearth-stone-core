@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorModify.h"
 #include "NyvuxStone/Model/Card/CardStat.h"

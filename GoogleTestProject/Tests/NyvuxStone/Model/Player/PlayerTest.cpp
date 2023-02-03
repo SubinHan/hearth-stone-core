@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "NyvuxStone/Model/Card/Card.h"
 #include "NyvuxStone/Model/Player/Player.h"

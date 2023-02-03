@@ -13,13 +13,8 @@ nyvux::MageHeroPower::MageHeroPower()
 
 void nyvux::MageHeroPower::UseTo(std::shared_ptr<Character> Target) noexcept(false)
 {
-	auto Minion = dynamic_pointer_cast<nyvux::Minion>(Target);
-
-	if (!Minion)
-		throw HeroPowerException("The target is not a minion");
-
-	if (!(Minion->CanBeSpellTarget()))
+	if (Target->HasImmune())
 		throw HeroPowerException("The target is immune");
 
-	Minion->GainDamage(DAMAGE);
+	Target->GainDamage(DAMAGE);
 }

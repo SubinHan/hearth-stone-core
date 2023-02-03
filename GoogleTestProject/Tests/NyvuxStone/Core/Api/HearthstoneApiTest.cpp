@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
 #include "NyvuxStone/Model/Card/CardSpec.h"

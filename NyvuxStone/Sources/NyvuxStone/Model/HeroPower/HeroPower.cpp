@@ -2,6 +2,11 @@
 
 #include "NyvuxStone/Model/HeroPower/HeroPower.h"
 
+nyvux::HeroPower::HeroPower(bool NeedTarget, int Cost)
+	: bNeedTarget(NeedTarget), Cost(Cost)
+{
+}
+
 bool nyvux::HeroPower::NeedTarget()
 {
 	return bNeedTarget;

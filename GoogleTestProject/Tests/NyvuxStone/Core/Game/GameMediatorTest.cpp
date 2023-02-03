@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "Helper.h"
 #include "NyvuxStone/Core/Game/GameMediator.h"

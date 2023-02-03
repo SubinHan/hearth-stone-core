@@ -12,11 +12,14 @@
 
 namespace nyvux
 {
+	class MockCharacter;
+
 	std::vector<std::shared_ptr<Card>> MakeDummyCards();
 	std::shared_ptr<Player> MakeDummyPlayerWithFakeGameMediator();
 	std::shared_ptr<Player> MakeDummyPlayer(std::shared_ptr<GameMediator> GameMediator);
 
 	CardSpecRepository& MakeCardSpecRepositoryToMock();
+	std::shared_ptr<MockCharacter> MakeMockCharacter();
 
 	class MockHearthstoneApi : public HearthstoneApi
 	{
@@ -24,6 +27,16 @@ namespace nyvux
 		MOCK_METHOD(const std::vector<std::string>, GetAllCardList, (), (override));
 		MOCK_METHOD(const CardSpec, GetCardSpecById, (const int id), (override));
 		MOCK_METHOD(const std::vector<CardSpec>, GetCardSpecsByPage, (const int Page), (override));
+	};
+
+	class MockCharacter : public Character
+	{
+	public:
+		MockCharacter();
+
+		MOCK_METHOD(void, GainDamage, (const int amount), (override));
+		MOCK_METHOD(void, GainHeal, (const int amount), (override));
+		MOCK_METHOD(bool, CanAttack, (), (override));
 	};
 
 	static CardSpec MockCardSpec

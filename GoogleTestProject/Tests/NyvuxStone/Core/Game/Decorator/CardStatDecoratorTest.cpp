@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
 #include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorBase.h"
