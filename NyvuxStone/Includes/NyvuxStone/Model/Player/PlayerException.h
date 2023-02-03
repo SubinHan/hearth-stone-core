@@ -4,7 +4,7 @@
 
 namespace nyvux
 {
-	class PlayerException : std::exception
+	class PlayerException : public std::exception
 	{
 	public:
 		PlayerException(const char* Message);

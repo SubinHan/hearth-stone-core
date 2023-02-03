@@ -2,7 +2,7 @@
 
 #include "NyvuxStone/Model/Event/ModifyMinionStatCommand.h"
 
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorModify.h"
 
 nyvux::ModifyMinionStatCommand::ModifyMinionStatCommand(
 	std::shared_ptr<Minion> Target, 
@@ -14,5 +14,5 @@ nyvux::ModifyMinionStatCommand::ModifyMinionStatCommand(
 
 void nyvux::ModifyMinionStatCommand::Execute(Event Event)
 {
-	Target->Modify<MinionStatDecoratorModify>(DeltaAttack, DeltaHealth);
+	Target->Modify<CharacterStatDecoratorModify>(DeltaAttack, DeltaHealth);
 }

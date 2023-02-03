@@ -11,7 +11,7 @@ using namespace std;
 
 namespace nyvux
 {
-	class MinionStatDecoratorModify;
+	class CharacterStatDecoratorModify;
 
 	class CardStatTest : public ::testing::Test
 	{

@@ -46,6 +46,27 @@ namespace nyvux
 			std::vector<int>{}
 	};
 
+	const CardSpec CardSpecRepository::HERO_CARDSPEC =
+		CardSpec{
+			-1,
+			false,
+			"hero",
+			-1,
+			std::vector<int>{},
+			-1,
+			-1,
+			-1,
+			-1,
+			30,
+			0,
+			0,
+			"Hero",
+			"",
+			-1,
+			std::vector<int>{},
+			std::vector<int>{}
+	};
+
 	CardSpecRepository::CardSpecRepository() : Repo(), Api(std::make_shared<HearthstoneApi>())
 	{
 		InitRepository();

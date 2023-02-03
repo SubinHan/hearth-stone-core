@@ -23,7 +23,7 @@ namespace nyvux
 		std::shared_ptr<Player> GetOpponentPlayerOf(std::shared_ptr<Player> This);
 
 		void FireDrawed(std::shared_ptr<Player> Player, std::shared_ptr<Card> Card);
-		void FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<AbstractPlaceableCard> Card);
+		void FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<Character> Card);
 
 	private:
 		void AddListener(std::shared_ptr<EventListener> Listener);

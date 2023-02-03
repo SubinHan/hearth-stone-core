@@ -1,8 +1,8 @@
 #include "pch.h"
 
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorBase.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorBase.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorModify.h"
 
 using namespace std;
 
@@ -10,7 +10,7 @@ namespace nyvux
 {
 	TEST(CardStatDecoratorTest, TestDecoratorBase)
 	{
-		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
+		shared_ptr<CharacterStatDecoratorBase> Base = make_shared<CharacterStatDecoratorBase>();
 
 		EXPECT_EQ(0, Base->GetDeltaAttack());
 		EXPECT_EQ(0, Base->GetDeltaHealth());
@@ -21,8 +21,8 @@ namespace nyvux
 		constexpr int BUFF_ATTACK = 1;
 		constexpr int BUFF_HEALTH = 2;
 
-		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
-		shared_ptr<MinionStatDecoratorBase> Buffed = make_shared<MinionStatDecoratorModify>(
+		shared_ptr<CharacterStatDecoratorBase> Base = make_shared<CharacterStatDecoratorBase>();
+		shared_ptr<CharacterStatDecoratorBase> Buffed = make_shared<CharacterStatDecoratorModify>(
 			Base, BUFF_ATTACK, BUFF_HEALTH);
 		
 		EXPECT_EQ(BUFF_ATTACK, Buffed->GetDeltaAttack());
@@ -34,10 +34,10 @@ namespace nyvux
 		constexpr int BUFF_ATTACK = 1;
 		constexpr int BUFF_HEALTH = 2;
 
-		shared_ptr<MinionStatDecoratorBase> Base = make_shared<MinionStatDecoratorBase>();
-		shared_ptr<MinionStatDecoratorBase> Buffed = make_shared<MinionStatDecoratorModify>(
+		shared_ptr<CharacterStatDecoratorBase> Base = make_shared<CharacterStatDecoratorBase>();
+		shared_ptr<CharacterStatDecoratorBase> Buffed = make_shared<CharacterStatDecoratorModify>(
 			Base, BUFF_ATTACK, BUFF_HEALTH);
-		shared_ptr<MinionStatDecoratorBase> MoreBuffed = make_shared<MinionStatDecoratorModify>(
+		shared_ptr<CharacterStatDecoratorBase> MoreBuffed = make_shared<CharacterStatDecoratorModify>(
 			Buffed, BUFF_ATTACK, BUFF_HEALTH);
 
 		EXPECT_EQ(2 * BUFF_ATTACK, MoreBuffed->GetDeltaAttack());

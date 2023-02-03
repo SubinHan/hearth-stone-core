@@ -2,66 +2,55 @@
 
 #include "NyvuxStone/Model/Card/MinionStat.h"
 
-nyvux::MinionStat::MinionStat(const CardSpec& CardSpec)
-	: Spec(CardSpec),
-	Decorator(std::make_shared<MinionStatDecoratorBase>(nullptr)),
-	bIsGenerated(false),
-	bCanBeTarget(true),
-	CurrentHealth(Spec.Health)
+nyvux::MinionStat::MinionStat()
+	:bHasTaunt(false),
+	bHasCharge(false),
+	bHasRush(false),
+	bHasDivineShield(false),
+	bHasReborn(false)
 {
 }
 
-int nyvux::MinionStat::GetMaxHealth()
+void nyvux::MinionStat::GainTaunt()
 {
-	return Spec.Health + Decorator->GetDeltaHealth();
+	bHasTaunt = true;
 }
 
-int nyvux::MinionStat::GetAttack()
+void nyvux::MinionStat::Silence()
 {
-	return Spec.Attack + Decorator->GetDeltaAttack();
+	bHasTaunt = false;
+	bHasCharge = false;
+	bHasRush = false;
+	bHasDivineShield = false;
+	bHasReborn = false;
 }
 
-int nyvux::MinionStat::GetCurrentHealth()
+bool nyvux::MinionStat::HasTaunt()
 {
-	return CurrentHealth;
+	return bHasTaunt;
 }
 
-void nyvux::MinionStat::Damage(const int Amount)
+bool nyvux::MinionStat::HasCharge()
 {
-	CurrentHealth -= Amount;
-
-	CorrectCurrentHealth();
+	return bHasCharge;
 }
 
-void nyvux::MinionStat::Heal(const int Amount)
+bool nyvux::MinionStat::HasRush()
 {
-	CurrentHealth += Amount;
-
-	CorrectCurrentHealth();
+	return bHasRush;
 }
 
-bool nyvux::MinionStat::IsGenerated()
+bool nyvux::MinionStat::HasDivineShield()
 {
-	return bIsGenerated;
+	return bHasDivineShield;
 }
 
-bool nyvux::MinionStat::IsTaunt()
+bool nyvux::MinionStat::HasReborn()
 {
-	return Decorator->IsTaunt();
+	return bHasReborn;
 }
 
-bool nyvux::MinionStat::CanBeTarget()
+void nyvux::MinionStat::RemoveDivineShield()
 {
-	return bCanBeTarget;
-}
-
-void nyvux::MinionStat::CorrectCurrentHealth()
-{
-	const int MaxHealth = GetMaxHealth();
-
-	if (MaxHealth < CurrentHealth)
-		CurrentHealth = MaxHealth;
-
-	if (CurrentHealth < 0)
-		CurrentHealth = 0;
+	bHasDivineShield = false;
 }

@@ -45,16 +45,16 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Api\SocketPool.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorBase.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorBase.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorModify.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorSilence.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorSilence.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\CharacterStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Includes\NyvuxStone\Model\Card\Minion.h">
@@ -87,7 +87,7 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Player\PlayerException.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\AbstractPlaceableCard.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Character.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Game.cpp">
@@ -105,10 +105,19 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.cpp">
+    <ClCompile Include="Sources\pch.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\pch.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\Hero.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Model\HeroPower\HeroPower.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Model\HeroPower\MageHeroPower.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -143,16 +152,16 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Api\SocketPool.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorBase.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorBase.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorModify.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorModify.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorSilence.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorSilence.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\CharacterStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Player\Field.h">
@@ -170,7 +179,7 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CardStat\CardStatDecoratorVanilla.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\AbstractPlaceableCard.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Player\Player.h">
@@ -203,10 +212,22 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Event\ICommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\MinionStat\MinionStatDecoratorTaunt.h">
+    <ClInclude Include="Includes\pch.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\pch.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\Hero.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\HeroPower\HeroPower.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\HeroPower\MageHeroPower.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\EventNotifier.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

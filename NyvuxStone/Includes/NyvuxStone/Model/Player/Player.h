@@ -22,13 +22,13 @@ namespace nyvux
 		int GetNumCardsInHand() const;
 		int GetNumPlayedInField() const;
 		void PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
-		std::shared_ptr<AbstractPlaceableCard> GetCardInFieldAt(int ZeroBasedIndex);
+		std::shared_ptr<Character> GetCardInFieldAt(int ZeroBasedIndex);
 		bool CanAttack(int ZeroBasedFieldIndexOfOpponents);
 
 	private:
 		void FirePlayed(std::shared_ptr<Card> Card);
 		void FireDrawed(std::shared_ptr<Card> Card);
-		void FireSummoned(std::shared_ptr<AbstractPlaceableCard> Shared);
+		void FireSummoned(std::shared_ptr<Character> Shared);
 
 	private:
 		std::shared_ptr<Deck> Deck;

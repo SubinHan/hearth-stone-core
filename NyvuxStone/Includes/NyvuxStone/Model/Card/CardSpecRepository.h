@@ -6,6 +6,8 @@
 #include <map>
 #include <memory>
 
+#include "Character.h"
+
 namespace nyvux
 {
 	class CardSpecRepository
@@ -22,6 +24,7 @@ namespace nyvux
 	public:
 		static const CardSpec INVALID_CARDSPEC;
 		static const CardSpec DUMMY_MINION_CARDSPEC;
+		static const CardSpec HERO_CARDSPEC;
 
 	private:
 		CardSpecRepository();

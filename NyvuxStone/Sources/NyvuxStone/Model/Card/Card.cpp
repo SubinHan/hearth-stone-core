@@ -12,5 +12,10 @@ namespace nyvux
 	{
 		return Spec;
 	}
+
+	bool Card::IsGenerated()
+	{
+		return CardStat.IsGenerated();
+	}
 }
 

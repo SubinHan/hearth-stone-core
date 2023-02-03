@@ -96,6 +96,7 @@
     <ClCompile Include="GameMediatorTest.cpp" />
     <ClCompile Include="HandTest.cpp" />
     <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="HeroTest.cpp" />
     <ClCompile Include="MinionStatTest.cpp" />
     <ClCompile Include="DeckTest.cpp" />
     <ClCompile Include="HearthstoneApiAuthTest.cpp" />
@@ -117,7 +118,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HearthStoneFake\HearthStoneFake.vcxproj">
+    <ProjectReference Include="..\NyvuxStone\NyvuxStone.vcxproj">
       <Project>{b0f9207d-11ed-4caf-aa45-0a7989f97db0}</Project>
     </ProjectReference>
   </ItemGroup>

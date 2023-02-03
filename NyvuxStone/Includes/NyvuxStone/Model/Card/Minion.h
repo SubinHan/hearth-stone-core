@@ -1,33 +1,30 @@
 #pragma once
 
-#include "AbstractPlaceableCard.h"
+#include "Character.h"
 #include "MinionStat.h"
 
 namespace nyvux
 {
-	class Minion : public AbstractPlaceableCard
+	class Minion : public Character
 	{
 	public:
 		Minion(const CardSpec& CardSpec);
-		bool CanBeAttackTarget() override;
-		bool CanBeSpellTarget() override;
 
-		int GetMaxHealth();
-		int GetAttack();
-		int GetCurrentHealth();
-		bool IsGenerated();
+		void GainDamage(const int amount) override;
+		void GainHeal(const int amount) override;
 
-		template<class DecoratorType, class... Types>
-		void Modify(Types... Args);
-		bool IsTaunt();
+		void GainTaunt();
+		void Silence();
+
+		bool CanAttack() override;
+
+		bool HasTaunt();
+		bool HasCharge();
+		bool HasRush();
+		bool HasDivineShield();
+		bool HasReborn();
 
 	private:
 		MinionStat MinionStat;
 	};
-
-	template <class DecoratorType, class ... Types>
-	void Minion::Modify(Types... Args)
-	{
-		MinionStat.Modify<DecoratorType>(Args...);
-	}
 }

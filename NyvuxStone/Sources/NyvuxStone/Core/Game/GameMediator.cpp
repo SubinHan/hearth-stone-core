@@ -26,7 +26,7 @@ void nyvux::GameMediator::FireDrawed(std::shared_ptr<Player> Player, std::shared
 	}
 }
 
-void nyvux::GameMediator::FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<AbstractPlaceableCard> Card)
+void nyvux::GameMediator::FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<Character> Card)
 {
 	AddListener(Card);
 	for(auto& Listener : Listeners)

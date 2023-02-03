@@ -1,44 +1,67 @@
 #include "pch.h"
 
 #include "NyvuxStone/Model/Card/Minion.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorSilence.h"
 
 nyvux::Minion::Minion(const CardSpec& CardSpec)
-	: AbstractPlaceableCard(CardSpec),
-	MinionStat(CardSpec)
+	: Character(CardSpec)
 {
 }
 
-bool nyvux::Minion::CanBeAttackTarget()
+void nyvux::Minion::GainDamage(const int amount)
 {
-	return MinionStat.CanBeTarget();
+	if(MinionStat.HasDivineShield())
+	{
+		MinionStat.RemoveDivineShield();
+		return;
+	}
+
+	Character::GainDamage(amount);
 }
 
-bool nyvux::Minion::CanBeSpellTarget()
+void nyvux::Minion::GainHeal(const int amount)
 {
-	return MinionStat.CanBeTarget();
+	Character::GainHeal(amount);
 }
 
-int nyvux::Minion::GetMaxHealth()
+void nyvux::Minion::GainTaunt()
 {
-	return MinionStat.GetMaxHealth();
+	MinionStat.GainTaunt();
 }
 
-int nyvux::Minion::GetAttack()
+void nyvux::Minion::Silence()
 {
-	return MinionStat.GetAttack();
+	MinionStat.Silence();
+	Modify<CharacterStatDecoratorSilence>();
 }
 
-int nyvux::Minion::GetCurrentHealth()
+bool nyvux::Minion::CanAttack()
 {
-	return MinionStat.GetCurrentHealth();
+	// TODO: Implment this.
+	return true;
 }
 
-bool nyvux::Minion::IsGenerated()
+bool nyvux::Minion::HasTaunt()
 {
-	return MinionStat.IsGenerated();
+	return MinionStat.HasTaunt();
 }
 
-bool nyvux::Minion::IsTaunt()
+bool nyvux::Minion::HasCharge()
 {
-	return MinionStat.IsTaunt();
+	return MinionStat.HasCharge();
+}
+
+bool nyvux::Minion::HasRush()
+{
+	return MinionStat.HasRush();
+}
+
+bool nyvux::Minion::HasDivineShield()
+{
+	return MinionStat.HasDivineShield();
+}
+
+bool nyvux::Minion::HasReborn()
+{
+	return MinionStat.HasReborn();
 }

@@ -10,7 +10,7 @@ using namespace std;
 
 namespace nyvux
 {
-	class MinionStatDecoratorModify;
+	class CharacterStatDecoratorModify;
 
 	class HandTest : public ::testing::Test
 	{

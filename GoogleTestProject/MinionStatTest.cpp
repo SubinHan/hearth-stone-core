@@ -1,9 +1,8 @@
 #include "pch.h"
 
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorModify.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorTaunt.h"
-#include "NyvuxStone/Model/Card/MinionStat.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorModify.h"
+#include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorSilence.h"
+#include "NyvuxStone/Model/Card/CharacterStat.h"
 #include "NyvuxStone/Model/Card/CardSpec.h"
 
 #include "Helper.h"
@@ -12,7 +11,7 @@ using namespace std;
 
 namespace nyvux
 {
-	class MinionStatTest : public ::testing::Test
+	class CharacterStatTest : public ::testing::Test
 	{
 	protected:
 		void SetUp() override
@@ -23,20 +22,20 @@ namespace nyvux
 
 		CardSpec CardSpec;
 	};
-	TEST_F(MinionStatTest, TestVanilla)
+	TEST_F(CharacterStatTest, TestVanilla)
 	{
 		constexpr int EXPECTED_ATTACK = 4;
 		constexpr int EXPECTED_MAX_HEALTH = 5;
 		constexpr int EXPECTED_CURRENT_HEALTH = 5;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestBuff)
+	TEST_F(CharacterStatTest, TestBuff)
 	{
 		constexpr int MODIFY_ATTACK = 1;
 		constexpr int MODIFY_HEALTH = 2;
@@ -44,15 +43,15 @@ namespace nyvux
 		constexpr int EXPECTED_MAX_HEALTH = 7;
 		constexpr int EXPECTED_CURRENT_HEALTH = 7;
 
-		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat CharacterStat(CardSpec);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestBuffMore)
+	TEST_F(CharacterStatTest, TestBuffMore)
 	{
 		constexpr int MODIFY_ATTACK = 1;
 		constexpr int MODIFY_HEALTH = 2;
@@ -60,16 +59,16 @@ namespace nyvux
 		constexpr int EXPECTED_MAX_HEALTH = 9;
 		constexpr int EXPECTED_CURRENT_HEALTH = 9;
 
-		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat CharacterStat(CardSpec);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestSilence)
+	TEST_F(CharacterStatTest, TestSilence)
 	{
 		constexpr int MODIFY_ATTACK = 1;
 		constexpr int MODIFY_HEALTH = 2;
@@ -77,17 +76,17 @@ namespace nyvux
 		constexpr int EXPECTED_MAX_HEALTH = 5;
 		constexpr int EXPECTED_CURRENT_HEALTH = 5;
 
-		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorSilence>();
+		CharacterStat CharacterStat(CardSpec);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorSilence>();
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestSilenceAndBuff)
+	TEST_F(CharacterStatTest, TestSilenceAndBuff)
 	{
 		constexpr int MODIFY_ATTACK = 1;
 		constexpr int MODIFY_HEALTH = 2;
@@ -95,33 +94,33 @@ namespace nyvux
 		constexpr int EXPECTED_MAX_HEALTH = 7;
 		constexpr int EXPECTED_CURRENT_HEALTH = 7;
 
-		MinionStat MinionStat(CardSpec);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorSilence>();
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat CharacterStat(CardSpec);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorSilence>();
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_CURRENT_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestDamage)
+	TEST_F(CharacterStatTest, TestDamage)
 	{
 		constexpr int AMOUNT_DAMAGE = 2;
 		constexpr int EXPECTED_ATTACK = 4;
 		constexpr int EXPECTED_MAX_HEALTH = 5;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Damage(AMOUNT_DAMAGE);
+		CharacterStat.Damage(AMOUNT_DAMAGE);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestDamageAndBuff)
+	TEST_F(CharacterStatTest, TestDamageAndBuff)
 	{
 		constexpr int MODIFY_ATTACK = 1;
 		constexpr int MODIFY_HEALTH = 2;
@@ -129,17 +128,17 @@ namespace nyvux
 		constexpr int EXPECTED_ATTACK = 5;
 		constexpr int EXPECTED_MAX_HEALTH = 7;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Damage(AMOUNT_DAMAGE);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestDamageAndNerf)
+	TEST_F(CharacterStatTest, TestDamageAndNerf)
 	{
 		constexpr int MODIFY_ATTACK = -1;
 		constexpr int MODIFY_HEALTH = -2;
@@ -148,17 +147,17 @@ namespace nyvux
 		constexpr int EXPECTED_MAX_HEALTH = 3;
 
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Damage(AMOUNT_DAMAGE);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestDamageAndNerfAndSilence)
+	TEST_F(CharacterStatTest, TestDamageAndNerfAndSilence)
 	{
 		constexpr int MODIFY_ATTACK = -1;
 		constexpr int MODIFY_HEALTH = -2;
@@ -166,54 +165,41 @@ namespace nyvux
 		constexpr int EXPECTED_ATTACK = 4;
 		constexpr int EXPECTED_MAX_HEALTH = 5;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Modify<MinionStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
-		MinionStat.Modify<MinionStatDecoratorSilence>();
+		CharacterStat.Damage(AMOUNT_DAMAGE);
+		CharacterStat.Modify<CharacterStatDecoratorModify>(MODIFY_ATTACK, MODIFY_HEALTH);
+		CharacterStat.Modify<CharacterStatDecoratorSilence>();
 
-		EXPECT_EQ(EXPECTED_ATTACK, MinionStat.GetAttack());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH, MinionStat.GetMaxHealth());
-		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_ATTACK, CharacterStat.GetAttack());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH, CharacterStat.GetMaxHealth());
+		EXPECT_EQ(EXPECTED_MAX_HEALTH - AMOUNT_DAMAGE, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestDamageAndHeal)
+	TEST_F(CharacterStatTest, TestDamageAndHeal)
 	{
 		constexpr int AMOUNT_DAMAGE = 2;
 		constexpr int AMOUNT_HEAL = 1;
 		constexpr int EXPECTED_HEALTH = 4;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Damage(AMOUNT_DAMAGE);
-		MinionStat.Heal(AMOUNT_HEAL);
+		CharacterStat.Damage(AMOUNT_DAMAGE);
+		CharacterStat.Heal(AMOUNT_HEAL);
 
-		EXPECT_EQ(EXPECTED_HEALTH, MinionStat.GetCurrentHealth());
+		EXPECT_EQ(EXPECTED_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 
-	TEST_F(MinionStatTest, TestOverHeal)
+	TEST_F(CharacterStatTest, TestOverHeal)
 	{
 		constexpr int AMOUNT_HEAL = 99;
 		constexpr int EXPECTED_HEALTH = 5;
 
-		MinionStat MinionStat(CardSpec);
+		CharacterStat CharacterStat(CardSpec);
 
-		MinionStat.Heal(AMOUNT_HEAL);
+		CharacterStat.Heal(AMOUNT_HEAL);
 
-		EXPECT_EQ(EXPECTED_HEALTH, MinionStat.GetCurrentHealth());
-	}
-
-	TEST_F(MinionStatTest, TestTaunt)
-	{
-		MinionStat MinionStat(CardSpec);
-
-		EXPECT_FALSE(MinionStat.IsTaunt());
-		MinionStat.Modify<MinionStatDecoratorTaunt>();
-		EXPECT_TRUE(MinionStat.IsTaunt());
-		MinionStat.Modify<MinionStatDecoratorSilence>();
-		EXPECT_FALSE(MinionStat.IsTaunt());
-		MinionStat.Modify<MinionStatDecoratorTaunt>();
-		EXPECT_TRUE(MinionStat.IsTaunt());
+		EXPECT_EQ(EXPECTED_HEALTH, CharacterStat.GetCurrentHealth());
 	}
 	
 }

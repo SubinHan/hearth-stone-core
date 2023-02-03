@@ -1,10 +1,8 @@
 #include "pch.h"
 
 #include "NyvuxStone/Core/Game/GameMediator.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorTaunt.h"
 
 #include "Helper.h"
-#include "NyvuxStone/Core/Game/Decorator/MinionStat/MinionStatDecoratorSilence.h"
 
 using namespace std;
 
@@ -46,12 +44,12 @@ namespace nyvux
 		if (!Minion)
 			FAIL();
 
-		Minion->Modify<MinionStatDecoratorTaunt>();
+		Minion->GainTaunt();
 
 		EXPECT_TRUE(PlayerA->CanAttack(0));
 		EXPECT_FALSE(PlayerA->CanAttack(1));
 
-		Minion->Modify<MinionStatDecoratorSilence>();
+		Minion->Silence();
 
 		EXPECT_TRUE(PlayerA->CanAttack(0));
 		EXPECT_TRUE(PlayerA->CanAttack(1));
