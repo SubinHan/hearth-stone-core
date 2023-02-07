@@ -1,7 +1,8 @@
 #pragma once
 
 #include "../../Model/Player/Player.h"
-#include "../../Model/Event/ICommand.h"
+#include "NyvuxStone/Model/Event/EventListener.h"
+#include "NyvuxStone/Model/Event/EventNotifier.h"
 
 #include <memory>
 #include <list>
@@ -20,18 +21,16 @@ namespace nyvux
 		~GameMediator() = default;
 
 		void RegisterPlayers(std::shared_ptr<Player> PlayerA, std::shared_ptr<Player> PlayerB);
+		void RegisterCard(std::shared_ptr<Card> Card);
+		void UnregisterCard(std::shared_ptr<Card> Card);
+
 		std::shared_ptr<Player> GetOpponentPlayerOf(std::shared_ptr<Player> This);
-
-		void FireDrawed(std::shared_ptr<Player> Player, std::shared_ptr<Card> Card);
-		void FireSummoned(std::shared_ptr<Player> Player, std::shared_ptr<Character> Card);
-
-	private:
-		void AddListener(std::shared_ptr<EventListener> Listener);
 
 	private:
 		std::shared_ptr<Player> PlayerA;
 		std::shared_ptr<Player> PlayerB;
 
 		std::list<std::shared_ptr<EventListener>> Listeners;
+		std::list<std::shared_ptr<EventNotifier>> Notifiers;
 	};
 }

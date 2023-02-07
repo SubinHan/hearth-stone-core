@@ -3,12 +3,13 @@
 #include "../Event/EventListener.h"
 #include "CardSpec.h"
 #include "CardStat.h"
+#include "NyvuxStone/Model/Event/EventNotifier.h"
 
 namespace nyvux
 {
 	class EventListener;
 
-	class Card : public EventListener
+	class Card : public EventListener, public EventNotifier
 	{
 	public:
 		virtual ~Card() = default;

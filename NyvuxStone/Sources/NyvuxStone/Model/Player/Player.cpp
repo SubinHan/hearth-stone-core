@@ -24,7 +24,7 @@ void Player::DrawCard()
 {
 	shared_ptr<Card> Drawn = Deck->Draw();
 	Hand->AddCard(Drawn);
-	FireDrawed(Drawn);
+	FireDrawed(Event{ Drawn });
 }
 
 int Player::GetNumCardsInDeck() const
@@ -64,11 +64,12 @@ void nyvux::Player::PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBa
 
 	Hand->RemoveCard(ZeroBasedHandIndex);
 	Field->PlaceCard(Placeable, ZeroBasedFieldIndex);
-	FirePlayed(Placeable);
+	FirePlayed(Event{ Placeable });
 
 	if(Field->IsPlaced(Placeable))
 	{
-		FireSummoned(Placeable);
+		GameMediator->RegisterCard(Placeable);
+		FireSummoned(Event{ Placeable });
 	}
 }
 
@@ -111,19 +112,3 @@ bool nyvux::Player::CanAttack(int ZeroBasedFieldIndexOfOpponents)
 
 	return true;
 }
-
-void Player::FirePlayed(std::shared_ptr<Card> Card)
-{
-	// TODO: Implement it.
-}
-
-void Player::FireDrawed(std::shared_ptr<Card> Card)
-{
-	GameMediator->FireDrawed(shared_from_this(), Card);
-}
-
-void Player::FireSummoned(std::shared_ptr<Character> Shared)
-{
-	GameMediator->FireSummoned(shared_from_this(), Shared);
-}
-

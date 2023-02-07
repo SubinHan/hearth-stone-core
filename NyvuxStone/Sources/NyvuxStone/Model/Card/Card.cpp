@@ -4,7 +4,7 @@
 
 namespace nyvux
 {
-	Card::Card(const CardSpec& Spec) : EventListener(), Spec(Spec), CardStat(Spec)
+	Card::Card(const CardSpec& Spec) : EventListener(), EventNotifier(), Spec(Spec), CardStat(Spec)
 	{
 	}
 

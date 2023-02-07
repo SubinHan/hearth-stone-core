@@ -120,6 +120,9 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\EventNotifier.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h">
