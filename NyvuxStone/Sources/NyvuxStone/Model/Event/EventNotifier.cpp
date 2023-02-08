@@ -59,3 +59,11 @@ void nyvux::EventNotifier::FireDamaged(Event Event)
 		EventListener->OnDamaged(Event);
 	}
 }
+
+void nyvux::EventNotifier::FireDestroyed(Event Event)
+{
+	for (auto EventListener : Listeners)
+	{
+		EventListener->OnDestroyed(Event);
+	}
+}

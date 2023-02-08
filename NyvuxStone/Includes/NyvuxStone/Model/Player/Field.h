@@ -19,6 +19,7 @@ namespace nyvux
 
 		bool CanPlace();
 		bool IsPlaced(std::shared_ptr<Character> Card);
+		void Remove(std::shared_ptr<Character> Card);
 
 	private:
 		static constexpr int MAX_FIELD_SIZE = 7;

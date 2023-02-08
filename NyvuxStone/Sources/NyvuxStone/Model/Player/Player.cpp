@@ -2,6 +2,7 @@
 
 #include "NyvuxStone/Model/Player/Player.h"
 
+#include "NyvuxStone/Core/Game/Command/RemovePlaceableInFieldCommand.h"
 #include "NyvuxStone/Model/Player/PlayerException.h"
 
 using namespace std;
@@ -17,7 +18,10 @@ Player::Player(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMed
 
 std::shared_ptr<Player> Player::CreatePlayer(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMediator> GameMediator)
 {
-	return make_shared<Player>(Deck, GameMediator);
+	auto Player = make_shared<nyvux::Player>(Deck, GameMediator);
+	Player->AddOnDestroyedCommand(make_shared<RemovePlaceableInFieldCommand>(Player));
+
+	return Player;
 }
 
 void Player::DrawCard()
@@ -111,4 +115,9 @@ bool nyvux::Player::CanAttack(int ZeroBasedFieldIndexOfOpponents)
 	}
 
 	return true;
+}
+
+void Player::RemovePlaceableInField(std::shared_ptr<Character> Card)
+{
+	Field->Remove(Card);
 }

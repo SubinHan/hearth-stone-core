@@ -4,9 +4,11 @@
 #include "CardSpec.h"
 #include "CharacterStat.h"
 
+#include <memory>
+
 namespace nyvux
 {
-	class Character : public Card
+	class Character : public Card, public std::enable_shared_from_this<Character>
 	{
 	public:
 		Character(const CardSpec& Spec);
@@ -32,6 +34,9 @@ namespace nyvux
 
 		template<class DecoratorType, class... Types>
 		void Modify(Types... Args);
+
+	private:
+		void Destroy();
 
 	private:
 		CharacterStat CharacterStat;

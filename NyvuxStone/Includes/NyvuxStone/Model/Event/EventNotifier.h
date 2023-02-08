@@ -21,6 +21,7 @@ namespace nyvux
 		void FireHealed(Event Event);
 		void FireUsedHeroPower(Event Event);
 		void FireDamaged(Event Event);
+		void FireDestroyed(Event Event);
 
 	private:
 		std::list<std::shared_ptr<EventListener>> Listeners;

@@ -43,6 +43,11 @@ bool nyvux::Field::IsPlaced(std::shared_ptr<Character> Card)
 	return Found;
 }
 
+void nyvux::Field::Remove(std::shared_ptr<Character> Card)
+{
+	FieldImpl.remove(Card);
+}
+
 std::shared_ptr<nyvux::Character> nyvux::Field::GetCardAt(int ZeroBasedIndex)
 {
 	auto Iter = FieldImpl.begin();

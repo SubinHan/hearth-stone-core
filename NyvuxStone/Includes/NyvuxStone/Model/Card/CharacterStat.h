@@ -28,6 +28,7 @@ namespace nyvux
 
 		template<class DecoratorType, class... Types>
 		void Modify(Types... Args);
+		bool IsDestroyed();
 
 	private:
 		void CorrectCurrentHealth();

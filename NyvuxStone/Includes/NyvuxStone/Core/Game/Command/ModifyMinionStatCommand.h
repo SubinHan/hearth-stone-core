@@ -1,10 +1,11 @@
 #pragma once
 
-#include "../Card/Minion.h"
 #include "ICommand.h"
-#include "Event.h"
+#include "NyvuxStone/Model/Card/Minion.h"
+#include "NyvuxStone/Model/Event/Event.h"
 
 #include <memory>
+
 
 namespace nyvux
 {

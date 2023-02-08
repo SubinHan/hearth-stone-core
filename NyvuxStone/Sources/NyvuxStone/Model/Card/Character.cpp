@@ -21,6 +21,9 @@ bool nyvux::Character::CanBeSpellTarget()
 void nyvux::Character::GainDamage(const int amount)
 {
 	CharacterStat.Damage(amount);
+
+	if (CharacterStat.IsDestroyed())
+		Destroy();
 }
 
 void nyvux::Character::GainHeal(const int amount)
@@ -71,4 +74,9 @@ bool nyvux::Character::HasPoisonous()
 bool nyvux::Character::HasLifesteal()
 {
 	return CharacterStat.HasLifesteal();
+}
+
+void nyvux::Character::Destroy()
+{
+	FireDestroyed(Event{shared_from_this()});
 }

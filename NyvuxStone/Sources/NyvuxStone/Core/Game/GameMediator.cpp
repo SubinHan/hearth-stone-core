@@ -1,6 +1,15 @@
 #include "pch.h"
 
 #include "NyvuxStone/Core/Game/GameMediator.h"
+#include "NyvuxStone/Core/Game/Command/UnregisterCardCommand.h"
+
+std::shared_ptr<nyvux::GameMediator> nyvux::GameMediator::CreateGameMediator()
+{
+	auto GameMediator = std::make_shared<nyvux::GameMediator>();
+	GameMediator->AddOnDestroyedCommand(std::make_shared<UnregisterCardCommand>(GameMediator));
+	GameMediator->Listeners.push_back(GameMediator);
+	return GameMediator;
+}
 
 nyvux::GameMediator::GameMediator()
 	: Listeners()
@@ -14,6 +23,11 @@ void nyvux::GameMediator::RegisterPlayers(std::shared_ptr<Player> PlayerA, std::
 
 	Notifiers.push_back(PlayerA);
 	Notifiers.push_back(PlayerB);
+	Listeners.push_back(PlayerA);
+	Listeners.push_back(PlayerB);
+
+	PlayerA->AddEventListener(PlayerB);
+	PlayerB->AddEventListener(PlayerA);
 }
 
 void nyvux::GameMediator::RegisterCard(std::shared_ptr<Card> Card)

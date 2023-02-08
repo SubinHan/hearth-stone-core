@@ -13,7 +13,7 @@ namespace nyvux
 {
 	class GameMediator;
 
-	class Player : public std::enable_shared_from_this<Player>, public EventNotifier
+	class Player : public std::enable_shared_from_this<Player>, public EventNotifier, public EventListener
 	{
 	public:
 		Player(std::shared_ptr<Deck> Deck, std::shared_ptr<GameMediator> GameMediator);
@@ -26,8 +26,10 @@ namespace nyvux
 		void PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
 		std::shared_ptr<Character> GetCardInFieldAt(int ZeroBasedIndex);
 		bool CanAttack(int ZeroBasedFieldIndexOfOpponents);
-		
+		void RemovePlaceableInField(std::shared_ptr<Character> Card);
+
 	private:
+
 		std::shared_ptr<Deck> Deck;
 		std::shared_ptr<Field> Field;
 		std::shared_ptr<Hand> Hand;

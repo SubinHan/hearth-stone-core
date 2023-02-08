@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Event.h"
+#include "NyvuxStone/Model/Event/Event.h"
 
 namespace nyvux
 {

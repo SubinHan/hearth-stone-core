@@ -99,7 +99,7 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Game\GameMediator.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Event\ModifyMinionStatCommand.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\ModifyMinionStatCommand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp">
@@ -121,6 +121,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventNotifier.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\UnregisterCardCommand.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -203,7 +209,7 @@
     <ClInclude Include="Includes\NyvuxStone\View\UserInteraction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\ModifyMinionStatCommand.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ModifyMinionStatCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h">
@@ -212,7 +218,7 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\ICommand.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ICommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\pch.h">
@@ -231,6 +237,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Secret.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\UnregisterCardCommand.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -80,6 +80,11 @@ bool nyvux::CharacterStat::HasLifesteal() const
 	return bHasLifesteal;
 }
 
+bool nyvux::CharacterStat::IsDestroyed()
+{
+	return CurrentHealth <= 0;
+}
+
 void nyvux::CharacterStat::CorrectCurrentHealth()
 {
 	const int MaxHealth = GetMaxHealth();

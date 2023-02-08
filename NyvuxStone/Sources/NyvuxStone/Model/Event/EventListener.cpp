@@ -54,6 +54,14 @@ void nyvux::EventListener::OnUsedHeroPower(Event Event)
 	}
 }
 
+void nyvux::EventListener::OnDestroyed(const Event& Event)
+{
+	for (auto Command : OnDestroyedCommands)
+	{
+		Command->Execute(Event);
+	}
+}
+
 void nyvux::EventListener::AddOnPlayedCommand(std::shared_ptr<ICommand> Command)
 {
 	OnPlayedCommands.push_back(Command);
@@ -62,6 +70,11 @@ void nyvux::EventListener::AddOnPlayedCommand(std::shared_ptr<ICommand> Command)
 void nyvux::EventListener::AddOnUsedHeroPowerCommand(std::shared_ptr<ICommand> Command)
 {
 	OnUsedHeroPowerCommands.push_back(Command);
+}
+
+void nyvux::EventListener::AddOnDestroyedCommand(std::shared_ptr<ICommand> Command)
+{
+	OnDestroyedCommands.push_back(Command);
 }
 
 void nyvux::EventListener::AddOnDrawedCommand(std::shared_ptr<nyvux::ICommand> Command)
