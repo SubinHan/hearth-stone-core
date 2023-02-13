@@ -300,6 +300,8 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorModify.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorSilence.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Card\MinionStat.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Secret.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Card\Spell.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventListener.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventNotifier.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\ModifyMinionStatCommand.cpp" />
@@ -326,6 +328,7 @@
     <ClCompile Include="Sources\NyvuxStone\Model\HeroPower\HeroPower.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Player\Player.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Player\PlayerException.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Player\SecretZone.cpp" />
     <ClCompile Include="Sources\pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -355,6 +358,7 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorSilence.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Secret.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Spell.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventNotifier.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ICommand.h" />
@@ -362,6 +366,7 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\UnregisterCardCommand.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\HeroPower\MageHeroPower.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Player\SecretZone.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Player\Deck.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApi.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Api\HearthstoneApiAuth.h" />

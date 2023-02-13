@@ -21,10 +21,10 @@ namespace nyvux
 		GameMediator(GameMediator& Ref) = delete;
 		GameMediator& operator=(GameMediator& Ref) = delete;
 		~GameMediator() override = default;
-
-		void RegisterPlayers(std::shared_ptr<Player> PlayerA, std::shared_ptr<Player> PlayerB);
-		void RegisterCard(std::shared_ptr<Card> Card);
-		void UnregisterCard(std::shared_ptr<Card> Card);
+		
+		virtual void RegisterPlayers(std::shared_ptr<Player> PlayerA, std::shared_ptr<Player> PlayerB);
+		virtual void RegisterCard(std::shared_ptr<Card> Card);
+		virtual void UnregisterCard(std::shared_ptr<Card> Card);
 
 		std::shared_ptr<Player> GetOpponentPlayerOf(std::shared_ptr<Player> This);
 

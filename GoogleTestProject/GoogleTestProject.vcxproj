@@ -103,6 +103,7 @@
     <ClCompile Include="Tests\NyvuxStone\Core\Api\HearthstoneApiTest.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\Player\HeroPowerTest.cpp" />
+    <ClCompile Include="Tests\NyvuxStone\Model\Player\SecretZoneTest.cpp" />
     <ClCompile Include="Tests\testpch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugLib|Win32'">Create</PrecompiledHeader>

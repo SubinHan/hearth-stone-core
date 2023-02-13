@@ -41,7 +41,7 @@ CardSpecRepository& nyvux::MakeCardSpecRepositoryToMock()
 	auto Mock = make_shared<MockHearthstoneApi>();
 	Repository.SetHearthstoneApi(Mock);
 
-	ON_CALL(*Mock, GetCardSpecById(69543)).WillByDefault(Return(MockCardSpec));
+	ON_CALL(*Mock, GetCardSpecById(69543)).WillByDefault(Return(MockCardSpecMinion));
 
 	return Repository;
 }
@@ -52,7 +52,7 @@ std::shared_ptr<MockCharacter> nyvux::MakeMockCharacter()
 }
 
 MockCharacter::MockCharacter()
-	: Character(MockCardSpec)
+	: Character(MockCardSpecMinion)
 {
 }
 

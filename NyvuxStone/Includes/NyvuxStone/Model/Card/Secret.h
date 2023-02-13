@@ -1,10 +1,13 @@
 #pragma once
-#include "Card.h"
+
+#include "Spell.h"
 
 namespace nyvux
 {
-	class Secret : public Card
+	class Secret : public Spell
 	{
-		
+	public:
+		Secret() = delete;
+		Secret(const CardSpec& CardSpec);
 	};
 }
