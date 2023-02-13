@@ -17,6 +17,7 @@ namespace nyvux
 	protected:
 		void FirePlayed(Event Event);
 		void FireDrawed(Event Event);
+		void FireCasted(Event Event);
 		void FireSummoned(Event Event);
 		void FireHealed(Event Event);
 		void FireUsedHeroPower(Event Event);

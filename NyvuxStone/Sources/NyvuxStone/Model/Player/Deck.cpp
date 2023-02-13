@@ -28,5 +28,11 @@ namespace nyvux
 		return static_cast<int>(DeckImpl.size());
 	}
 
+	void Deck::DestroyCard(int ZeroBasedIndex)
+	{
+		ZeroBasedIndex = clamp(ZeroBasedIndex, 0, static_cast<int>(DeckImpl.size()));
+		
+		DeckImpl.erase(DeckImpl.begin() + ZeroBasedIndex);
+	}
 }
 

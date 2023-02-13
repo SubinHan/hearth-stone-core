@@ -285,6 +285,8 @@
   <ItemGroup>
     <ClCompile Include="Sources\NyvuxStone\Core\Api\ApiConnection.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDestroyCardsTopDeck.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Game.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\GameMediator.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Card\Character.cpp" />
@@ -342,6 +344,9 @@
   <ItemGroup>
     <ClInclude Include="Includes\NyvuxStone\Core\Api\ApiConnection.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDestroyCardsTopDeck.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\ISpellCommand.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Game.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\GameMediator.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Card.h" />

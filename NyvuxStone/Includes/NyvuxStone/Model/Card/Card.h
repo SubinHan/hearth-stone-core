@@ -13,14 +13,14 @@ namespace nyvux
 	{
 	public:
 		virtual ~Card() = default;
-		Card(const CardSpec& Spec);		
+		Card(const CardSpec Spec);		
 
 		const CardSpec& GetCardSpec();
 		
 		bool IsGenerated();
 
 	private:
-		const CardSpec& Spec;
+		const CardSpec Spec;
 		CardStat CardStat;
 	};
 }

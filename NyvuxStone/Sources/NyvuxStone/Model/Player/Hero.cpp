@@ -3,6 +3,11 @@
 #include "NyvuxStone/Model/Player/Hero.h"
 #include "NyvuxStone/Model/Card/CardSpecRepository.h"
 
+std::shared_ptr<nyvux::Hero> nyvux::Hero::CreateHero()
+{
+	return std::make_shared<Hero>();
+}
+
 nyvux::Hero::Hero()
 	: Character(CardSpecRepository::HERO_CARDSPEC),
 	MaxHealth(DEFAULT_MAX_HEALTH),

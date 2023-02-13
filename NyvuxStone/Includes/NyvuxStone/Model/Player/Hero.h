@@ -6,6 +6,7 @@ namespace nyvux
 	class Hero : public Character
 	{
 	public:
+		static std::shared_ptr<Hero> CreateHero();
 		Hero();
 
 		int GetCurrentArmor() const;

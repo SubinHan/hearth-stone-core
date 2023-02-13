@@ -10,7 +10,7 @@ namespace nyvux
 	class CharacterStat
 	{
 	public:
-		CharacterStat(const CardSpec& CardSpec);
+		CharacterStat(const CardSpec CardSpec);
 
 		void Damage(const int Amount);
 		void Heal(const int Amount);
@@ -34,7 +34,7 @@ namespace nyvux
 		void CorrectCurrentHealth();
 
 	private:
-		const CardSpec& Spec;
+		const CardSpec Spec;
 		std::shared_ptr<CharacterStatDecoratorBase> Decorator;
 
 		int CurrentHealth;

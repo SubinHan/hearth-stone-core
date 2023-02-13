@@ -71,7 +71,16 @@ namespace nyvux
 
 	TEST_F(PlayerTest, TestMana)
 	{
-		Player->GetCurrentMana();
-		Player->GetMaxMana();
+		EXPECT_EQ(0, Player->GetCurrentMana());
+		EXPECT_EQ(0, Player->GetMaxMana());
+
+		Player->IncreaseMaxMana();
+
+		EXPECT_EQ(0, Player->GetCurrentMana());
+		EXPECT_EQ(1, Player->GetMaxMana());
+
+		Player->FulfillMana();
+
+		EXPECT_EQ(1, Player->GetCurrentMana());
 	}
 }

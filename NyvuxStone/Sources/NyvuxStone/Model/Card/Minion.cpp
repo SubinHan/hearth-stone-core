@@ -3,7 +3,12 @@
 #include "NyvuxStone/Model/Card/Minion.h"
 #include "NyvuxStone/Core/Game/Decorator/CharacterStat/CharacterStatDecoratorSilence.h"
 
-nyvux::Minion::Minion(const CardSpec& CardSpec)
+std::shared_ptr<nyvux::Minion> nyvux::Minion::CreateMinion(const CardSpec CardSpec)
+{
+	return std::make_shared<Minion>(CardSpec);
+}
+
+nyvux::Minion::Minion(const CardSpec CardSpec)
 	: Character(CardSpec)
 {
 }

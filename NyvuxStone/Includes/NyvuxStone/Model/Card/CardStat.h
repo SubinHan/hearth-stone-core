@@ -9,7 +9,7 @@ namespace nyvux
 	class CardStat
 	{
 	public:
-		CardStat(const CardSpec& Spec);
+		CardStat(const CardSpec Spec);
 
 		template<class DecoratorType, class... Types>
 		void Modify(Types... Args);
@@ -21,7 +21,7 @@ namespace nyvux
 		void CorrectCurrentManaCost();
 
 	private:
-		const CardSpec& Spec;
+		const CardSpec Spec;
 		std::shared_ptr<ICardStatDecorator> Decorator;
 
 		int CurrentManaCost;

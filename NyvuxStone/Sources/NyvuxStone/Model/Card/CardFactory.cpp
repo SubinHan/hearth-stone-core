@@ -28,9 +28,20 @@ namespace nyvux
 		return make_shared<Minion>(Repo.GetCardSpecById(Id));
 	}
 
-	std::shared_ptr<Minion> CardFactory::CreateMinionBySpec(const CardSpec& Spec)
+	std::shared_ptr<Spell> CardFactory::CreateSpellBySpec(const CardSpec Spec)
 	{
-		return make_shared<Minion>(Spec);
+		auto Spell = Spell::CreateSpell(Spec);
+		// TODO: Use Loader
+
+		return Spell;
+	}
+
+	std::shared_ptr<Minion> CardFactory::CreateMinionBySpec(const CardSpec Spec)
+	{
+		auto Minion = Minion::CreateMinion(Spec);
+		// TODO: Use Loader
+
+		return Minion;
 	}
 }
 

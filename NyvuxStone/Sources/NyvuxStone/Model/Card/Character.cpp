@@ -2,7 +2,7 @@
 
 #include "NyvuxStone/Model/Card/Character.h"
 
-nyvux::Character::Character(const CardSpec& CardSpec)
+nyvux::Character::Character(const CardSpec CardSpec)
 	: Card(CardSpec),
 	CharacterStat(CardSpec)
 {
@@ -21,6 +21,7 @@ bool nyvux::Character::CanBeSpellTarget()
 void nyvux::Character::GainDamage(const int amount)
 {
 	CharacterStat.Damage(amount);
+	FireDamaged(Event{shared_from_this()});
 
 	if (CharacterStat.IsDestroyed())
 		Destroy();

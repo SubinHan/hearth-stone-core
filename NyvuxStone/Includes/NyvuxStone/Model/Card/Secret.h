@@ -8,6 +8,6 @@ namespace nyvux
 	{
 	public:
 		Secret() = delete;
-		Secret(const CardSpec& CardSpec);
+		Secret(const CardSpec CardSpec);
 	};
 }

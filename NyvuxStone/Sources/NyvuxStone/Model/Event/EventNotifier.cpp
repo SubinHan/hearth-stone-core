@@ -28,6 +28,14 @@ void nyvux::EventNotifier::FireDrawed(Event Event)
 	}
 }
 
+void nyvux::EventNotifier::FireCasted(Event Event)
+{
+	for (auto EventListener : Listeners)
+	{
+		EventListener->OnCasted(Event);
+	}
+}
+
 void nyvux::EventNotifier::FireSummoned(Event Event)
 {
 	for (auto EventListener : Listeners)

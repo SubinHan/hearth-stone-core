@@ -4,7 +4,7 @@
 
 #include "NyvuxStone/Core/Game/Decorator/CardStat/CardStatDecoratorVanilla.h"
 
-nyvux::CardStat::CardStat(const CardSpec& Spec)
+nyvux::CardStat::CardStat(const CardSpec Spec)
 	: Spec(Spec),
 	Decorator(std::make_shared<CardStatDecoratorVanilla>(Spec.ManaCost)),
 	bIsGenerated(false),

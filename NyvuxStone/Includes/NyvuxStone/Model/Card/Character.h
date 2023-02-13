@@ -11,7 +11,7 @@ namespace nyvux
 	class Character : public Card, public std::enable_shared_from_this<Character>
 	{
 	public:
-		Character(const CardSpec& Spec);
+		Character(const CardSpec Spec);
 		virtual ~Character() = default;
 
 		virtual void GainDamage(const int amount);
@@ -46,7 +46,6 @@ namespace nyvux
 	template <class DecoratorType, class ... Types>
 	void Character::Modify(Types... Args)
 	{;
-
 		CharacterStat.Modify<DecoratorType>(Args...);
 	}
 }

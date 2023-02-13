@@ -20,6 +20,8 @@ namespace nyvux
 
 	CardSpecRepository& MakeCardSpecRepositoryToMock();
 	std::shared_ptr<MockCharacter> MakeMockCharacter();
+	std::shared_ptr<Spell> MakeNonTargetSpell();
+	std::shared_ptr<Spell> MakeTargetSpell();
 
 	class MockHearthstoneApi : public HearthstoneApi
 	{
@@ -79,6 +81,48 @@ namespace nyvux
 		56524,
 		std::vector{57218},
 		std::vector{5, 32}
+	};
+
+	static const CardSpec MockCardSpecSpellNeedsTarget =
+	{
+		64631,
+		true,
+		"64631-aimed-shot",
+		3,
+		std::vector<int>(),
+		-1,
+		5,
+		1578,
+		1,
+		-1,
+		-1,
+		3,
+		"Aimed Shot",
+		"Deal 3 damage. Your next Hero Power deals 2 more damage.",
+		64631,
+		std::vector<int>{},
+		std::vector<int>{}
+	};
+
+	static const CardSpec MockCardSpecSpellNonTarget =
+	{
+		63211,
+		true,
+		"63211-altar-of-fire",
+		9,
+		std::vector<int>(),
+		2,
+		5,
+		1525,
+		4,
+		-1,
+		-1,
+		1,
+		"Altar of Fire",
+		"Destroy the top 3 cards of each deck.",
+		63211,
+		std::vector<int>{},
+		std::vector<int>{}
 	};
 
 	static constexpr int MOCK_CARD_ID = 69543;

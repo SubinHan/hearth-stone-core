@@ -1,4 +1,4 @@
-#include "pch.h"
+#include "testpch.h"
 
 #include "Helper.h"
 
@@ -49,6 +49,16 @@ CardSpecRepository& nyvux::MakeCardSpecRepositoryToMock()
 std::shared_ptr<MockCharacter> nyvux::MakeMockCharacter()
 {
 	return std::make_shared<MockCharacter>();
+}
+
+std::shared_ptr<Spell> nyvux::MakeNonTargetSpell()
+{
+	return Spell::CreateSpell(MockCardSpecSpellNonTarget);
+}
+
+std::shared_ptr<Spell> nyvux::MakeTargetSpell()
+{
+	return Spell::CreateSpell(MockCardSpecSpellNeedsTarget);
 }
 
 MockCharacter::MockCharacter()

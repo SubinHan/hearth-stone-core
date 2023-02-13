@@ -17,6 +17,7 @@ namespace nyvux
 
 		std::shared_ptr<Card> Draw();
 		int GetCount();
+		void DestroyCard(int ZeroBasedIndex);
 
 	public:
 		static constexpr int DEFAULT_DECK_SIZE = 30;

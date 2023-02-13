@@ -2,7 +2,7 @@
 
 #include "NyvuxStone/Model/Card/CharacterStat.h"
 
-nyvux::CharacterStat::CharacterStat(const CardSpec& CardSpec)
+nyvux::CharacterStat::CharacterStat(const CardSpec CardSpec)
 	: Spec(CardSpec),
 	Decorator(std::make_shared<CharacterStatDecoratorBase>(nullptr)),
 	bCanBeTarget(true),

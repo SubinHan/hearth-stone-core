@@ -8,6 +8,9 @@
 
 #include <memory>
 
+#include "Hero.h"
+#include "NyvuxStone/Model/Card/Spell.h"
+
 
 namespace nyvux
 {
@@ -23,20 +26,40 @@ namespace nyvux
 		int GetNumCardsInDeck() const;
 		int GetNumCardsInHand() const;
 		int GetNumPlayedInField() const;
-		void PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
 		std::shared_ptr<Character> GetCardInFieldAt(int ZeroBasedIndex);
-		bool CanAttack(int ZeroBasedFieldIndexOfOpponents);
+		void AddCardIntoHand(std::shared_ptr<Card> Card);
+
+		void DestroyTopCardsInDeck();
+
+		int GetCurrentHealth() const;
+		int GetCurrentArmor() const;
+		int GetMaxHealth() const;
+		std::shared_ptr<Hero> GetHero();
+
+		int GetCurrentMana() const;
+		int GetMaxMana() const;
+		int GetOverloadedMana() const;
+		void IncreaseMaxMana();
+		void FulfillMana();
+		void OverloadMana(int Amount);
+		void UnlockAllOverloadedMana();
+
+		void PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex);
 		void RemovePlaceableInField(std::shared_ptr<Character> Card);
-		int GetCurrentMana();
-		int GetMaxMana();
+		void CastSpell(std::shared_ptr<Spell> Spell, std::shared_ptr<Character> Target = nullptr);
+		void PlaySpell(int ZeroBasedHandIndex, std::shared_ptr<Character> Target = nullptr);
+
+		bool CanAttack(int ZeroBasedFieldIndexOfOpponents);
 
 	private:
 		int MaxMana;
 		int CurrentMana;
+		int OverloadedMana;
 
 		std::shared_ptr<Deck> Deck;
 		std::shared_ptr<Field> Field;
 		std::shared_ptr<Hand> Hand;
+		std::shared_ptr<Hero> Hero;
 
 		std::shared_ptr<GameMediator> GameMediator;
 	};
