@@ -68,4 +68,10 @@ namespace nyvux
 			Player->GetNumCardsInDeck()
 		);
 	}
+
+	TEST_F(PlayerTest, TestMana)
+	{
+		Player->GetCurrentMana();
+		Player->GetMaxMana();
+	}
 }

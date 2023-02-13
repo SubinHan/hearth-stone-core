@@ -27,8 +27,12 @@ namespace nyvux
 		std::shared_ptr<Character> GetCardInFieldAt(int ZeroBasedIndex);
 		bool CanAttack(int ZeroBasedFieldIndexOfOpponents);
 		void RemovePlaceableInField(std::shared_ptr<Character> Card);
+		int GetCurrentMana();
+		int GetMaxMana();
 
 	private:
+		int MaxMana;
+		int CurrentMana;
 
 		std::shared_ptr<Deck> Deck;
 		std::shared_ptr<Field> Field;

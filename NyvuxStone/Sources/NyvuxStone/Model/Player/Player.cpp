@@ -121,3 +121,13 @@ void Player::RemovePlaceableInField(std::shared_ptr<Character> Card)
 {
 	Field->Remove(Card);
 }
+
+int Player::GetCurrentMana()
+{
+	return CurrentMana;
+}
+
+int Player::GetMaxMana()
+{
+	return MaxMana;
+}
