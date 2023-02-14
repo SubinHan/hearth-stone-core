@@ -12,7 +12,7 @@ void nyvux::EventNotifier::RemoveEventListener(std::shared_ptr<EventListener> Li
 	Listeners.remove(Listener);
 }
 
-void nyvux::EventNotifier::FirePlayed(Event Event)
+void nyvux::EventNotifier::FirePlayed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -20,7 +20,7 @@ void nyvux::EventNotifier::FirePlayed(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireDrawed(Event Event)
+void nyvux::EventNotifier::FireDrawed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -28,7 +28,7 @@ void nyvux::EventNotifier::FireDrawed(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireCasted(Event Event)
+void nyvux::EventNotifier::FireCasted(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -36,7 +36,7 @@ void nyvux::EventNotifier::FireCasted(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireSummoned(Event Event)
+void nyvux::EventNotifier::FireSummoned(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -44,7 +44,7 @@ void nyvux::EventNotifier::FireSummoned(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireHealed(Event Event)
+void nyvux::EventNotifier::FireHealed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -52,7 +52,7 @@ void nyvux::EventNotifier::FireHealed(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireUsedHeroPower(Event Event)
+void nyvux::EventNotifier::FireUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -60,7 +60,7 @@ void nyvux::EventNotifier::FireUsedHeroPower(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireDamaged(Event Event)
+void nyvux::EventNotifier::FireDamaged(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{
@@ -68,7 +68,7 @@ void nyvux::EventNotifier::FireDamaged(Event Event)
 	}
 }
 
-void nyvux::EventNotifier::FireDestroyed(Event Event)
+void nyvux::EventNotifier::FireDestroyed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto EventListener : Listeners)
 	{

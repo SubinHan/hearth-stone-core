@@ -126,7 +126,7 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\UnregisterCardCommand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemoveMinionInFieldCommand.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Player\SecretZone.cpp">
@@ -142,6 +142,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretCondition.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,7 +236,7 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\NyvuxStoneEvent.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ICommand.h">
@@ -260,7 +266,7 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\UnregisterCardCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemoveMinionInFieldCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Model\Player\SecretZone.h">
@@ -276,6 +282,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretCondition.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

@@ -21,7 +21,8 @@ bool nyvux::Character::CanBeSpellTarget()
 void nyvux::Character::GainDamage(const int amount)
 {
 	CharacterStat.Damage(amount);
-	FireDamaged(Event{shared_from_this()});
+	auto Event = std::make_shared<nyvux::NyvuxStoneEvent>(nullptr, nullptr, shared_from_this());
+	FireDamaged(Event);
 
 	if (CharacterStat.IsDestroyed())
 		Destroy();
@@ -79,5 +80,8 @@ bool nyvux::Character::HasLifesteal()
 
 void nyvux::Character::Destroy()
 {
-	FireDestroyed(Event{shared_from_this()});
+	auto DestroyEvent =
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(nullptr, nullptr, shared_from_this());
+
+	FireDestroyed(DestroyEvent);
 }

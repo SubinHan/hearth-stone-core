@@ -1,12 +1,14 @@
 #pragma once
 
-#include "NyvuxStone/Model/Event/Event.h"
+#include "NyvuxStone/Model/Event/NyvuxStoneEvent.h"
+
+#include <memory>
 
 namespace nyvux
 {
 	class ICommand
 	{
 	public:
-		virtual void Execute(Event Event) = 0;
+		virtual void Execute(std::shared_ptr<NyvuxStoneEvent> Event) = 0;
 	};
 }

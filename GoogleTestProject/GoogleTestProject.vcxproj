@@ -91,6 +91,7 @@
     <ClCompile Include="Tests\NyvuxStone\Core\Api\ApiConnectionTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Core\Game\Decorator\CardStatDecoratorTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\Card\CardStatTest.cpp" />
+    <ClCompile Include="Tests\NyvuxStone\Model\Card\SecretTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\PlayerSpellTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\Event\EventListenerTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\Player\FieldTest.cpp" />

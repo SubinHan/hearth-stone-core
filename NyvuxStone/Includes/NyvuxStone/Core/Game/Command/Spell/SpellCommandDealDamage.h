@@ -10,7 +10,7 @@ namespace nyvux
 	public:
 		SpellCommandDealDamage(const int Amount);
 		virtual ~SpellCommandDealDamage() = default;
-		void Execute(std::shared_ptr<Character> Target) override;
+		void Execute(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target) override;
 
 	private:
 		int Amount;

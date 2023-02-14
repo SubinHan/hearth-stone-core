@@ -7,7 +7,7 @@ nyvux::SpellCommandDealDamage::SpellCommandDealDamage(const int Amount)
 {
 }
 
-void nyvux::SpellCommandDealDamage::Execute(std::shared_ptr<Character> Target)
+void nyvux::SpellCommandDealDamage::Execute(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target)
 {
 	Target->GainDamage(Amount);
 }

@@ -2,7 +2,11 @@
 
 #include "NyvuxStone/Model/Player/Player.h"
 
-#include "NyvuxStone/Core/Game/Command/RemovePlaceableInFieldCommand.h"
+#include "NyvuxStone/Model/Player/SecretZone.h"
+#include "NyvuxStone/Model/Card/Secret.h"
+#include "NyvuxStone/Model/Card/Spell.h"
+#include "NyvuxStone/Core/Game/GameMediator.h"
+#include "NyvuxStone/Core/Game/Command/RemoveMinionInFieldCommand.h"
 #include "NyvuxStone/Model/Player/PlayerException.h"
 
 using namespace std;
@@ -13,6 +17,7 @@ Player::Player(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMed
 	Field(Field::CreateField()),
 	Hand(Hand::CreateHand()),
 	Hero(Hero::CreateHero()),
+	SecretZone(SecretZone::CreateSecretZone()),
 	GameMediator(GameMediator),
 	CurrentMana(0),
 	MaxMana(0),
@@ -23,7 +28,7 @@ Player::Player(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMed
 std::shared_ptr<Player> Player::CreatePlayer(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMediator> GameMediator)
 {
 	auto Player = make_shared<nyvux::Player>(Deck, GameMediator);
-	Player->AddOnDestroyedCommand(make_shared<RemovePlaceableInFieldCommand>(Player));
+	Player->AddOnDestroyedCommand(make_shared<RemoveMinionInFieldCommand>(Player));
 
 	return Player;
 }
@@ -32,7 +37,11 @@ void Player::DrawCard()
 {
 	shared_ptr<Card> Drawn = Deck->Draw();
 	Hand->AddCard(Drawn);
-	FireDrawed(Event{ Drawn });
+
+	auto DrawEvent =
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), nullptr, Drawn);
+
+	FireDrawed(DrawEvent);
 }
 
 int Player::GetNumCardsInDeck() const
@@ -50,34 +59,38 @@ int nyvux::Player::GetNumPlayedInField() const
 	return Field->GetNumPlayed();
 }
 
-void nyvux::Player::PlaceCardWithoutBattlecry(int ZeroBasedHandIndex, int ZeroBasedFieldIndex)
+void nyvux::Player::PlayMinion(int ZeroBasedHandIndex, int ZeroBasedFieldIndex, std::shared_ptr<Character> Target)
 {
 	if (!Field->CanPlace())
 	{
 		throw PlayerException("The field is full.");
 	}
 
-	if(Hand->IsEmpty())
+	if (Hand->IsEmpty())
 	{
 		throw PlayerException("The hand is empty.");
 	}
 
 	auto ToPlay = Hand->GetCard(ZeroBasedHandIndex);
-
-	auto Placeable = std::dynamic_pointer_cast<Character>(ToPlay);
-	if(!Placeable)
+	auto Minion = std::dynamic_pointer_cast<nyvux::Minion>(ToPlay);
+	if (!Minion)
 	{
 		throw PlayerException("The given card is not a minion or a location.");
 	}
 
 	Hand->RemoveCard(ZeroBasedHandIndex);
-	Field->PlaceCard(Placeable, ZeroBasedFieldIndex);
-	FirePlayed(Event{ Placeable });
+	Field->PlaceCard(Minion, ZeroBasedFieldIndex);
 
-	if(Field->IsPlaced(Placeable))
+	auto PlayEvent =
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), ToPlay, Target);
+	FirePlayed(PlayEvent);
+
+	if (Field->IsPlaced(Minion))
 	{
-		GameMediator->RegisterCard(Placeable);
-		FireSummoned(Event{ Placeable });
+		GameMediator->RegisterCard(Minion);
+		auto SummonEvent =
+			NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), nullptr, Minion);
+		FireSummoned(SummonEvent);
 	}
 }
 
@@ -89,9 +102,9 @@ std::shared_ptr<Character> Player::GetCardInFieldAt(int ZeroBasedIndex)
 bool nyvux::Player::CanAttack(int ZeroBasedFieldIndexOfOpponents)
 {
 	auto Opponent = GameMediator->GetOpponentPlayerOf(shared_from_this());
-	auto Placeable = Opponent->GetCardInFieldAt(ZeroBasedFieldIndexOfOpponents);
+	auto Character = Opponent->GetCardInFieldAt(ZeroBasedFieldIndexOfOpponents);
 
-	auto Minion = dynamic_pointer_cast<nyvux::Minion>(Placeable);
+	auto Minion = dynamic_pointer_cast<nyvux::Minion>(Character);
 
 	if (!Minion)
 	{
@@ -119,6 +132,21 @@ bool nyvux::Player::CanAttack(int ZeroBasedFieldIndexOfOpponents)
 	}
 
 	return true;
+}
+
+bool Player::CanAddSecret()
+{
+	return SecretZone->CanAddSecret();
+}
+
+void Player::AddSecret(std::shared_ptr<Secret> Secret)
+{
+	SecretZone->RegisterSecret(Secret, GameMediator);
+}
+
+void Player::RemoveSecret(std::shared_ptr<Secret> Secret)
+{
+	SecretZone->UnregisterSecret(Secret, GameMediator);
 }
 
 void Player::RemovePlaceableInField(std::shared_ptr<Character> Card)
@@ -153,8 +181,14 @@ void Player::AddCardIntoHand(std::shared_ptr<Card> Card)
 
 void nyvux::Player::CastSpell(std::shared_ptr<Spell> Spell, std::shared_ptr<Character> Target)
 {
-	Spell->Cast(Target);
-	FireCasted(Event(Spell));
+	auto Event = 
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), Spell, Target);
+	FireCasted(Event);
+
+	auto ActualTarget = std::dynamic_pointer_cast<Character>(Event->TargetCard);
+	auto ActualSpell = std::dynamic_pointer_cast<nyvux::Spell>(Event->FromCard);
+
+	ActualSpell->Cast(shared_from_this(), ActualTarget);
 }
 
 void nyvux::Player::PlaySpell(int ZeroBasedHandIndex, std::shared_ptr<Character> Target)
@@ -175,11 +209,16 @@ void nyvux::Player::PlaySpell(int ZeroBasedHandIndex, std::shared_ptr<Character>
 		throw PlayerException("Spell needs a target but the given target is null");
 
 	Hand->RemoveCard(ZeroBasedHandIndex);
-	FirePlayed(Event(Spell));
-
-	CastSpell(Spell, Target);
-
 	CurrentMana -= ManaCost;
+
+	auto Event = 
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), Spell, Target);
+	FirePlayed(Event);
+
+	auto ActualSpell = std::dynamic_pointer_cast<nyvux::Spell>(Event->FromCard);
+	auto ActualTarget = std::dynamic_pointer_cast<Character>(Event->TargetCard);
+
+	CastSpell(ActualSpell, ActualTarget);
 }
 
 void Player::DestroyTopCardsInDeck()

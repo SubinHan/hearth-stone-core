@@ -24,3 +24,9 @@ bool nyvux::SecretZone::CanAddSecret() const noexcept
 {
 	return SecretZoneImpl.size() < MAX_CAPACITY;
 }
+
+void nyvux::SecretZone::UnregisterSecret(std::shared_ptr<Secret> Secret, std::shared_ptr<GameMediator> GameMediator)
+{
+	GameMediator->UnregisterCard(Secret);
+	SecretZoneImpl.remove(Secret);
+}

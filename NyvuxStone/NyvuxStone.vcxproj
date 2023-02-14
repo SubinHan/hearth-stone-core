@@ -284,7 +284,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Sources\NyvuxStone\Core\Api\ApiConnection.cpp" />
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\RemoveMinionInFieldCommand.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDestroyCardsTopDeck.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Game.cpp" />
@@ -308,6 +309,7 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Event\EventNotifier.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\ModifyMinionStatCommand.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\UnregisterCardCommand.cpp" />
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretCondition.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\HeroPower\MageHeroPower.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Model\Player\Deck.cpp" />
     <ClCompile Include="Sources\NyvuxStone\Core\Api\HearthstoneApi.cpp" />
@@ -343,7 +345,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Includes\NyvuxStone\Core\Api\ApiConnection.h" />
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemovePlaceableInFieldCommand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\RemoveMinionInFieldCommand.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDestroyCardsTopDeck.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\ISpellCommand.h" />
@@ -364,12 +367,13 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Secret.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Spell.h" />
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\Event.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\NyvuxStoneEvent.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventNotifier.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ICommand.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ModifyMinionStatCommand.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventListener.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\UnregisterCardCommand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretCondition.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\HeroPower\MageHeroPower.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Player\SecretZone.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Player\Deck.h" />
@@ -386,6 +390,7 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Player\PlayerException.h" />
     <ClInclude Include="Includes\NyvuxStone\View\UserInteraction.h" />
     <ClInclude Include="Includes\pch.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

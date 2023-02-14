@@ -7,7 +7,7 @@ nyvux::UnregisterCardCommand::UnregisterCardCommand(std::shared_ptr<nyvux::GameM
 	this->GameMediator = GameMediator;
 }
 
-void nyvux::UnregisterCardCommand::Execute(Event Event)
+void nyvux::UnregisterCardCommand::Execute(std::shared_ptr<nyvux::NyvuxStoneEvent> Event)
 {
-	GameMediator->UnregisterCard(Event.Target);
+	GameMediator->UnregisterCard(Event->TargetCard);
 }

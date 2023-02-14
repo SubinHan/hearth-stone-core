@@ -45,7 +45,7 @@ namespace nyvux
 
 		constexpr int HAND_POS = 0;
 		constexpr int FIELD_POS = 0;
-		Player->PlaceCardWithoutBattlecry(HAND_POS, FIELD_POS);
+		Player->PlayMinion(HAND_POS, FIELD_POS);
 
 		EXPECT_EQ(2, Player->GetNumCardsInHand());
 		EXPECT_EQ(1, Player->GetNumPlayedInField());

@@ -29,12 +29,12 @@ namespace nyvux
 	TEST_F(PlayerGameMediatorTest, TestCanAttack)
 	{
 		PlayerA->DrawCard();
-		PlayerA->PlaceCardWithoutBattlecry(0, 0);
+		PlayerA->PlayMinion(0, 0);
 
 		PlayerB->DrawCard();
 		PlayerB->DrawCard();
-		PlayerB->PlaceCardWithoutBattlecry(0, 0);
-		PlayerB->PlaceCardWithoutBattlecry(0, 0);
+		PlayerB->PlayMinion(0, 0);
+		PlayerB->PlayMinion(0, 0);
 
 		EXPECT_TRUE(PlayerA->CanAttack(0));
 

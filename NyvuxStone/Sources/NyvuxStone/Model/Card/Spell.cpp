@@ -2,6 +2,7 @@
 
 #include "NyvuxStone/Model/Card/Spell.h"
 
+
 std::shared_ptr<nyvux::Spell> nyvux::Spell::CreateSpell(const CardSpec CardSpec)
 {
 	return std::make_shared<Spell>(CardSpec);
@@ -18,11 +19,11 @@ void nyvux::Spell::AddSpellCommand(std::shared_ptr<ISpellCommand> Command)
 	SpellCommands.push_back(Command);
 }
 
-void nyvux::Spell::Cast(std::shared_ptr<Character> Target)
+void nyvux::Spell::Cast(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target)
 {
 	for (auto Command : SpellCommands)
 	{
-		Command->Execute(Target);
+		Command->Execute(Caster, Target);
 	}
 }
 

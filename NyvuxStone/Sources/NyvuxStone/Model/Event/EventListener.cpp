@@ -47,7 +47,7 @@ void nyvux::EventListener::AddOnSummonedCommand(std::shared_ptr<ICommand> Comman
 }
 
 
-void nyvux::EventListener::OnDrawed(Event Event)
+void nyvux::EventListener::OnDrawed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnDrawedCommands)
 	{
@@ -55,7 +55,7 @@ void nyvux::EventListener::OnDrawed(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnDamaged(Event Event)
+void nyvux::EventListener::OnDamaged(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnDamagedCommands)
 	{
@@ -63,7 +63,7 @@ void nyvux::EventListener::OnDamaged(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnHealed(Event Event)
+void nyvux::EventListener::OnHealed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnHealedCommands)
 	{
@@ -71,7 +71,7 @@ void nyvux::EventListener::OnHealed(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnSummoned(Event Event)
+void nyvux::EventListener::OnSummoned(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnSummonedCommands)
 	{
@@ -79,7 +79,7 @@ void nyvux::EventListener::OnSummoned(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnPlayed(Event Event)
+void nyvux::EventListener::OnPlayed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnPlayedCommands)
 	{
@@ -87,7 +87,7 @@ void nyvux::EventListener::OnPlayed(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnUsedHeroPower(Event Event)
+void nyvux::EventListener::OnUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnUsedHeroPowerCommands)
 	{
@@ -95,7 +95,7 @@ void nyvux::EventListener::OnUsedHeroPower(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnDestroyed(Event Event)
+void nyvux::EventListener::OnDestroyed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnDestroyedCommands)
 	{
@@ -103,7 +103,7 @@ void nyvux::EventListener::OnDestroyed(Event Event)
 	}
 }
 
-void nyvux::EventListener::OnCasted(Event Event)
+void nyvux::EventListener::OnCasted(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnCastedCommands)
 	{

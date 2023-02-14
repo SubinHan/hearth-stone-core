@@ -11,7 +11,7 @@ namespace nyvux
 	class MockCommand : public ICommand
 	{
 	public:
-		MOCK_METHOD(void, Execute, (Event), (override));
+		MOCK_METHOD(void, Execute, (shared_ptr<NyvuxStoneEvent>), (override));
 	};
 
 	class EventListenerTest : public ::testing::Test
@@ -20,8 +20,11 @@ namespace nyvux
 		void SetUp() override
 		{
 			Command = make_shared<MockCommand>();
+			EmptyEvent =
+				NyvuxStoneEvent::CreateNyvuxStoneEvent(nullptr, nullptr, nullptr);
 		}
 
+		shared_ptr<NyvuxStoneEvent> EmptyEvent;
 		shared_ptr<MockCommand> Command;
 		EventListener Listener;
 	};
@@ -31,11 +34,11 @@ namespace nyvux
 
 		Listener.AddOnDamagedCommand(Command);
 
-		Listener.OnDamaged(Event{});
-		Listener.OnDamaged(Event{});
-		Listener.OnDamaged(Event{});
-		Listener.OnDrawed(Event{});
-		Listener.OnHealed(Event{});
+		Listener.OnDamaged(EmptyEvent);
+		Listener.OnDamaged(EmptyEvent);
+		Listener.OnDamaged(EmptyEvent);
+		Listener.OnDrawed(EmptyEvent);
+		Listener.OnHealed(EmptyEvent);
 	}
 
 	TEST_F(EventListenerTest, TestOnDrawed)
@@ -44,11 +47,11 @@ namespace nyvux
 
 		Listener.AddOnDrawedCommand(Command);
 
-		Listener.OnDrawed(Event{});
-		Listener.OnDrawed(Event{});
-		Listener.OnDrawed(Event{});
-		Listener.OnDamaged(Event{});
-		Listener.OnHealed(Event{});
+		Listener.OnDrawed(EmptyEvent);
+		Listener.OnDrawed(EmptyEvent);
+		Listener.OnDrawed(EmptyEvent);
+		Listener.OnDamaged(EmptyEvent);
+		Listener.OnHealed(EmptyEvent);
 	}
 
 	TEST_F(EventListenerTest, TestOnHealed)
@@ -57,10 +60,10 @@ namespace nyvux
 
 		Listener.AddOnHealedCommand(Command);
 
-		Listener.OnHealed(Event{});
-		Listener.OnHealed(Event{});
-		Listener.OnHealed(Event{});
-		Listener.OnDamaged(Event{});
-		Listener.OnDrawed(Event{});
+		Listener.OnHealed(EmptyEvent);
+		Listener.OnHealed(EmptyEvent);
+		Listener.OnHealed(EmptyEvent);
+		Listener.OnDamaged(EmptyEvent);
+		Listener.OnDrawed(EmptyEvent);
 	}
 }

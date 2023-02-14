@@ -12,7 +12,7 @@ nyvux::ModifyMinionStatCommand::ModifyMinionStatCommand(
 {
 }
 
-void nyvux::ModifyMinionStatCommand::Execute(Event Event)
+void nyvux::ModifyMinionStatCommand::Execute(std::shared_ptr<nyvux::NyvuxStoneEvent> Event)
 {
 	Target->Modify<CharacterStatDecoratorModify>(DeltaAttack, DeltaHealth);
 }

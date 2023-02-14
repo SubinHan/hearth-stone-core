@@ -10,7 +10,7 @@ namespace nyvux
 	public:
 		SpellCommandDestroyCardsTopDeck(std::shared_ptr<Player> Target, const int Amount);
 		virtual ~SpellCommandDestroyCardsTopDeck() = default;
-		void Execute(std::shared_ptr<Character> Target) override;
+		void Execute(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target) override;
 
 	private:
 		std::shared_ptr<Player> Target;

@@ -6,6 +6,7 @@
 #include "NyvuxStone/Model/Card/CardSpecRepository.h"
 #include "NyvuxStone/Model/Player/Player.h"
 #include "NyvuxStone/Core/Api/HearthstoneApi.h"
+#include "NyvuxStone/Core/Game/GameMediator.h"
 
 #include <memory>
 #include <vector>
@@ -62,27 +63,6 @@ namespace nyvux
 		std::vector<int>()
 	};
 
-	static const CardSpec MockCardSpecSecret =
-	{
-		56524,
-		true,
-		"56524-ambush",
-		7,
-		std::vector<int>(),
-		-1,
-		5,
-		1414,
-		3,
-		-1,
-		-1,
-		2,
-		"Ambush",
-		"<b>Secret:</b> After your opponent plays a minion, summon a 2/3 Ambusher with <b>Poisonous</b>.",
-		56524,
-		std::vector{57218},
-		std::vector{5, 32}
-	};
-
 	static const CardSpec MockCardSpecSpellNeedsTarget =
 	{
 		64631,
@@ -123,6 +103,27 @@ namespace nyvux
 		63211,
 		std::vector<int>{},
 		std::vector<int>{}
+	};
+
+	static const CardSpec MockCardSpecSecret =
+	{
+		69704,
+		true,
+		"69704-avenge",
+		5,
+		std::vector<int>(),
+		5,
+		5,
+		1637,
+		1,
+		-1,
+		-1,
+		1,
+		"Avenge",
+		"<b>Secret:</b> When one of your minions dies, give a random friendly minion +3/+2.",
+		69704,
+		std::vector<int>{},
+		std::vector<int>{5}
 	};
 
 	static constexpr int MOCK_CARD_ID = 69543;

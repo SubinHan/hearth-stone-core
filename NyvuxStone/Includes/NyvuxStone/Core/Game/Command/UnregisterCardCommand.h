@@ -13,7 +13,7 @@ namespace nyvux
 		UnregisterCardCommand(std::shared_ptr<GameMediator> GameMediator);
 		virtual ~UnregisterCardCommand() = default;
 
-		void Execute(Event Event) override;
+		void Execute(std::shared_ptr<NyvuxStoneEvent> Event) override;
 
 	private:
 		std::shared_ptr<GameMediator> GameMediator;

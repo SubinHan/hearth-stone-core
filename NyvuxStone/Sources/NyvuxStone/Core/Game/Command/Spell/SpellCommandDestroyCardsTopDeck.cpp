@@ -8,7 +8,7 @@ nyvux::SpellCommandDestroyCardsTopDeck::SpellCommandDestroyCardsTopDeck(std::sha
 {
 }
 
-void nyvux::SpellCommandDestroyCardsTopDeck::Execute(std::shared_ptr<Character> Target)
+void nyvux::SpellCommandDestroyCardsTopDeck::Execute(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target)
 {
 	for(int i = 0; i < Amount; i++)
 	{

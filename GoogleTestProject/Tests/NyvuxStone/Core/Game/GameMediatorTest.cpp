@@ -30,10 +30,10 @@ namespace nyvux
 	TEST_F(GameMediatorTest, TestDrawEvent)
 	{
 		PlayerA->DrawCard();
-		PlayerA->PlaceCardWithoutBattlecry(0, 0);
-		auto Placeable = PlayerA->GetCardInFieldAt(0);
+		PlayerA->PlayMinion(0, 0);
+		auto PlayedMinion = PlayerA->GetCardInFieldAt(0);
 
-		shared_ptr<Minion> Minion = dynamic_pointer_cast<nyvux::Minion>(Placeable);
+		shared_ptr<Minion> Minion = dynamic_pointer_cast<nyvux::Minion>(PlayedMinion);
 
 		if(!Minion)
 		{
@@ -65,10 +65,10 @@ namespace nyvux
 	TEST_F(GameMediatorTest, TestIfListenerDestroysWhenCardDestroy)
 	{
 		PlayerA->DrawCard();
-		PlayerA->PlaceCardWithoutBattlecry(0, 0);
-		auto Placeable = PlayerA->GetCardInFieldAt(0);
+		PlayerA->PlayMinion(0, 0);
+		auto PlayedMinion = PlayerA->GetCardInFieldAt(0);
 
-		shared_ptr<Minion> Minion = dynamic_pointer_cast<nyvux::Minion>(Placeable);
+		shared_ptr<Minion> Minion = dynamic_pointer_cast<nyvux::Minion>(PlayedMinion);
 
 		if (!Minion)
 		{

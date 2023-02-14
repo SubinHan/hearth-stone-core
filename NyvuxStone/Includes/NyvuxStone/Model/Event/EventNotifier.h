@@ -1,5 +1,5 @@
 #pragma once
-#include "Event.h"
+#include "NyvuxStoneEvent.h"
 #include "EventListener.h"
 
 #include <memory>
@@ -15,14 +15,14 @@ namespace nyvux
 		void RemoveEventListener(std::shared_ptr<EventListener> Listener);
 
 	protected:
-		void FirePlayed(Event Event);
-		void FireDrawed(Event Event);
-		void FireCasted(Event Event);
-		void FireSummoned(Event Event);
-		void FireHealed(Event Event);
-		void FireUsedHeroPower(Event Event);
-		void FireDamaged(Event Event);
-		void FireDestroyed(Event Event);
+		void FirePlayed(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireDrawed(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireCasted(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireSummoned(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireHealed(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireDamaged(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireDestroyed(std::shared_ptr<NyvuxStoneEvent> Event);
 
 	private:
 		std::list<std::shared_ptr<EventListener>> Listeners;
