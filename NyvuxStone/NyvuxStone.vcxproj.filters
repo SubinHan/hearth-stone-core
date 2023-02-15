@@ -147,7 +147,10 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretCondition.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandModifyRandomMinion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -287,10 +290,10 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretCondition.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\CommandCheckSecretCondition.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.h">
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandModifyRandomMinion.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

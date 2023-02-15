@@ -29,7 +29,9 @@ namespace nyvux
 		int GetNumPlayedInField() const;
 		std::shared_ptr<Character> GetCardInFieldAt(int ZeroBasedIndex);
 		void AddCardIntoHand(std::shared_ptr<Card> Card);
+		bool ContainsMinionInField(std::shared_ptr<Minion> Minion);
 
+		std::shared_ptr<Minion> GetRandomMinionInField();
 		void DestroyTopCardsInDeck();
 
 		int GetCurrentHealth() const;
@@ -46,7 +48,7 @@ namespace nyvux
 		void UnlockAllOverloadedMana();
 		
 		void PlayMinion(int ZeroBasedHandIndex, int ZeroBasedFieldIndex, std::shared_ptr<Character> Target = nullptr);
-		void RemovePlaceableInField(std::shared_ptr<Character> Card);
+		void RemovePlaceableInField(std::shared_ptr<Minion> Card);
 		void CastSpell(std::shared_ptr<Spell> Spell, std::shared_ptr<Character> Target = nullptr);
 		void PlaySpell(int ZeroBasedHandIndex, std::shared_ptr<Character> Target = nullptr);
 

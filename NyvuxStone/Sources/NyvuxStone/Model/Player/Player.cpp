@@ -8,6 +8,7 @@
 #include "NyvuxStone/Core/Game/GameMediator.h"
 #include "NyvuxStone/Core/Game/Command/RemoveMinionInFieldCommand.h"
 #include "NyvuxStone/Model/Player/PlayerException.h"
+#include <nyvux/utils/Random.h>
 
 using namespace std;
 using namespace nyvux;
@@ -149,7 +150,7 @@ void Player::RemoveSecret(std::shared_ptr<Secret> Secret)
 	SecretZone->UnregisterSecret(Secret, GameMediator);
 }
 
-void Player::RemovePlaceableInField(std::shared_ptr<Character> Card)
+void Player::RemovePlaceableInField(std::shared_ptr<Minion> Card)
 {
 	Field->Remove(Card);
 }
@@ -177,6 +178,18 @@ void Player::UnlockAllOverloadedMana()
 void Player::AddCardIntoHand(std::shared_ptr<Card> Card)
 {
 	Hand->AddCard(Card);
+}
+
+bool Player::ContainsMinionInField(std::shared_ptr<Minion> Minion)
+{
+	return Field->ContainsMinion(Minion);
+}
+
+std::shared_ptr<Minion> Player::GetRandomMinionInField()
+{
+	const int FieldSize = Field->GetNumPlayed();
+	const int RandomIndex = Random().Uniform(0, FieldSize);
+	return Field->GetCardAt(RandomIndex);
 }
 
 void nyvux::Player::CastSpell(std::shared_ptr<Spell> Spell, std::shared_ptr<Character> Target)

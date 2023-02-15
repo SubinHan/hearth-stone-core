@@ -4,7 +4,9 @@
 
 std::shared_ptr<nyvux::Secret> nyvux::Secret::CreateSecret(const CardSpec CardSpec)
 {
-	return std::make_shared<Secret>(CardSpec);
+	auto Created = std::make_shared<Secret>(CardSpec);
+
+	return Created;
 }
 
 nyvux::Secret::Secret(const CardSpec CardSpec)
@@ -25,4 +27,14 @@ void nyvux::Secret::Activate()
 {
 	Caster->RemoveSecret(shared_from_this());
 	Spell::Cast(Caster, nullptr);
+}
+
+void nyvux::Secret::SetSecretCondition(std::shared_ptr<nyvux::SecretCondition> SecretCondition)
+{
+	this->SecretCondition = SecretCondition;
+}
+
+std::shared_ptr<nyvux::SecretCondition> nyvux::Secret::GetSecretCondition()
+{
+	return SecretCondition;
 }

@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Spell.h"
-#include "NyvuxStone/Model/Event/SecretCondition.h"
 
 #include <memory>
 
 namespace nyvux
 {
+	class SecretCondition;
 
 	class Secret : public Spell, public std::enable_shared_from_this<Secret>
 	{
@@ -18,9 +18,11 @@ namespace nyvux
 
 		void Cast(std::shared_ptr<Player> Caster, std::shared_ptr<Character> Target) override;
 		void Activate();
+		void SetSecretCondition(std::shared_ptr<SecretCondition> SecretCondition);
+		std::shared_ptr<SecretCondition> GetSecretCondition();
 
 	private:
 		std::shared_ptr<Player> Caster;
-		SecretCondition SecretCondition;
+		std::shared_ptr<SecretCondition> SecretCondition;
 	};
 }

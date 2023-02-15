@@ -46,13 +46,14 @@ void nyvux::EventListener::AddOnSummonedCommand(std::shared_ptr<ICommand> Comman
 	OnSummonedCommands.push_back(Command);
 }
 
-
 void nyvux::EventListener::OnDrawed(std::shared_ptr<NyvuxStoneEvent> Event)
 {
 	for (auto Command : OnDrawedCommands)
 	{
 		Command->Execute(Event);
 	}
+	OnDrawedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnDamaged(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -61,6 +62,8 @@ void nyvux::EventListener::OnDamaged(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnDamagedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnHealed(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -69,6 +72,8 @@ void nyvux::EventListener::OnHealed(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnHealedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnSummoned(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -77,6 +82,8 @@ void nyvux::EventListener::OnSummoned(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnSummonedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnPlayed(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -85,6 +92,8 @@ void nyvux::EventListener::OnPlayed(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnPlayedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -93,6 +102,8 @@ void nyvux::EventListener::OnUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Even
 	{
 		Command->Execute(Event);
 	}
+	OnUsedHeroPowerHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnDestroyed(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -101,6 +112,8 @@ void nyvux::EventListener::OnDestroyed(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnDestroyedHook(Event);
+	OnEverythingHook(Event);
 }
 
 void nyvux::EventListener::OnCasted(std::shared_ptr<NyvuxStoneEvent> Event)
@@ -109,4 +122,6 @@ void nyvux::EventListener::OnCasted(std::shared_ptr<NyvuxStoneEvent> Event)
 	{
 		Command->Execute(Event);
 	}
+	OnCastedHook(Event);
+	OnEverythingHook(Event);
 }

@@ -22,7 +22,7 @@ namespace nyvux
 		void AddOnUsedHeroPowerCommand(std::shared_ptr<ICommand> Command);
 		void AddOnDestroyedCommand(std::shared_ptr<ICommand> Command);
 		void AddOnCastedCommand(std::shared_ptr<ICommand> Command);
-
+		
 		void OnDrawed(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnDamaged(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnHealed(std::shared_ptr<NyvuxStoneEvent> Event);
@@ -31,6 +31,16 @@ namespace nyvux
 		void OnUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnDestroyed(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnCasted(std::shared_ptr<NyvuxStoneEvent> Event);
+
+		virtual void OnEverythingHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnDrawedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnDamagedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnHealedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnSummonedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnPlayedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnUsedHeroPowerHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnDestroyedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnCastedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
 
 	private:
 		std::vector<std::shared_ptr<ICommand>> OnDrawedCommands;

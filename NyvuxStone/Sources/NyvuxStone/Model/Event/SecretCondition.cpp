@@ -2,7 +2,12 @@
 
 #include "NyvuxStone/Model/Event/SecretCondition.h"
 
-bool nyvux::SecretCondition::IsTrue()
+nyvux::SecretCondition::SecretCondition(std::shared_ptr<nyvux::Secret> Secret)
+	: Secret(Secret)
 {
-	return bIsTrue;
+}
+
+void nyvux::SecretCondition::Activate()
+{
+	Secret->Activate();
 }

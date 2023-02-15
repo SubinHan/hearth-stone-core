@@ -16,6 +16,7 @@ namespace nyvux
 
 		virtual void GainDamage(const int amount);
 		virtual void GainHeal(const int amount);
+		void Destroy();
 
 		int GetMaxHealth();
 		int GetAttack();
@@ -34,10 +35,7 @@ namespace nyvux
 
 		template<class DecoratorType, class... Types>
 		void Modify(Types... Args);
-
-	private:
-		void Destroy();
-
+		
 	private:
 		CharacterStat CharacterStat;
 		

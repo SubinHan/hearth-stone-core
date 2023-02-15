@@ -11,6 +11,7 @@
 namespace nyvux
 {
 	class Player;
+	class Secret;
 
 	class GameMediator : public EventListener, public std::enable_shared_from_this<GameMediator>
 	{
@@ -25,6 +26,8 @@ namespace nyvux
 		virtual void RegisterPlayers(std::shared_ptr<Player> PlayerA, std::shared_ptr<Player> PlayerB);
 		virtual void RegisterCard(std::shared_ptr<Card> Card);
 		virtual void UnregisterCard(std::shared_ptr<Card> Card);
+		virtual void RegisterSecret(std::shared_ptr<Secret> Secret);
+		virtual void UnregisterSecret(std::shared_ptr<Secret> Secret);
 
 		std::shared_ptr<Player> GetOpponentPlayerOf(std::shared_ptr<Player> This);
 

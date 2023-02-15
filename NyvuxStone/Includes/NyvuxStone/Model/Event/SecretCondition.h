@@ -1,16 +1,20 @@
 #pragma once
 #include "EventListener.h"
+#include "NyvuxStone/Model/Card/Secret.h"
+
+#include <memory>
 
 namespace nyvux
 {
 	class SecretCondition : public EventListener
 	{
 	public:
-		SecretCondition() = default;
+		SecretCondition(std::shared_ptr<Secret> Secret);
 		virtual ~SecretCondition() = default;
-		virtual bool IsTrue();
+
+		virtual void Activate() final;
 
 	private:
-		bool bIsTrue;
+		std::shared_ptr<Secret> Secret;
 	};
 }
