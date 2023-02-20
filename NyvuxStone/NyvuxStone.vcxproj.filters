@@ -296,6 +296,9 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandCastSecret.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Weapon.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

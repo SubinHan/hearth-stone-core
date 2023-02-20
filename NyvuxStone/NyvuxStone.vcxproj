@@ -368,6 +368,7 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Decorator\CharacterStat\CharacterStatDecoratorSilence.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Spell.h" />
+    <ClInclude Include="Includes\NyvuxStone\Model\Card\Weapon.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\NyvuxStoneEvent.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Event\EventNotifier.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\ICommand.h" />
