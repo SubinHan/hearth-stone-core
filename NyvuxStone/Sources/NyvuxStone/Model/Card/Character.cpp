@@ -82,6 +82,7 @@ bool nyvux::Character::HasLifesteal()
 
 void nyvux::Character::Destroy()
 {
+	// TODO: Call child's logic(pure virtual function) to destroy instead this.
 	Owner->Destroy(shared_from_this());
 
 	auto DestroyEvent =
