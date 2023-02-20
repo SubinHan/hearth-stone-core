@@ -23,6 +23,7 @@ namespace nyvux
 		void FireUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event);
 		void FireDamaged(std::shared_ptr<NyvuxStoneEvent> Event);
 		void FireDestroyed(std::shared_ptr<NyvuxStoneEvent> Event);
+		void FireSecretRevealed(std::shared_ptr<NyvuxStoneEvent> Event);
 
 	private:
 		std::list<std::shared_ptr<EventListener>> Listeners;

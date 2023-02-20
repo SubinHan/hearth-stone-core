@@ -132,9 +132,6 @@
     <ClCompile Include="Sources\NyvuxStone\Model\Player\SecretZone.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Card\Secret.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Model\Card\Spell.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -144,13 +141,16 @@
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretCondition.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Secret\Secret.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Sources\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.cpp">
+    <ClCompile Include="Sources\NyvuxStone\Model\Secret\SecretFriendlyMinionDestroyed.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandModifyRandomMinion.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Sources\NyvuxStone\Core\Game\Command\Spell\SpellCommandCastSecret.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -263,9 +263,6 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Card\MinionStat.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Card\Secret.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\UnregisterCardCommand.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -287,13 +284,16 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandDealDamage.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretCondition.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Includes\NyvuxStone\Model\Event\SecretConditionFriendlyMinionDestroyed.h">
+    <ClInclude Include="Includes\NyvuxStone\Model\Secret\Secret.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandModifyRandomMinion.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Model\Secret\SecretFriendlyMinionDestroyed.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandCastSecret.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

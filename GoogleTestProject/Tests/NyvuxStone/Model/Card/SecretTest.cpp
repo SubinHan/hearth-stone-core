@@ -2,9 +2,11 @@
 
 #include "Helper.h"
 #include "NyvuxStone/Core/Game/Command/Spell/SpellCommandModifyRandomMinion.h"
+#include "NyvuxStone/Core/Game/Command/Spell/SpellCommandCastSecret.h"
 
-#include "NyvuxStone/Model/Card/Secret.h"
-#include "NyvuxStone/Model/Event/SecretConditionFriendlyMinionDestroyed.h"
+#include "NyvuxStone/Model/Card/Spell.h"
+#include "NyvuxStone/Model/Secret/Secret.h"
+#include "NyvuxStone/Model/Secret/SecretFriendlyMinionDestroyed.h"
 
 using namespace std;
 
@@ -27,13 +29,16 @@ namespace nyvux
 		constexpr int MODIFY_ATTACK = 2;
 		constexpr int MODIFY_HEALTH = 3;
 
-		auto Secret = Secret::CreateSecret(MockCardSpecSecret);
-		auto SecretCondition = std::make_shared<SecretConditionFriendlyMinionDestroyed>(Secret, Player);
-		Secret->SetSecretCondition(SecretCondition);
-		Secret->AddSpellCommand(
-			std::make_shared<SpellCommandModifyRandomMinion>(Player, MODIFY_ATTACK, MODIFY_HEALTH));
+		auto SecretSpell = Spell::CreateSpell(MockCardSpecSecret);
+		auto SecretAction = std::vector<std::shared_ptr<ISpellCommand>>{
+			std::make_shared<SpellCommandModifyRandomMinion>(
+				Player, MODIFY_ATTACK, MODIFY_HEALTH)
+		};
+		auto Secret = std::make_shared<SecretFriendlyMinionDestroyed>(SecretAction);
+		SecretSpell->AddSpellCommand(
+			make_shared<SpellCommandCastSecret>(Secret));
 
-		Secret->AddEventListener(Player);
+		Player->CastSpell(SecretSpell);
 
 		Player->DrawCard();
 		Player->DrawCard();
@@ -44,14 +49,13 @@ namespace nyvux
 
 		const int BEFORE_ATTACK = MinionToModify->GetAttack();
 		const int BEFORE_HEALTH = MinionToModify->GetMaxHealth();
-
-		MinionToDie->AddEventListener(Secret);
-		MinionToDie->AddEventListener(Secret->GetSecretCondition());
+		
 		MinionToDie->Destroy();
 
-
-		EXPECT_EQ(BEFORE_ATTACK + MODIFY_ATTACK, MinionToModify->GetMaxHealth());
+		EXPECT_EQ(BEFORE_ATTACK + MODIFY_ATTACK, MinionToModify->GetAttack());
 		EXPECT_EQ(BEFORE_HEALTH + MODIFY_HEALTH, MinionToModify->GetMaxHealth());
+
+		EXPECT_EQ(1, Player->GetNumPlayedInField());
 	}
 
 }

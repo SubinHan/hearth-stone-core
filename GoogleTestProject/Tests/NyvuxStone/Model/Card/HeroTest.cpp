@@ -1,6 +1,7 @@
 #include "testpch.h"
 
 #include "NyvuxStone/Model/Player/Hero.h"
+#include "Helper.h"
 
 using namespace std;
 
@@ -13,6 +14,7 @@ namespace nyvux
 		void SetUp() override
 		{
 			Hero = make_shared<nyvux::Hero>();
+			Hero->SetOwner(MakeDummyPlayerWithFakeGameMediator());
 		}
 
 		std::shared_ptr<Hero> Hero;

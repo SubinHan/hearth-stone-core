@@ -13,6 +13,6 @@ void nyvux::RemoveMinionInFieldCommand::Execute(std::shared_ptr<nyvux::NyvuxSton
 	if (!Minion)
 		return;
 
-	Event->CurrentPlayer = Player;
+	Event->Owner = Player;
 	Player->RemovePlaceableInField(Minion);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "NyvuxStone/Model/Card/Secret.h"
+#include "NyvuxStone/Model/Secret/Secret.h"
 #include "NyvuxStone/Core/Game/GameMediator.h"
 
 #include <list>

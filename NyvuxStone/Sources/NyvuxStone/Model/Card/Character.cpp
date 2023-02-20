@@ -2,6 +2,8 @@
 
 #include "NyvuxStone/Model/Card/Character.h"
 
+#include "NyvuxStone/Model/Player/Player.h"
+
 nyvux::Character::Character(const CardSpec CardSpec)
 	: Card(CardSpec),
 	CharacterStat(CardSpec)
@@ -80,8 +82,9 @@ bool nyvux::Character::HasLifesteal()
 
 void nyvux::Character::Destroy()
 {
-	auto DestroyEvent =
-		NyvuxStoneEvent::CreateNyvuxStoneEvent(nullptr, nullptr, shared_from_this());
+	Owner->Destroy(shared_from_this());
 
+	auto DestroyEvent =
+		NyvuxStoneEvent::CreateNyvuxStoneEvent(Owner, nullptr, shared_from_this());
 	FireDestroyed(DestroyEvent);
 }

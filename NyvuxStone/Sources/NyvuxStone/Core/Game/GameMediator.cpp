@@ -2,8 +2,7 @@
 
 #include "NyvuxStone/Core/Game/GameMediator.h"
 #include "NyvuxStone/Core/Game/Command/UnregisterCardCommand.h"
-#include "NyvuxStone/Model/Card/Secret.h"
-#include "NyvuxStone/Model/Event/SecretCondition.h"
+#include "NyvuxStone/Model/Secret/Secret.h"
 
 std::shared_ptr<nyvux::GameMediator> nyvux::GameMediator::CreateGameMediator()
 {
@@ -64,7 +63,6 @@ void nyvux::GameMediator::RegisterSecret(std::shared_ptr<Secret> Secret)
 	for (auto Notifier : Notifiers)
 	{
 		Notifier->AddEventListener(Secret);
-		Notifier->AddEventListener(Secret->GetSecretCondition());
 	}
 
 	for (auto Listener : Listeners)
@@ -73,7 +71,6 @@ void nyvux::GameMediator::RegisterSecret(std::shared_ptr<Secret> Secret)
 	}
 
 	Listeners.push_back(Secret);
-	Listeners.push_back(Secret->GetSecretCondition());
 	Notifiers.push_back(Secret);
 }
 
@@ -82,11 +79,9 @@ void nyvux::GameMediator::UnregisterSecret(std::shared_ptr<Secret> Secret)
 	for (auto Notifier : Notifiers)
 	{
 		Notifier->RemoveEventListener(Secret);
-		Notifier->RemoveEventListener(Secret->GetSecretCondition());
 	}
 
 	Listeners.remove(Secret);
-	Listeners.remove(Secret->GetSecretCondition());
 	Notifiers.remove(Secret);
 }
 

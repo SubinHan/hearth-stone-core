@@ -57,6 +57,8 @@ namespace nyvux
 		void AddSecret(std::shared_ptr<Secret> Secret);
 		void RemoveSecret(std::shared_ptr<Secret> Secret);
 
+		void Destroy(std::shared_ptr<Character> Character);
+
 	private:
 		int MaxMana;
 		int CurrentMana;

@@ -16,7 +16,7 @@ void nyvux::SecretZone::RegisterSecret(std::shared_ptr<Secret> Secret, std::shar
 		throw PlayerException("Secert zone is full.");
 	}
 
-	GameMediator->RegisterCard(Secret);
+	GameMediator->RegisterSecret(Secret);
 	SecretZoneImpl.push_back(Secret);
 }
 
@@ -27,6 +27,6 @@ bool nyvux::SecretZone::CanAddSecret() const noexcept
 
 void nyvux::SecretZone::UnregisterSecret(std::shared_ptr<Secret> Secret, std::shared_ptr<GameMediator> GameMediator)
 {
-	GameMediator->UnregisterCard(Secret);
+	GameMediator->UnregisterSecret(Secret);
 	SecretZoneImpl.remove(Secret);
 }

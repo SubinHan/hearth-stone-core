@@ -125,3 +125,13 @@ void nyvux::EventListener::OnCasted(std::shared_ptr<NyvuxStoneEvent> Event)
 	OnCastedHook(Event);
 	OnEverythingHook(Event);
 }
+
+void nyvux::EventListener::OnSecretRevealed(std::shared_ptr<NyvuxStoneEvent> Event)
+{
+	for (auto Command : OnSecretRevealedCommands)
+	{
+		Command->Execute(Event);
+	}
+	OnSecretRevealedHook(Event);
+	OnEverythingHook(Event);
+}

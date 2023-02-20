@@ -22,8 +22,21 @@ namespace nyvux
 		void AddOnUsedHeroPowerCommand(std::shared_ptr<ICommand> Command);
 		void AddOnDestroyedCommand(std::shared_ptr<ICommand> Command);
 		void AddOnCastedCommand(std::shared_ptr<ICommand> Command);
+
 		
+		/**
+		 * \brief
+		 * OwnPlayer: The player has drawn.
+		 * FromCard: nullptr.
+		 * TargetCard: The drawed card.
+		 * \param Event 
+		 */
 		void OnDrawed(std::shared_ptr<NyvuxStoneEvent> Event);
+		/**
+		 * \brief
+		 * CurrentPlayer: The player has corresponding character.
+		 * FromCard: Nullable, 
+		 */
 		void OnDamaged(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnHealed(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnSummoned(std::shared_ptr<NyvuxStoneEvent> Event);
@@ -31,6 +44,13 @@ namespace nyvux
 		void OnUsedHeroPower(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnDestroyed(std::shared_ptr<NyvuxStoneEvent> Event);
 		void OnCasted(std::shared_ptr<NyvuxStoneEvent> Event);
+		/**
+		 * \brief
+		 * CurrentPlayer: The revealed secret owner.
+		 * FromCard: nullptr.
+		 * TargetCard: nullptr.
+		 */
+		void OnSecretRevealed(std::shared_ptr<NyvuxStoneEvent> Event);
 
 		virtual void OnEverythingHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
 		virtual void OnDrawedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
@@ -41,6 +61,7 @@ namespace nyvux
 		virtual void OnUsedHeroPowerHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
 		virtual void OnDestroyedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
 		virtual void OnCastedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
+		virtual void OnSecretRevealedHook(std::shared_ptr<NyvuxStoneEvent> Event) {}
 
 	private:
 		std::vector<std::shared_ptr<ICommand>> OnDrawedCommands;
@@ -51,5 +72,6 @@ namespace nyvux
 		std::vector<std::shared_ptr<ICommand>> OnUsedHeroPowerCommands;
 		std::vector<std::shared_ptr<ICommand>> OnDestroyedCommands;
 		std::vector<std::shared_ptr<ICommand>> OnCastedCommands;
+		std::vector<std::shared_ptr<ICommand>> OnSecretRevealedCommands;
 	};
 }

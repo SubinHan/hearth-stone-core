@@ -2,7 +2,7 @@
 
 #include "Helper.h"
 #include "NyvuxStone/Core/Game/GameMediator.h"
-#include "NyvuxStone/Model/Card/Secret.h"
+#include "NyvuxStone/Model/Secret/Secret.h"
 #include "NyvuxStone/Model/Player/SecretZone.h"
 
 using namespace std;
@@ -12,13 +12,13 @@ namespace nyvux
 	class MockGameMediator : public GameMediator
 	{
 	public:
-		MOCK_METHOD(void, RegisterCard, (std::shared_ptr<Card> Card), (override));
+		MOCK_METHOD(void, RegisterSecret, (std::shared_ptr<Secret> Secret), (override));
 	};
 
 	class MockSecret : public Secret
 	{
 	public:
-		MockSecret() : Secret(nyvux::MockCardSpecSecret) {}
+		MockSecret() : Secret(std::vector<std::shared_ptr<ISpellCommand>>{}) {}
 	};
 
 	class SecretZoneTest : public ::testing::Test
@@ -39,7 +39,7 @@ namespace nyvux
 	{
 		shared_ptr<MockGameMediator> Mock = dynamic_pointer_cast<MockGameMediator>(GameMediator);
 
-		EXPECT_CALL(*Mock, RegisterCard(testing::_)).Times(5);
+		EXPECT_CALL(*Mock, RegisterSecret(testing::_)).Times(5);
 
 		for(int i = 0; i < SecretZone::MAX_CAPACITY; i++)
 		{

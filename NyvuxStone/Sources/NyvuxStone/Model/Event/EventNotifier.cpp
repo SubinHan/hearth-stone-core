@@ -75,3 +75,11 @@ void nyvux::EventNotifier::FireDestroyed(std::shared_ptr<NyvuxStoneEvent> Event)
 		EventListener->OnDestroyed(Event);
 	}
 }
+
+void nyvux::EventNotifier::FireSecretRevealed(std::shared_ptr<NyvuxStoneEvent> Event)
+{
+	for (auto EventListener : Listeners)
+	{
+		EventListener->OnSecretRevealed(Event);
+	}
+}

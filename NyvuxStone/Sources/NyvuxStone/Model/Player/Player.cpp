@@ -3,7 +3,7 @@
 #include "NyvuxStone/Model/Player/Player.h"
 
 #include "NyvuxStone/Model/Player/SecretZone.h"
-#include "NyvuxStone/Model/Card/Secret.h"
+#include "NyvuxStone/Model/Secret/Secret.h"
 #include "NyvuxStone/Model/Card/Spell.h"
 #include "NyvuxStone/Core/Game/GameMediator.h"
 #include "NyvuxStone/Core/Game/Command/RemoveMinionInFieldCommand.h"
@@ -29,7 +29,6 @@ Player::Player(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMed
 std::shared_ptr<Player> Player::CreatePlayer(std::shared_ptr<nyvux::Deck> Deck, std::shared_ptr<nyvux::GameMediator> GameMediator)
 {
 	auto Player = make_shared<nyvux::Player>(Deck, GameMediator);
-	Player->AddOnDestroyedCommand(make_shared<RemoveMinionInFieldCommand>(Player));
 
 	return Player;
 }
@@ -82,6 +81,7 @@ void nyvux::Player::PlayMinion(int ZeroBasedHandIndex, int ZeroBasedFieldIndex, 
 	Hand->RemoveCard(ZeroBasedHandIndex);
 	Field->PlaceCard(Minion, ZeroBasedFieldIndex);
 
+	Minion->SetOwner(shared_from_this());
 	auto PlayEvent =
 		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), ToPlay, Target);
 	FirePlayed(PlayEvent);
@@ -148,6 +148,25 @@ void Player::AddSecret(std::shared_ptr<Secret> Secret)
 void Player::RemoveSecret(std::shared_ptr<Secret> Secret)
 {
 	SecretZone->UnregisterSecret(Secret, GameMediator);
+}
+
+void nyvux::Player::Destroy(std::shared_ptr<Character> Character)
+{
+	auto Minion = std::dynamic_pointer_cast<nyvux::Minion>(Character);
+
+	if (Minion)
+	{
+		RemovePlaceableInField(Minion);
+
+		return;
+	}
+
+	auto Hero = std::dynamic_pointer_cast<nyvux::Hero>(Character);
+	if (Hero)
+	{
+		// TODO : Destroy Hero.
+		// Fire defeated
+	}
 }
 
 void Player::RemovePlaceableInField(std::shared_ptr<Minion> Card)
@@ -224,6 +243,7 @@ void nyvux::Player::PlaySpell(int ZeroBasedHandIndex, std::shared_ptr<Character>
 	Hand->RemoveCard(ZeroBasedHandIndex);
 	CurrentMana -= ManaCost;
 
+	Spell->SetOwner(shared_from_this());
 	auto Event = 
 		NyvuxStoneEvent::CreateNyvuxStoneEvent(shared_from_this(), Spell, Target);
 	FirePlayed(Event);

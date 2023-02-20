@@ -8,6 +8,16 @@ namespace nyvux
 	{
 	}
 
+	void Card::SetOwner(std::shared_ptr<Player> Owner)
+	{
+		this->Owner = Owner;
+	}
+
+	std::shared_ptr<Player> Card::GetOwner()
+	{
+		return Owner;
+	}
+
 	const CardSpec& Card::GetCardSpec()
 	{
 		return Spec;
