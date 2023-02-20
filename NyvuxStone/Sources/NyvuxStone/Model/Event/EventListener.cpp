@@ -26,6 +26,21 @@ void nyvux::EventListener::AddOnCastedCommand(std::shared_ptr<ICommand> Command)
 	OnCastedCommands.push_back(Command);
 }
 
+void nyvux::EventListener::AddOnSecretRevealedCommand(std::shared_ptr<ICommand> Command)
+{
+	OnSecretRevealedCommands.push_back(Command);
+}
+
+void nyvux::EventListener::AddOnTurnEndedCommand(std::shared_ptr<ICommand> Command)
+{
+	OnTurnEndedCommands.push_back(Command);
+}
+
+void nyvux::EventListener::AddOnturnStartedCommand(std::shared_ptr<ICommand> Command)
+{
+	OnTurnStartedCommands.push_back(Command);
+}
+
 void nyvux::EventListener::AddOnDrawedCommand(std::shared_ptr<nyvux::ICommand> Command)
 {
 	OnDrawedCommands.push_back(Command);
@@ -133,5 +148,25 @@ void nyvux::EventListener::OnSecretRevealed(std::shared_ptr<NyvuxStoneEvent> Eve
 		Command->Execute(Event);
 	}
 	OnSecretRevealedHook(Event);
+	OnEverythingHook(Event);
+}
+
+void nyvux::EventListener::OnTurnEnded(std::shared_ptr<NyvuxStoneEvent> Event)
+{
+	for (auto Command : OnTurnEndedCommands)
+	{
+		Command->Execute(Event);
+	}
+	OnTurnEndedHook(Event);
+	OnEverythingHook(Event);
+}
+
+void nyvux::EventListener::OnTurnStarted(std::shared_ptr<NyvuxStoneEvent> Event)
+{
+	for (auto Command : OnTurnStartedCommands)
+	{
+		Command->Execute(Event);
+	}
+	OnTurnStartedHook(Event);
 	OnEverythingHook(Event);
 }
