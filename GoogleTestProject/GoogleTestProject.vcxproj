@@ -88,6 +88,7 @@
     <ClInclude Include="Tests\testpch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Tests\NyvuxStone\Core\AdapterTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Core\Api\ApiConnectionTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Core\Game\Decorator\CardStatDecoratorTest.cpp" />
     <ClCompile Include="Tests\NyvuxStone\Model\Card\CardStatTest.cpp" />

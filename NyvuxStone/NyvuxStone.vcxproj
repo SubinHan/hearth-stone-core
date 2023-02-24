@@ -354,6 +354,20 @@
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Command\Spell\SpellCommandModifyRandomMinion.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\Game.h" />
     <ClInclude Include="Includes\NyvuxStone\Core\Game\GameMediator.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\ICharacter.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IDeck.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IEventListener.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IEventNotifier.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IField.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IGameMediator.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IHand.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IHero.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IMinion.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IPlaceable.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\IPlayer.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\ISecret.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\ISecretZone.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\ISpell.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\Card.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\CardFactory.h" />
     <ClInclude Include="Includes\NyvuxStone\Model\Card\CardSpec.h" />
@@ -393,6 +407,7 @@
     <ClInclude Include="Includes\NyvuxStone\Model\Player\PlayerException.h" />
     <ClInclude Include="Includes\NyvuxStone\View\UserInteraction.h" />
     <ClInclude Include="Includes\pch.h" />
+    <ClInclude Include="Includes\NyvuxStone\Core\ICard.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
